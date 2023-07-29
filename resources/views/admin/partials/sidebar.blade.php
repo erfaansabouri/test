@@ -2,7 +2,7 @@
     <!--begin::Logo-->
     <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
         <!--begin::Logo image-->
-        <a href="../../demo1/dist/index.html">
+        <a href="{{ route('admin.welcome') }}">
             <img alt="Logo" src="{{ asset('global-assets/media/logos/final-logo.png') }}" class="h-50px app-sidebar-logo-default" />
             <img alt="Logo" src="{{ asset('global-assets/media/logos/final-logo.png') }}" class="h-20px app-sidebar-logo-minimize" />
         </a>
@@ -74,6 +74,26 @@
                 </div>
                 <!--end:Menu item-->
                 <!--begin:Menu item-->
+                <div class="menu-item pt-5">
+                    <!--begin:Menu content-->
+                    <div class="menu-content">
+                        <span class="menu-heading fw-bold text-uppercase fs-7">حساب کاربری</span>
+                    </div>
+                    <!--end:Menu content-->
+                </div>
+                <div class="menu-item">
+                    <!--begin:Menu link-->
+                    <a class="menu-link" href="{{ route('admin.auth.logout') }}">
+											<span class="menu-icon">
+												<i class="ki-duotone ki-exit-left fs-2">
+													<span class="path1"></span>
+													<span class="path2"></span>
+												</i>
+											</span>
+                        <span class="menu-title">خروج از حساب کاربری</span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
             </div>
             <!--end::Menu-->
         </div>

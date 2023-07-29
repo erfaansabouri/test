@@ -13,7 +13,7 @@
         <!--end::Sidebar mobile toggle-->
         <!--begin::Mobile logo-->
         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-            <a href="../../demo1/dist/index.html" class="d-lg-none">
+            <a href="{{ route('admin.welcome') }}" class="d-lg-none">
                 <img alt="Logo" src="{{ asset('global-assets/media/logos/favicon.jpg') }}" class="h-30px" />
             </a>
         </div>
@@ -47,7 +47,7 @@
                                                 <!--begin:Menu item-->
                                                 <div class="menu-item p-0 m-0">
                                                     <!--begin:Menu link-->
-                                                    <a href="../../demo1/dist/index.html" class="menu-link">
+                                                    <a href="{{ route('admin.welcome') }}" class="menu-link">
                                                         <span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded w-40px h-40px me-3">
                                                             <i class="ki-duotone ki-element-11 text-primary fs-1">
                                                                 <span class="path1"></span>
