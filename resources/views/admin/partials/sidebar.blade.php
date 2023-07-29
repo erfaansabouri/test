@@ -45,13 +45,13 @@
                     <!--begin:Menu link-->
                     <span class="menu-link">
                         <span class="menu-icon">
-                            <i class="ki-duotone ki-address-book fs-2">
+                            <i class="ki-duotone ki-basket fs-2">
                                 <span class="path1"></span>
                                 <span class="path2"></span>
                                 <span class="path3"></span>
                             </i>
                         </span>
-                        <span class="menu-title">مشتری ها</span>
+                        <span class="menu-title">فروشگاه ها</span>
                         <span class="menu-arrow"></span>
                     </span>
                     <!--end:Menu link-->
@@ -59,14 +59,37 @@
                     <div class="menu-sub menu-sub-accordion">
                         <!--begin:Menu item-->
                         <div class="menu-item">
-                            <!--begin:Menu link-->
+                            <a class="menu-link" href="{{ route('admin.stores.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">لیست فروشگاه ها</span>
+                            </a>
+                        </div>
+                        <!--end:Menu item-->
+                    </div>
+                    <!--end:Menu sub-->
+                </div>
+
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    <!--begin:Menu link-->
+                    <!--end:Menu link-->
+                    <!--begin:Menu sub-->
+                    <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
                             <a class="menu-link" href="../../demo1/dist/pages/user-profile/overview.html">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
                                 <span class="menu-title">لیست مشتری ها</span>
                             </a>
-                            <!--end:Menu link-->
+                            <a class="menu-link" href="{{ route('admin.stores.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">لیست فروشگاه ها</span>
+                            </a>
                         </div>
                         <!--end:Menu item-->
                     </div>

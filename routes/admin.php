@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\PointSettingController;
+use App\Http\Controllers\Admin\StoreController;
 use App\Http\Controllers\Admin\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,13 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::prefix('point-settings')->group(function () {
         Route::get('/edit', [PointSettingController::class, 'edit'])->name('admin.point-settings.edit');
         Route::put('/update', [PointSettingController::class, 'update'])->name('admin.point-settings.update');
+    });
+    Route::prefix('stores')->group(function () {
+        Route::get('/index', [StoreController::class, 'index'])->name('admin.stores.index');
+        Route::get('/create', [StoreController::class, 'create'])->name('admin.stores.create');
+        Route::post('/store', [StoreController::class, 'store'])->name('admin.stores.store');
+        Route::get('/edit/{id}', [StoreController::class, 'edit'])->name('admin.stores.edit');
+        Route::post('/update/{id}', [StoreController::class, 'update'])->name('admin.stores.update');
     });
 });
 
