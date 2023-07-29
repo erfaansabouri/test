@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\PointSettingController;
 use App\Http\Controllers\Admin\StoreController;
 use App\Http\Controllers\Admin\WelcomeController;
@@ -25,6 +26,13 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::post('/store', [StoreController::class, 'store'])->name('admin.stores.store');
         Route::get('/edit/{id}', [StoreController::class, 'edit'])->name('admin.stores.edit');
         Route::post('/update/{id}', [StoreController::class, 'update'])->name('admin.stores.update');
+    });
+    Route::prefix('customers')->group(function () {
+        Route::get('/index', [CustomerController::class, 'index'])->name('admin.customers.index');
+        Route::get('/create', [CustomerController::class, 'create'])->name('admin.customers.create');
+        Route::post('/store', [CustomerController::class, 'store'])->name('admin.customers.store');
+        Route::get('/edit/{id}', [CustomerController::class, 'edit'])->name('admin.customers.edit');
+        Route::post('/update/{id}', [CustomerController::class, 'update'])->name('admin.customers.update');
     });
 });
 

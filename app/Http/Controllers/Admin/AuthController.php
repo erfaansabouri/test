@@ -28,7 +28,7 @@ class AuthController extends Controller
         if(Auth::guard('admin')
             ->attempt(['phone_number' => $request->phone_number , 'password' => $request->password])
         ){
-            return redirect()->route('admin.point-settings.edit');
+            return redirect()->route('admin.welcome');
         }
         return redirect()
             ->back()

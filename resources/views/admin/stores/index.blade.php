@@ -34,7 +34,7 @@
                                         <span class="path1"></span>
                                         <span class="path2"></span>
                                     </i>
-                                    <input name="search" type="text"  class="form-control form-control-solid w-250px ps-13" placeholder="جستجو" />
+                                    <input value="{{ request('search') }}" name="search" type="text"  class="form-control form-control-solid w-250px ps-13" placeholder="جستجو" />
                                     <button type="submit" class="btn btn-primary">اعمال</button>
 
                                 </form>
