@@ -43,6 +43,7 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::post('/store', [PointController::class, 'store'])->name('admin.points.store');
         Route::get('/edit/{id}', [PointController::class, 'edit'])->name('admin.points.edit');
         Route::post('/update/{id}', [PointController::class, 'update'])->name('admin.points.update');
+        Route::post('/calculate-points', [PointController::class, 'calculatePoints'])->name('admin.points.calculate-points');
     });
 });
 

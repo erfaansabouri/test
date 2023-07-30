@@ -3644,6 +3644,7 @@
 <!--end::Modals-->
 <!--begin::Javascript-->
 @include('admin.partials.scripts')
+@stack('scripts')
 <!--end::Global Javascript Bundle-->
 <!--end::Javascript-->
 </body>

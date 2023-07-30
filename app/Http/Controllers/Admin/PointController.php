@@ -48,4 +48,22 @@ class PointController extends Controller
 
         return view('admin.points.index', compact('points', 'stores'));
     }
+
+    public function create(){
+        return view('admin.points.form');
+    }
+
+    public function calculatePoints(Request $request){
+        $request->validate([
+            'customer_id' => ['required', 'exists:customers,id'],
+            'store_id' => ['required', 'exists:stores,id'],
+            'price' => ['required', 'numeric'],
+        ]);
+
+        $store = Store::findOrFail($request->store_id);
+
+        return [
+            'price' => $store->calculatePoint($request->price)
+        ];
+    }
 }

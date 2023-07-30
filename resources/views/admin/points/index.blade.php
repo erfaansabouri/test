@@ -104,7 +104,6 @@
                                     <th class="min-w-125px">مبلغ</th>
                                     <th class="min-w-125px">امتیاز</th>
                                     <th class="min-w-125px">تاریخ</th>
-                                    <th class="min-w-125px">عملیات</th>
                                 </tr>
                                 </thead>
                                 <tbody class="text-gray-600 fw-semibold">
@@ -120,9 +119,6 @@
                                         <td>@if(is_numeric($point->price)) {{ number_format($point->price) }} @else - @endif</td>
                                         <td>{{ number_format($point->point) }}</td>
                                         <td>{{ verta($point->created_at)->format('Y/m/d H:i') }}</td>
-                                        <td>
-                                            <a href="{{ route('admin.points.edit', $point->id) }}" class="btn btn-light-primary">ویرایش</a>
-                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
