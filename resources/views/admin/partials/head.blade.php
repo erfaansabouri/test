@@ -10,5 +10,6 @@
     <!--begin::Global Stylesheets Bundle(mوatory for all pages)-->
     <link href="{{ asset('global-assets/plugins/global/plugins.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('global-assets/css/style.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('global-assets/css/datepicker/bootstrap-datepicker.min.css') }}" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
 </head>

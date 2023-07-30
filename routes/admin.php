@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\PointController;
 use App\Http\Controllers\Admin\PointSettingController;
 use App\Http\Controllers\Admin\StoreController;
 use App\Http\Controllers\Admin\WelcomeController;
@@ -21,6 +22,7 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::put('/update', [PointSettingController::class, 'update'])->name('admin.point-settings.update');
     });
     Route::prefix('stores')->group(function () {
+        Route::get('/ajax-index', [StoreController::class, 'ajaxIndex'])->name('admin.stores.ajax-index');
         Route::get('/index', [StoreController::class, 'index'])->name('admin.stores.index');
         Route::get('/create', [StoreController::class, 'create'])->name('admin.stores.create');
         Route::post('/store', [StoreController::class, 'store'])->name('admin.stores.store');
@@ -28,11 +30,19 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::post('/update/{id}', [StoreController::class, 'update'])->name('admin.stores.update');
     });
     Route::prefix('customers')->group(function () {
+        Route::get('/ajax-index', [CustomerController::class, 'ajaxIndex'])->name('admin.customers.ajax-index');
         Route::get('/index', [CustomerController::class, 'index'])->name('admin.customers.index');
         Route::get('/create', [CustomerController::class, 'create'])->name('admin.customers.create');
         Route::post('/store', [CustomerController::class, 'store'])->name('admin.customers.store');
         Route::get('/edit/{id}', [CustomerController::class, 'edit'])->name('admin.customers.edit');
         Route::post('/update/{id}', [CustomerController::class, 'update'])->name('admin.customers.update');
+    });
+    Route::prefix('points')->group(function () {
+        Route::get('/index', [PointController::class, 'index'])->name('admin.points.index');
+        Route::get('/create', [PointController::class, 'create'])->name('admin.points.create');
+        Route::post('/store', [PointController::class, 'store'])->name('admin.points.store');
+        Route::get('/edit/{id}', [PointController::class, 'edit'])->name('admin.points.edit');
+        Route::post('/update/{id}', [PointController::class, 'update'])->name('admin.points.update');
     });
 });
 

@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('points', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('store_id')->nullable();
+            $table->unsignedBigInteger('customer_id')->nullable();
+            $table->string('price')->nullable();
+            $table->integer('point')->default(1);
             $table->timestamps();
         });
     }
