@@ -137,6 +137,18 @@
                                     </div>
                                     <!--end::Col-->
                                 </div>
+                                <div class="row mb-6">
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">وضعیت فعال بودن</label>
+                                    <div class="col-lg-8">
+                                        <div class="row">
+                                            <div class="col-lg-6 fv-row">
+                                                <div class="form-check form-switch form-check-custom form-check-solid">
+                                                    <input class="form-check-input" type="checkbox" id="is_disable" name="is_disable" @if(isset($record) && $record->is_disable) checked="checked" @endif>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <!--end::Input group-->
                             </div>
                             <!--end::کارت body-->

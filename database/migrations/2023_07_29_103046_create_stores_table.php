@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('price')->nullable();
             $table->string('point')->nullable();
+            $table->boolean('is_disable')->default(0);
             $table->timestamps();
         });
     }

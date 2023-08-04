@@ -79,7 +79,15 @@
                                 @foreach($stores as $store)
                                     <tr>
                                         <td>{{ $store->id }}</td>
-                                        <td>{{ $store->title }}</td>
+                                        <td>
+                                            {{ $store->title }}
+                                            <br>
+                                            @if($store->is_disable)
+                                                <span class="badge badge-danger">غیر فعال</span>
+                                            @else
+                                                <span class="badge badge-success">فعال</span>
+                                            @endif
+                                        </td>
                                         <td>{{ number_format($store->point) }}/{{ number_format($store->price) }}</td>
                                         <td>
                                             <a href="{{ route('admin.stores.edit', $store->id) }}" class="btn btn-light-primary">ویرایش</a>

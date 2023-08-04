@@ -61,6 +61,7 @@ class StoreController extends Controller
         $record->title = $request->title;
         $record->price = $request->price;
         $record->point = $request->point;
+        $record->is_disable = $request->is_disable == 'on' ? true : false;
         $record->save();
         return $record;
     }
