@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\ChartController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\PointController;
 use App\Http\Controllers\Admin\PointSettingController;
@@ -44,6 +45,10 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::get('/edit/{id}', [PointController::class, 'edit'])->name('admin.points.edit');
         Route::post('/update/{id}', [PointController::class, 'update'])->name('admin.points.update');
         Route::post('/calculate-points', [PointController::class, 'calculatePoints'])->name('admin.points.calculate-points');
+    });
+    Route::prefix('charts')->group(function () {
+        Route::get('/store-point', [ChartController::class, 'storePoint'])->name('admin.charts.store-point');
+        Route::get('/customer-point', [ChartController::class, 'customerPoint'])->name('admin.charts.customer-point');
     });
 });
 

@@ -11,4 +11,8 @@ class Store extends Model
     public function calculatePoint($price){
         return (int)(($price * $this->point) / $this->price);
     }
+
+    public function points(){
+        return $this->hasMany(Point::class);
+    }
 }

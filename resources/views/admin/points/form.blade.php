@@ -87,7 +87,7 @@
                                 </div>
                             @endif
                         <!--begin::Form-->
-                        <form id="kt_account_profile_details_form" class="form" method="POST" action="{{ route('admin.stores.store') }}">
+                        <form id="kt_account_profile_details_form" class="form" method="POST" action="{{ route('admin.points.store') }}">
                             @csrf
                             @method('POST')
                             <!--begin::کارت body-->

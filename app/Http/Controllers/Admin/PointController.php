@@ -53,6 +53,22 @@ class PointController extends Controller
         return view('admin.points.form');
     }
 
+    public function store(Request $request)
+    {
+        $request->validate([
+            'store_id' => ['required' , 'exists:stores,id'],
+            'customer_id' => ['required', 'exists:customers,id'],
+            'price' => ['required', 'numeric'],
+        ]);
+        $point = new Point();
+        $point->store_id = $request->store_id;
+        $point->customer_id = $request->customer_id;
+        $point->price = $request->price;
+        $point->point = Store::findOrFail($request->store_id)->calculatePoint($request->price);
+        $point->save();
+        return redirect()->route('admin.points.index');
+    }
+
     public function calculatePoints(Request $request){
         $request->validate([
             'customer_id' => ['required', 'exists:customers,id'],

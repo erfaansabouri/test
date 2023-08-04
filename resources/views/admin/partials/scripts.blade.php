@@ -1,9 +1,10 @@
 <script>var hostUrl = "assets/";</script>
 <!--begin::Global Javascript Bundle(mوatory for all pages)-->
 <script src="{{ asset('global-assets/plugins/global/plugins.bundle.js') }}"></script>
-<script src="{{ asset('global-assets/js/scripts.bundle.js') }}"></script>
 <script src="{{ asset('global-assets/js/datepicker/bootstrap-datepicker.min.js') }}"></script>
 <script src="{{ asset('global-assets/js/datepicker/bootstrap-datepicker.fa.min.js') }}"></script>
+<script src="{{ asset('global-assets/js/scripts.bundle.js') }}"></script>
+
 <!-- Add the following JavaScript code -->
 <script>
     // Function to initialize Select2 with AJAX options
@@ -65,18 +66,15 @@
             dir: 'rtl',
             language: 'fa',
         });
+        $(".persian-datepicker").datepicker({
+            isRTL: true,
+            dateFormat: "yy/m/d",
+        });
     }
 
     // Call the initializeSelect2 function to set up the select2 element
     initializeSelect2();
 
-
-
-
-    $(".persian-datepicker").datepicker({
-        isRTL: true,
-        dateFormat: "yy/m/d",
-    });
 
 </script>
 
