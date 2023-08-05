@@ -137,6 +137,14 @@
                                 <span class="menu-title">لیست امتیاز ها</span>
                             </a>
                         </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('admin.point-settings.edit') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">تنظیمات پیشفرض امتیاز دهی</span>
+                            </a>
+                        </div>
                         <!--end:Menu item-->
                     </div>
                 </div>

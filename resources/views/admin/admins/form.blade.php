@@ -134,7 +134,7 @@
                                     </div>
                                 </div>
                                 <div class="row mb-6">
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">وضعیت فعال بودن حساب</label>
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">غیر فعال سازی حساب</label>
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">
@@ -142,6 +142,24 @@
                                                     <input class="form-check-input" type="checkbox" id="is_disable" name="is_disable" @if(isset($record) && $record->is_disable) checked="checked" @endif>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row mb-6">
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">دسترسی های مجاز</label>
+                                    <div class="col-lg-6">
+                                        <div class="row">
+                                            @foreach(\Spatie\Permission\Models\Permission::query()->where('guard_name', 'admin')->get() as $permission)
+                                                <div class="col-lg-3 fv-row mb-2">
+                                                    <div class="form-check">
+                                                        <input @if(isset($record) && $record->hasPermissionTo($permission->name)) checked @endif name="permission_ids[]" class="form-check-input" type="checkbox" value="{{ $permission->id }}" id="flexCheckDefault" />
+                                                        <label class="form-check-label" for="flexCheckDefault">
+                                                            {{ $permission->name }}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
