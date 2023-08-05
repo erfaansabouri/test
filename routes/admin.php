@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\ChartController;
 use App\Http\Controllers\Admin\CustomerController;
@@ -49,6 +50,14 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::prefix('charts')->group(function () {
         Route::get('/store-point', [ChartController::class, 'storePoint'])->name('admin.charts.store-point');
         Route::get('/customer-point', [ChartController::class, 'customerPoint'])->name('admin.charts.customer-point');
+    });
+
+    Route::prefix('admins')->group(function () {
+        Route::get('/index', [AdminController::class, 'index'])->name('admin.admins.index');
+        Route::get('/create', [AdminController::class, 'create'])->name('admin.admins.create');
+        Route::post('/store', [AdminController::class, 'store'])->name('admin.admins.store');
+        Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('admin.admins.edit');
+        Route::post('/update/{id}', [AdminController::class, 'update'])->name('admin.admins.update');
     });
 });
 

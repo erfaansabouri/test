@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('last_name')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('password')->nullable();
+            $table->boolean('is_super_admin')->default(false);
+            $table->boolean('is_disable')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

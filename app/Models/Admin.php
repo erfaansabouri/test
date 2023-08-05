@@ -19,6 +19,12 @@ class Admin extends Authenticatable
         'password', 'remember_token',
     ];
 
+    const PERMISSIONS = [
+        'users' => 'مشتری ها',
+        'admins' => 'ادمین ها',
+        'points' => 'ادمین ها',
+    ];
+
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
