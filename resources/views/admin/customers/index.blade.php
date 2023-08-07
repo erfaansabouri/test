@@ -90,6 +90,7 @@
                                         <td>{{ $customer->national_code }}</td>
                                         <td>{{ $customer->birthdate }}</td>
                                         <td>
+                                            <a href="{{ route('admin.points.index', ['customer_id' => $customer->id]) }}" class="btn btn-light-info">تاریخچه امتیاز ها</a>
                                             <a href="{{ route('admin.customers.edit', $customer->id) }}" class="btn btn-light-primary">ویرایش</a>
                                         </td>
                                     </tr>

@@ -84,7 +84,7 @@
                                 <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
                                     <!--begin::Add user-->
                                     <a href="{{ route('admin.points.create') }}" class="btn btn-light-success">
-                                        <i class="ki-duotone ki-plus fs-2"></i>افزودن امتیاز</a>
+                                        <i class="ki-duotone ki-plus fs-2"></i>افزودن امتیاز خرید</a>
                                     <!--end::Add user-->
                                 </div>
 

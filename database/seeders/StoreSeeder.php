@@ -18,7 +18,7 @@ class StoreSeeder extends Seeder
     {
         for ($i=0; $i<100; $i++){
             $store = new Store();
-            $store->title = Factory::create('fa_IR')->name;
+            $store->title = "فروشگاه " . Factory::create('fa_IR')->name;
             $store->price = 100000;
             $store->point = rand(3,10);
             $store->save();
