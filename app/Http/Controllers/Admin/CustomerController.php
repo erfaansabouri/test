@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Services\DateServices;
 use Illuminate\Http\Request;
+use Verta;
 
 class CustomerController extends Controller
 {
@@ -73,7 +75,9 @@ class CustomerController extends Controller
         $record->email = $request->email;
         $record->phone_number = $request->phone_number;
         $record->national_code = $request->national_code;
-        $record->birthdate = $request->birthdate;
+        if ($request->birthdate){
+            $record->birthdate = DateServices::jalaliToCarbon($request->birthdate)->format('Y-m-d');
+        }
         $record->save();
         return $record;
     }

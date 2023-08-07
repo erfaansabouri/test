@@ -138,7 +138,7 @@
                                     <!--end::Col-->
                                 </div>
                                 <div class="row mb-6">
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">وضعیت فعال بودن</label>
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">غیر فعال کردن</label>
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">

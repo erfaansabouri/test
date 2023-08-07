@@ -175,7 +175,8 @@
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">
                                                 <div class="input-group input-group-solid mb-5">
-                                                    <input value="{{ @$record->birthdate }}" type="text" name="birthdate" class="form-control" placeholder="تاریخ تولد" aria-label="تاریخ تولد" aria-describedby="basic-addon3">
+                                                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+                                                    <input value="@if(isset($record) && $record->birthdate) {{ Verta::instance($record->birthdate)->format('Y/m/d') }} @endif" name="birthdate" class="form-control form-control-solid persian-datepicker" placeholder="تاریخ تولد"/>
                                                 </div>
                                             </div>
                                         </div>
