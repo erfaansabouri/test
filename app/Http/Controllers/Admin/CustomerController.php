@@ -35,6 +35,7 @@ class CustomerController extends Controller
     public function index(Request $request)
     {
         $customers = Customer::query()
+            ->with(['points'])
             ->when($request->search, function ($query) use ($request) {
                 $query->where('id', $request->search);
                 $query->orwhere('first_name', 'like', '%' . $request->search . '%');

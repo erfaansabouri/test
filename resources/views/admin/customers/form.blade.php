@@ -24,6 +24,49 @@
             <!--begin::Content container-->
             <div id="kt_app_content_container" class="app-container container-xxl">
                 <!--begin::پایه info-->
+                @if(isset($record))
+                    <div class="card pt-4 mt-6 mb-6">
+                        <!--begin::کارت header-->
+                        <div class="card-header border-0">
+                            <!--begin::کارت title-->
+                            <div class="card-title">
+                                <h2>اطلاعات</h2>
+                            </div>
+                            <!--end::کارت title-->
+                            <!--begin::کارت toolbar-->
+                            <!--end::کارت toolbar-->
+                        </div>
+                        <!--end::کارت header-->
+                        <!--begin::کارت body-->
+                        <div class="card-body py-0">
+                            <!--begin::Table-->
+                            <table class="table align-middle table-row-dashed fs-6 text-gray-600 fw-semibold gy-5" id="kt_table_customers_رویدادها">
+                                <tbody>
+                                <tr>
+                                    <td class="min-w-400px">تاریخ عضویت</td>
+                                    <td class="pe-0 text-gray-600 text-end min-w-200px">{{ Verta::instance($record->created_at)->formatJalaliDatetime() }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="min-w-400px">تاریخ اولین خرید</td>
+                                    <td class="pe-0 text-gray-600 text-end min-w-200px">{{ $record->points()->first() ? Verta::instance($record->points()->first()->created_at)->formatJalaliDatetime() : 'خریدی ندارد'}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="min-w-400px">تاریخ آخرین خرید</td>
+                                    <td class="pe-0 text-gray-600 text-end min-w-200px">{{ $record->points()->orderByDesc('created_at')->first() ? Verta::instance($record->points()->orderByDesc('created_at')->first()->created_at)->formatJalaliDatetime() : 'خریدی ندارد'}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="min-w-400px">نمایش امتیاز های دریافتی</td>
+                                    <td class="pe-0 text-gray-600 text-end min-w-200px"><a target="_blank" href="{{ route('admin.points.index', ['customer_id' => $record->id]) }}">رفتن به لیست امتیاز ها</a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!--end::Table-->
+                        </div>
+                        <!--end::کارت body-->
+                    </div>
+                @endif
+
+
                 <div class="card mb-5 mb-xl-10">
                     <!--begin::کارت header-->
                     <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expوed="true" aria-controls="kt_account_profile_details">
@@ -41,6 +84,7 @@
                     </div>
                     <!--begin::کارت header-->
                     <!--begin::Content-->
+
                     <div id="kt_account_settings_profile_details" class="collapse show">
                         @if ($errors->any())
                             <div dir="rtl" class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
@@ -192,6 +236,7 @@
                             </div>
                             <!--end::Actions-->
                         </form>
+
                         <!--end::Form-->
                     </div>
                     <!--end::Content-->

@@ -66,16 +66,14 @@
                         <!--begin::کارت body-->
                         <div class="card-body py-4">
                             <!--begin::Table-->
-                            <table class="table table-striped table-bordered table-hover align-middle table-row-dashed fs-6 gy-5" id="kt_table_کاربران">
+                            <table class="table table-striped table-bordered table-hover" >
                                 <thead>
                                 <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
                                     <th class="min-w-25px">شناسه</th>
                                     <th class="min-w-125px">نام کامل</th>
-                                    <th class="min-w-125px">گروه</th>
-                                    <th class="min-w-125px">ایمیل</th>
                                     <th class="min-w-125px">شماره تماس</th>
-                                    <th class="min-w-125px">کد ملی</th>
-                                    <th class="min-w-125px">تاریخ تولد</th>
+                                    <th class="min-w-125px">تعداد خرید</th>
+                                    <th class="min-w-125px">مبلغ کل خرید</th>
                                     <th class="min-w-125px">عملیات</th>
                                 </tr>
                                 </thead>
@@ -84,11 +82,9 @@
                                     <tr>
                                         <td>{{ $customer->id }}</td>
                                         <td>{{ $customer->first_name }} {{ $customer->last_name }}</td>
-                                        <td>{{ $customer->group_name }}</td>
-                                        <td>{{ $customer->email }}</td>
                                         <td>{{ $customer->phone_number }}</td>
-                                        <td>{{ $customer->national_code }}</td>
-                                        <td>{{ $customer->birthdate }}</td>
+                                        <td>{{ number_format($customer->points->count()) }}</td>
+                                        <td>{{ number_format($customer->points->sum('price')) }}</td>
                                         <td>
                                             <a href="{{ route('admin.points.index', ['customer_id' => $customer->id]) }}" class="btn btn-light-info">تاریخچه امتیاز ها</a>
                                             <a href="{{ route('admin.customers.edit', $customer->id) }}" class="btn btn-light-primary">ویرایش</a>
