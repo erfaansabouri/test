@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\CalendarEventController;
 use App\Http\Controllers\Admin\ChartController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\PointController;
@@ -24,7 +25,7 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::get('/edit', [PointSettingController::class, 'edit'])->name('admin.point-settings.edit');
         Route::put('/update', [PointSettingController::class, 'update'])->name('admin.point-settings.update');
     });
-    Route::prefix('stores')->middleware(['can:'.Admin::PERMISSIONS['stores']])->group(function () {
+    Route::prefix('stores')->middleware(['can:' . Admin::PERMISSIONS['stores']])->group(function () {
         Route::get('/ajax-index', [StoreController::class, 'ajaxIndex'])->name('admin.stores.ajax-index');
         Route::get('/index', [StoreController::class, 'index'])->name('admin.stores.index');
         Route::get('/create', [StoreController::class, 'create'])->name('admin.stores.create');
@@ -32,7 +33,7 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::get('/edit/{id}', [StoreController::class, 'edit'])->name('admin.stores.edit');
         Route::post('/update/{id}', [StoreController::class, 'update'])->name('admin.stores.update');
     });
-    Route::prefix('customers')->middleware(['can:'.Admin::PERMISSIONS['customers']])->group(function () {
+    Route::prefix('customers')->middleware(['can:' . Admin::PERMISSIONS['customers']])->group(function () {
         Route::get('/ajax-index', [CustomerController::class, 'ajaxIndex'])->name('admin.customers.ajax-index');
         Route::get('/index', [CustomerController::class, 'index'])->name('admin.customers.index');
         Route::get('/create', [CustomerController::class, 'create'])->name('admin.customers.create');
@@ -40,7 +41,7 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::get('/edit/{id}', [CustomerController::class, 'edit'])->name('admin.customers.edit');
         Route::post('/update/{id}', [CustomerController::class, 'update'])->name('admin.customers.update');
     });
-    Route::prefix('points')->middleware(['can:'.Admin::PERMISSIONS['points']])->group(function () {
+    Route::prefix('points')->middleware(['can:' . Admin::PERMISSIONS['points']])->group(function () {
         Route::get('/index', [PointController::class, 'index'])->name('admin.points.index');
         Route::get('/create', [PointController::class, 'create'])->name('admin.points.create');
         Route::post('/store', [PointController::class, 'store'])->name('admin.points.store');
@@ -48,17 +49,19 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::post('/update/{id}', [PointController::class, 'update'])->name('admin.points.update');
         Route::post('/calculate-points', [PointController::class, 'calculatePoints'])->name('admin.points.calculate-points');
     });
-    Route::prefix('charts')->middleware(['can:'.Admin::PERMISSIONS['charts']])->group(function () {
+    Route::prefix('charts')->middleware(['can:' . Admin::PERMISSIONS['charts']])->group(function () {
         Route::get('/store-point', [ChartController::class, 'storePoint'])->name('admin.charts.store-point');
         Route::get('/customer-point', [ChartController::class, 'customerPoint'])->name('admin.charts.customer-point');
     });
-
-    Route::prefix('admins')->middleware(['can:'.Admin::PERMISSIONS['admins']])->group(function () {
+    Route::prefix('admins')->middleware(['can:' . Admin::PERMISSIONS['admins']])->group(function () {
         Route::get('/index', [AdminController::class, 'index'])->name('admin.admins.index');
         Route::get('/create', [AdminController::class, 'create'])->name('admin.admins.create');
         Route::post('/store', [AdminController::class, 'store'])->name('admin.admins.store');
         Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('admin.admins.edit');
         Route::post('/update/{id}', [AdminController::class, 'update'])->name('admin.admins.update');
+    });
+    Route::prefix('calendar-events')->middleware(['can:' . Admin::PERMISSIONS['calendar-events']])->group(function () {
+        Route::get('/index', [CalendarEventController::class, 'index'])->name('admin.calendar-events.index');
     });
 });
 
