@@ -26,6 +26,9 @@ class RedirectIfAuthenticated
                 if (Auth::guard('admin')->check()){
                     return redirect()->route('admin.welcome');
                 }
+                if (Auth::guard('store-manager')->check()){
+                    return redirect()->route('store-manager.welcome');
+                }
             }
         }
 

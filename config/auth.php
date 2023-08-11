@@ -44,6 +44,10 @@ return [
             'driver' => 'session',
             'provider' => 'admins',
         ],
+        'store-manager' => [
+            'driver' => 'session',
+            'provider' => 'store-managers',
+        ],
     ],
 
     /*
@@ -71,6 +75,10 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Models\Admin::class,
+        ],
+        'store-managers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\StoreManager::class,
         ],
         // 'users' => [
         //     'driver' => 'database',
