@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\StorageManager;
+namespace App\Http\Controllers\StoreManager;
 
 use App\Http\Controllers\Controller;
 

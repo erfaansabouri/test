@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\StorageManager\AuthController;
-use App\Http\Controllers\StorageManager\WelcomeController;
+use App\Http\Controllers\StoreManager\AuthController;
+use App\Http\Controllers\StoreManager\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware([])->prefix('auth')->group(function () {
