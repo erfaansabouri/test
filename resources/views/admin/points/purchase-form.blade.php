@@ -87,7 +87,7 @@
                                 </div>
                             @endif
                         <!--begin::Form-->
-                        <form id="kt_account_profile_details_form" class="form" method="POST" action="{{ route('admin.points.store') }}">
+                        <form id="kt_account_profile_details_form" class="form" method="POST" action="{{ route('admin.points.store-purchase') }}">
                             @csrf
                             @method('POST')
                             <!--begin::کارت body-->
@@ -183,6 +183,7 @@
 
 @push('scripts')
     <script>
+
         $(document).ready(function () {
            $('#calculate-points').click(function () {
                $('#calculate-points-error').html("در حال محاسبه...")
@@ -212,7 +213,7 @@
                    },
                    error: function (xhr, status, error) {
                        // Handle any errors that occurred during the AJAX call
-                       $('#calculate-points-error').html("خطا در محاسبه! لطفا تمام مقادیر رو پر کنید.")
+                       $('#calculate-points-error').html("خطا در ارسال فرم!.")
                    }
                });
            })
