@@ -28,22 +28,22 @@
                         <div class="card-header border-0 pt-6">
                             <h3 class="card-title align-items-start flex-column">
                                 <span class="card-label fw-bold fs-3 mb-1">آمار امتیاز های کسب شده بر حسب مشتری ها</span>
-                                <span class="text-muted fw-semibold fs-7"></span>
+                                <span class=" fw-semibold fs-7"></span>
                             </h3>
                         </div>
                         <div class="card-header border-0 pt-6">
                             <form method="GET" action="{{ route('admin.charts.customer-point') }}">
                                 <div class="d-flex align-items-center position-relative my-2 row">
                                     <div class="col">
-                                        <div class="input-group input-group-solid">
+                                        <div class="input-group ">
                                             <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
-                                            <input value="{{ request('from_date') }}" name="from_date" class="form-control form-control-solid persian-datepicker" placeholder="از تاریخ"/>
+                                            <input value="{{ request('from_date') }}" name="from_date" class="form-control  persian-datepicker" placeholder="از تاریخ"/>
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <div class="input-group input-group-solid">
+                                        <div class="input-group ">
                                             <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
-                                            <input value="{{ request('to_date') }}" name="to_date" class="form-control form-control-solid persian-datepicker" placeholder="تا تاریخ"/>
+                                            <input value="{{ request('to_date') }}" name="to_date" class="form-control  persian-datepicker" placeholder="تا تاریخ"/>
                                         </div>
                                     </div>
                                     <div class="col">

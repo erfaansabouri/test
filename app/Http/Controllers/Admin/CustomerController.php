@@ -21,6 +21,7 @@ class CustomerController extends Controller
             ->orwhere('phone_number', 'like', '%' . $request->search . '%')
             ->orwhere('national_code', 'like', '%' . $request->search . '%')
             ->orwhere('birthdate', 'like', '%' . $request->search . '%')
+            ->orderByDesc('id')
             ->get();
         $result = [];
         foreach ($customers as $customer) {
@@ -46,7 +47,7 @@ class CustomerController extends Controller
                 $query->orwhere('national_code', 'like', '%' . $request->search . '%');
                 $query->orwhere('birthdate', 'like', '%' . $request->search . '%');
             })
-            ->orderByDesc('created_at')
+            ->orderByDesc('id')
             ->paginate(50);
         return view('admin.customers.index', compact('customers'));
     }

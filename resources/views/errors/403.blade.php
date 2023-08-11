@@ -39,7 +39,7 @@
                                     <h1 class="fs-2x text-danger ">خطای دسترسی 403</h1>
                                     <!--end::Title-->
                                     <!--begin::Text-->
-                                    <div class="fs-5 text-gray-600 fw-semibold">
+                                    <div class="fs-5  fw-semibold">
                                         متاسفیم! شما به محتوای این صفحه دسترسی ندارید :(
                                     </div>
                                     <!--end::Text-->

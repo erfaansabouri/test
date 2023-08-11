@@ -34,7 +34,7 @@
                                         <span class="path1"></span>
                                         <span class="path2"></span>
                                     </i>
-                                    <input value="{{ request('search') }}" name="search" type="text"  class="form-control form-control-solid w-250px ps-13" placeholder="جستجو" />
+                                    <input value="{{ request('search') }}" name="search" type="text"  class="form-control  w-250px ps-13" placeholder="جستجو" />
                                     <button type="submit" class="btn btn-primary">اعمال</button>
 
                                 </form>
@@ -66,33 +66,39 @@
                         <!--begin::کارت body-->
                         <div class="card-body py-4">
                             <!--begin::Table-->
-                            <table class="table table-striped table-bordered table-hover" >
-                                <thead>
-                                <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-                                    <th class="min-w-25px">شناسه</th>
-                                    <th class="min-w-125px">نام کامل</th>
-                                    <th class="min-w-125px">شماره تماس</th>
-                                    <th class="min-w-125px">تعداد خرید</th>
-                                    <th class="min-w-125px">مبلغ کل خرید</th>
-                                    <th class="min-w-125px">عملیات</th>
-                                </tr>
-                                </thead>
-                                <tbody class="text-gray-600 fw-semibold">
-                                @foreach($customers as $customer)
-                                    <tr>
-                                        <td>{{ $customer->id }}</td>
-                                        <td>{{ $customer->first_name }} {{ $customer->last_name }}</td>
-                                        <td>{{ $customer->phone_number }}</td>
-                                        <td>{{ number_format($customer->points->count()) }}</td>
-                                        <td>{{ number_format($customer->points->sum('price')) }}</td>
-                                        <td>
-                                            <a href="{{ route('admin.points.index', ['customer_id' => $customer->id]) }}" class="btn btn-light-info">تاریخچه امتیاز ها</a>
-                                            <a href="{{ route('admin.customers.edit', $customer->id) }}" class="btn btn-light-primary">ویرایش</a>
-                                        </td>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover" >
+                                    <thead>
+                                    <tr class="text-center  fw-bold fs-7 text-uppercase gs-0">
+                                        <th class="min-w-25px">شناسه</th>
+                                        <th class="min-w-125px">نام کامل</th>
+                                        <th class="min-w-125px">شماره تماس</th>
+                                        <th class="min-w-125px">تعداد خرید</th>
+                                        <th class="min-w-125px">مبلغ کل خرید</th>
+                                        <th class="min-w-125px">جمع امتیاز دریافتی</th>
+                                        <th class="min-w-125px">جمع امتیاز قابل مصرف</th>
+                                        <th class="min-w-125px">عملیات</th>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody class=" fw-semibold">
+                                    @foreach($customers as $customer)
+                                        <tr class="text-center">
+                                            <td>{{ $customer->id }}</td>
+                                            <td>{{ $customer->first_name }} {{ $customer->last_name }}</td>
+                                            <td>{{ $customer->phone_number }}</td>
+                                            <td>{{ number_format($customer->points->count()) }}</td>
+                                            <td>{{ number_format($customer->points->sum('price')) }}</td>
+                                            <td class="text-primary">{{ number_format($customer->points->sum('point')) }}</td>
+                                            <td class="text-success">{{ number_format($customer->balance) }}</td>
+                                            <td>
+                                                <a href="{{ route('admin.points.index', ['customer_id' => $customer->id]) }}" class="btn btn-light-info">تاریخچه امتیاز های دریافتی</a>
+                                                <a href="{{ route('admin.customers.edit', $customer->id) }}" class="btn btn-light-primary">ویرایش</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                             <!--end::Table-->
                             {{ $customers->withQueryString()->links("pagination::bootstrap-4") }}
                         </div>

@@ -102,7 +102,7 @@
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">
-                                                <div class="input-group input-group-solid mb-5">
+                                                <div class="input-group  mb-5">
                                                     <input value="{{ @$record->first_name }}" type="text" name="first_name" class="form-control" placeholder="نام کارشناس" aria-label="نام کارشناس" aria-describedby="basic-addon3">
                                                 </div>
                                             </div>
@@ -114,7 +114,7 @@
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">
-                                                <div class="input-group input-group-solid mb-5">
+                                                <div class="input-group  mb-5">
                                                     <input value="{{ @$record->last_name }}" type="text" name="last_name" class="form-control" placeholder="نام خانوادگی کارشناس" aria-label="نام خانوادگی کارشناس" aria-describedby="basic-addon3">
                                                 </div>
                                             </div>
@@ -126,7 +126,7 @@
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">
-                                                <div class="input-group input-group-solid mb-5">
+                                                <div class="input-group  mb-5">
                                                     <input value="{{ @$record->phone_number }}" type="text" name="phone_number" class="form-control" placeholder="مثلا 09375556677" aria-label="شماره تماس" aria-describedby="basic-addon3">
                                                 </div>
                                             </div>
@@ -169,7 +169,7 @@
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">
-                                                <div class="input-group input-group-solid mb-5">
+                                                <div class="input-group  mb-5">
                                                     <input autocomplete="off" value="" type="password" name="password" class="form-control" placeholder="رمز عبور" aria-label="رمز عبور" aria-describedby="basic-addon3">
                                                 </div>
                                             </div>

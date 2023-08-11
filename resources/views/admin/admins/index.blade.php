@@ -29,7 +29,7 @@
                             <form  method="GET" action="{{ route('admin.admins.index') }}">
                                 <div class="d-flex align-items-center position-relative my-2 row">
                                     <div class="col-8">
-                                        <div class="input-group input-group-solid">
+                                        <div class="input-group ">
                                             <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
                                             <input value="{{ request('search') }}" name="search" type="text" class="form-control" placeholder="جستجو" aria-label="جستجو" aria-describedby="basic-addon1">
                                         </div>
@@ -65,36 +65,38 @@
                         <!--begin::کارت body-->
                         <div class="card-body py-4">
                             <!--begin::Table-->
-                            <table class="table table-striped table-bordered table-hover align-middle table-row-dashed fs-6 gy-5" id="kt_table_کاربران">
-                                <thead>
-                                <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-                                    <th class="min-w-25px">شناسه</th>
-                                    <th class="min-w-125px">نام</th>
-                                    <th class="min-w-125px">شماره تماس</th>
-                                    <th class="min-w-125px">عملیات</th>
-                                </tr>
-                                </thead>
-                                <tbody class="text-gray-600 fw-semibold">
-                                @foreach($admins as $admin)
-                                    <tr>
-                                        <td>{{ $admin->id }}</td>
-                                        <td>
-                                            {{ $admin->first_name }} {{ $admin->last_name }}
-                                            <br>
-                                            @if($admin->is_disable)
-                                                <span class="badge badge-danger">حساب غیر فعال</span>
-                                            @else
-                                                <span class="badge badge-success">حساب فعال</span>
-                                            @endif
-                                        </td>
-                                        <td>{{ $admin->phone_number }}</td>
-                                        <td>
-                                            <a href="{{ route('admin.admins.edit', $admin->id) }}" class="btn btn-light-primary">ویرایش</a>
-                                        </td>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover align-middle table-row-dashed fs-6 gy-5" >
+                                    <thead>
+                                    <tr class="text-center  fw-bold fs-7 text-uppercase gs-0">
+                                        <th class="min-w-25px">شناسه</th>
+                                        <th class="min-w-125px">نام</th>
+                                        <th class="min-w-125px">شماره تماس</th>
+                                        <th class="min-w-125px">عملیات</th>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody class=" fw-semibold">
+                                    @foreach($admins as $admin)
+                                        <tr class="text-center">
+                                            <td>{{ $admin->id }}</td>
+                                            <td>
+                                                {{ $admin->first_name }} {{ $admin->last_name }}
+                                                <br>
+                                                @if($admin->is_disable)
+                                                    <span class="badge badge-danger">حساب غیر فعال</span>
+                                                @else
+                                                    <span class="badge badge-success">حساب فعال</span>
+                                                @endif
+                                            </td>
+                                            <td>{{ $admin->phone_number }}</td>
+                                            <td>
+                                                <a href="{{ route('admin.admins.edit', $admin->id) }}" class="btn btn-light-primary">ویرایش</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                             <!--end::Table-->
                             {{ $admins->withQueryString()->links("pagination::bootstrap-4") }}
                         </div>

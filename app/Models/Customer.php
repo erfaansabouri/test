@@ -14,7 +14,13 @@ class Customer extends Model
         return $this->first_name . ' ' . $this->last_name;
     }
 
-    public function points(){
+    public function points()
+    {
         return $this->hasMany(Point::class);
+    }
+
+    public function increaseBalance($value)
+    {
+        $this->increment('balance', $value);
     }
 }

@@ -1,26 +1,8 @@
 @extends('admin.master')
 @section('content')
     <div class="d-flex flex-column flex-column-fluid">
-        <!--begin::Toolbar-->
-        <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
-            <!--begin::Toolbar container-->
-            <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
-                <!--begin::Page title-->
-                <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
-                    <!--begin::Title-->
-                    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                        تنظیمات امتیاز
-                    </h1>
-                    <!--end::Title-->
-                </div>
-                <!--end::Page title-->
-            </div>
-            <!--end::Toolbar container-->
-        </div>
-
-        <!--end::Toolbar-->
         <!--begin::Content-->
-        <div id="kt_app_content" class="app-content flex-column-fluid">
+        <div id="kt_app_content" class="app-content flex-column-fluid py-3 py-lg-6">
             <!--begin::Content container-->
             <div id="kt_app_content_container" class="app-container container-xxl">
                 <!--begin::پایه info-->
@@ -30,7 +12,7 @@
                         <!--begin::کارت title-->
                         <div class="card-title m-0">
                             <h3 class="fw-bold m-0">
-                                افزودن امتیاز جدید
+                                افزودن امتیاز (رویداد پرداختی)
                             </h3>
                         </div>
                         <!--end::کارت title-->
@@ -98,7 +80,7 @@
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">
-                                                <select id="store-select2"  name="store_id" class="form-select form-select-solid " data-placeholder="انتخاب فروشگاه">
+                                                <select id="store-select2"  name="store_id" class="form-select  " data-placeholder="انتخاب فروشگاه">
                                                     <option></option>
                                                 </select>
                                             </div>
@@ -110,7 +92,7 @@
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">
-                                                <select id="customer-select2"  name="customer_id" class="form-select form-select-solid " data-placeholder="انتخاب مشتری">
+                                                <select id="customer-select2"  name="customer_id" class="form-select  " data-placeholder="انتخاب مشتری">
                                                     <option></option>
                                                 </select>
                                             </div>
@@ -122,7 +104,7 @@
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">
-                                                <div class="input-group input-group-solid mb-5">
+                                                <div class="input-group  mb-5">
                                                     <input id="price" type="text" name="price" class="form-control" placeholder="مبلغ خرید" aria-label="مبلغ خرید" aria-describedby="basic-addon3">
                                                 </div>
                                             </div>

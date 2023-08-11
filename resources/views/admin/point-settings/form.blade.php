@@ -100,7 +100,7 @@
                                         <div class="row">
                                             <!--begin::Col-->
                                             <div class="col-lg-6 fv-row">
-                                                <div class="input-group input-group-solid mb-5">
+                                                <div class="input-group  mb-5">
                                                     <input value="{{ $point_setting->price }}" type="text" name="price" class="form-control" placeholder="مبلغ به تومان" aria-label="مبلغ به تومان" aria-describedby="basic-addon2">
                                                     <span class="input-group-text" id="basic-addon2">مبلغ به تومان</span>
                                                 </div>
@@ -108,7 +108,7 @@
                                             <!--end::Col-->
                                             <!--begin::Col-->
                                             <div class="col-lg-6 fv-row">
-                                                <div class="input-group input-group-solid mb-5">
+                                                <div class="input-group  mb-5">
                                                     <input value="{{ $point_setting->point }}" type="text" name="point" class="form-control" placeholder="امتیاز" aria-label="امتیاز" aria-describedby="basic-addon3">
                                                     <span class="input-group-text" id="basic-addon3">امتیاز</span>
                                                 </div>

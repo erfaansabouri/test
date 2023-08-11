@@ -26,38 +26,40 @@
                     <div class="card">
                         <div class="card-body py-4">
                             <!--begin::Table-->
-                            <table class="table table-striped table-bordered table-hover align-middle table-row-dashed fs-6 gy-5" id="kt_table_کاربران">
-                                <thead>
-                                <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-                                    <th class="min-w-25px">ردیف</th>
-                                    <th class="min-w-125px">روز</th>
-                                    <th class="min-w-125px">مناسبت ها</th>
-                                    <th class="min-w-125px">تعطیل رسمی</th>
-                                </tr>
-                                </thead>
-                                <tbody class="text-gray-600 fw-semibold">
-                                @foreach($days as $day)
-                                    <tr>
-                                       <td>{{ $loop->index }}</td>
-                                       <td>{{ $day['day'] }}</td>
-                                       <td>
-                                           @foreach($day['calendar']->events as $event)
-                                               {{ $event->description }}
-                                               <br>
-                                               <br>
-                                           @endforeach
-                                       </td>
-                                       <td>
-                                           @if($day['calendar']->is_holiday)
-                                               <span class="text-success">بله</span>
-                                           @else
-                                               <span class="text-secondary">خیر</span>
-                                           @endif
-                                       </td>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover align-middle table-row-dashed fs-6 gy-5" >
+                                    <thead>
+                                    <tr class="text-center  fw-bold fs-7 text-uppercase gs-0">
+                                        <th class="min-w-25px">ردیف</th>
+                                        <th class="min-w-125px">روز</th>
+                                        <th class="min-w-125px">مناسبت ها</th>
+                                        <th class="min-w-125px">تعطیل رسمی</th>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody class=" fw-semibold">
+                                    @foreach($days as $day)
+                                        <tr>
+                                            <td>{{ $loop->index }}</td>
+                                            <td>{{ $day['day'] }}</td>
+                                            <td>
+                                                @foreach($day['calendar']->events as $event)
+                                                    {{ $event->description }}
+                                                    <br>
+                                                    <br>
+                                                @endforeach
+                                            </td>
+                                            <td>
+                                                @if($day['calendar']->is_holiday)
+                                                    <span class="text-success">بله</span>
+                                                @else
+                                                    <span class="text-secondary">خیر</span>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                             <!--end::Table-->
 
                         </div>

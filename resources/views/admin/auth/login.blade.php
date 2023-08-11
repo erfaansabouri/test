@@ -75,13 +75,13 @@
                             <!--begin::Input group=-->
                             <div class="fv-row mb-8">
                                 <!--begin::Email-->
-                                <input value="{{ old('phone_number') }}" type="text" placeholder="شماره تماس" name="phone_number" autocomplete="off" class="form-control form-control-solid" />
+                                <input value="{{ old('phone_number') }}" type="text" placeholder="شماره تماس" name="phone_number" autocomplete="off" class="form-control " />
                                 <!--end::Email-->
                             </div>
                             <!--end::Input group=-->
                             <div class="fv-row mb-7">
                                 <!--begin::کلمه عبور-->
-                                <input type="password" placeholder="رمز عبور" name="password" autocomplete="off" class="form-control form-control-solid" />
+                                <input type="password" placeholder="رمز عبور" name="password" autocomplete="off" class="form-control " />
                                 <!--end::کلمه عبور-->
                             </div>
                             <!--end::Input group=-->

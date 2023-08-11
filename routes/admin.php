@@ -43,8 +43,10 @@ Route::middleware(['auth:admin'])->group(function () {
     });
     Route::prefix('points')->middleware(['can:' . Admin::PERMISSIONS['points']])->group(function () {
         Route::get('/index', [PointController::class, 'index'])->name('admin.points.index');
-        Route::get('/create', [PointController::class, 'create'])->name('admin.points.create');
-        Route::post('/store', [PointController::class, 'store'])->name('admin.points.store');
+        Route::get('/create-purchase', [PointController::class, 'createPurchase'])->name('admin.points.create-purchase');
+        Route::post('/store-purchase', [PointController::class, 'storePurchase'])->name('admin.points.store-purchase');
+        Route::get('/create-non-purchase', [PointController::class, 'createNonPurchase'])->name('admin.points.create-non-purchase');
+        Route::post('/store-non-purchase', [PointController::class, 'storeNonPurchase'])->name('admin.points.store-non-purchase');
         Route::get('/edit/{id}', [PointController::class, 'edit'])->name('admin.points.edit');
         Route::post('/update/{id}', [PointController::class, 'update'])->name('admin.points.update');
         Route::post('/calculate-points', [PointController::class, 'calculatePoints'])->name('admin.points.calculate-points');

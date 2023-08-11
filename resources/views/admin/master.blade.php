@@ -9,6 +9,7 @@
         <div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
             @include('admin.partials.sidebar')
             <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+                <div id="kt_docs_toast_stack_container" class="toast-container position-fixed top-0 start-0 p-3 z-index-9"></div>
                 @yield('content')
                 @include('admin.partials.footer')
             </div>

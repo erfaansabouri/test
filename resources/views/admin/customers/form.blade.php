@@ -40,23 +40,37 @@
                         <!--begin::کارت body-->
                         <div class="card-body py-0">
                             <!--begin::Table-->
-                            <table class="table align-middle table-row-dashed fs-6 text-gray-600 fw-semibold gy-5" id="kt_table_customers_رویدادها">
+                            <table class="table align-middle table-row-dashed fs-6  fw-semibold gy-5" id="kt_table_customers_رویدادها">
                                 <tbody>
                                 <tr>
                                     <td class="min-w-400px">تاریخ عضویت</td>
-                                    <td class="pe-0 text-gray-600 text-end min-w-200px">{{ Verta::instance($record->created_at)->formatJalaliDatetime() }}</td>
+                                    <td class="pe-0  text-end min-w-200px">{{ Verta::instance($record->created_at)->formatJalaliDatetime() }}</td>
                                 </tr>
                                 <tr>
                                     <td class="min-w-400px">تاریخ اولین خرید</td>
-                                    <td class="pe-0 text-gray-600 text-end min-w-200px">{{ $record->points()->first() ? Verta::instance($record->points()->first()->created_at)->formatJalaliDatetime() : 'خریدی ندارد'}}</td>
+                                    <td class="pe-0  text-end min-w-200px">{{ $record->points()->first() ? Verta::instance($record->points()->first()->created_at)->formatJalaliDatetime() : 'خریدی ندارد'}}</td>
                                 </tr>
                                 <tr>
                                     <td class="min-w-400px">تاریخ آخرین خرید</td>
-                                    <td class="pe-0 text-gray-600 text-end min-w-200px">{{ $record->points()->orderByDesc('created_at')->first() ? Verta::instance($record->points()->orderByDesc('created_at')->first()->created_at)->formatJalaliDatetime() : 'خریدی ندارد'}}</td>
+                                    <td class="pe-0  text-end min-w-200px">{{ $record->points()->orderByDesc('created_at')->first() ? Verta::instance($record->points()->orderByDesc('created_at')->first()->created_at)->formatJalaliDatetime() : 'خریدی ندارد'}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="min-w-400px">مجموع امتیاز های دریافتی</td>
+                                    <td class="pe-0  text-end min-w-200px text-primary fw-bolder">{{ number_format($record->points()->sum('point')) }}
+                                        <small>(رویداد پرداختی = {{ number_format($record->points()->purchaseType()->sum('point')) }} + رویداد غیر پرداختی = {{ number_format($record->points()->nonPurchaseType()->sum('point')) }})</small>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="min-w-400px">مجموع امتیاز های مصرف شده</td>
+                                    <td class="pe-0  text-end min-w-200px text-danger fw-bolder">TODO</td>
+                                </tr>
+                                <tr>
+                                    <td class="min-w-400px">مجموع امتیاز های قابل استفاده</td>
+                                    <td class="pe-0  text-end min-w-200px text-success fw-bolder">{{ number_format($record->balance) }}</td>
                                 </tr>
                                 <tr>
                                     <td class="min-w-400px">نمایش امتیاز های دریافتی</td>
-                                    <td class="pe-0 text-gray-600 text-end min-w-200px"><a target="_blank" href="{{ route('admin.points.index', ['customer_id' => $record->id]) }}">رفتن به لیست امتیاز ها</a></td>
+                                    <td class="pe-0  text-end min-w-200px"><a target="_blank" href="{{ route('admin.points.index', ['customer_id' => $record->id]) }}">رفتن به لیست امتیاز ها</a></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -146,7 +160,7 @@
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">
-                                                <div class="input-group input-group-solid mb-5">
+                                                <div class="input-group  mb-5">
                                                     <input value="{{ @$record->first_name }}" type="text" name="first_name" class="form-control" placeholder="نام" aria-label="نام" aria-describedby="basic-addon3">
                                                 </div>
                                             </div>
@@ -158,7 +172,7 @@
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">
-                                                <div class="input-group input-group-solid mb-5">
+                                                <div class="input-group  mb-5">
                                                     <input value="{{ @$record->last_name }}" type="text" name="last_name" class="form-control" placeholder="نام خانوادگی" aria-label="نام خانوادگی" aria-describedby="basic-addon3">
                                                 </div>
                                             </div>
@@ -170,7 +184,7 @@
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">
-                                                <div class="input-group input-group-solid mb-5">
+                                                <div class="input-group  mb-5">
                                                     <input value="{{ @$record->group_name }}" type="text" name="group_name" class="form-control" placeholder="گروه" aria-label="گروه" aria-describedby="basic-addon3">
                                                 </div>
                                             </div>
@@ -182,7 +196,7 @@
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">
-                                                <div class="input-group input-group-solid mb-5">
+                                                <div class="input-group  mb-5">
                                                     <input value="{{ @$record->email }}" type="text" name="email" class="form-control" placeholder="ایمیل" aria-label="ایمیل" aria-describedby="basic-addon3">
                                                 </div>
                                             </div>
@@ -194,7 +208,7 @@
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">
-                                                <div class="input-group input-group-solid mb-5">
+                                                <div class="input-group  mb-5">
                                                     <input value="{{ @$record->phone_number }}" type="text" name="phone_number" class="form-control" placeholder="شماره تماس" aria-label="شماره تماس" aria-describedby="basic-addon3">
                                                 </div>
                                             </div>
@@ -206,7 +220,7 @@
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">
-                                                <div class="input-group input-group-solid mb-5">
+                                                <div class="input-group  mb-5">
                                                     <input value="{{ @$record->national_code }}" type="text" name="national_code" class="form-control" placeholder="کد ملی" aria-label="کد ملی" aria-describedby="basic-addon3">
                                                 </div>
                                             </div>
@@ -218,9 +232,9 @@
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">
-                                                <div class="input-group input-group-solid mb-5">
+                                                <div class="input-group  mb-5">
                                                     <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
-                                                    <input value="@if(isset($record) && $record->birthdate) {{ Verta::instance($record->birthdate)->format('Y/m/d') }} @endif" name="birthdate" class="form-control form-control-solid persian-datepicker" placeholder="تاریخ تولد"/>
+                                                    <input value="@if(isset($record) && $record->birthdate) {{ Verta::instance($record->birthdate)->format('Y/m/d') }} @endif" name="birthdate" class="form-control  persian-datepicker" placeholder="تاریخ تولد"/>
                                                 </div>
                                             </div>
                                         </div>

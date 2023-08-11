@@ -144,7 +144,7 @@
                                             @endif
                                         </span>
                                     </div>
-                                    <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">{{ Auth::guard('admin')->user()->phone_number }}</a>
+                                    <a href="#" class="fw-semibold  text-hover-primary fs-7">{{ Auth::guard('admin')->user()->phone_number }}</a>
                                 </div>
                                 <!--end::کاربرname-->
                             </div>
