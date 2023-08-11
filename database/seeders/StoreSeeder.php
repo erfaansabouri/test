@@ -20,7 +20,7 @@ class StoreSeeder extends Seeder
         for ($i=0; $i<100; $i++){
             $name = Factory::create('fa_IR')->name;
             $store = new Store();
-            $store->title = "فروشگاه " . $name;
+            $store->title = "کسب و کار " . $name;
             $store->price = 100000;
             $store->point = rand(3,10);
             $store->save();

@@ -10,7 +10,7 @@
                     <!--begin::Page title-->
                     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                         <!--begin::Title-->
-                        <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">نمودار فروشگاه - امتیاز</h1>
+                        <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">نمودار کسب و کار - امتیاز</h1>
                         <!--end::Title-->
                     </div>
                     <!--end::Page title-->
@@ -27,7 +27,7 @@
                         <!--begin::کارت header-->
                         <div class="card-header border-0 pt-6">
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold fs-3 mb-1">آمار امتیاز های کسب شده بر حسب فروشگاه ها</span>
+                                <span class="card-label fw-bold fs-3 mb-1">آمار امتیاز های کسب شده بر حسب کسب و کار ها</span>
                                 <span class=" fw-semibold fs-7"></span>
                             </h3>
                         </div>

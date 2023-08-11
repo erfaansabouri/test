@@ -35,7 +35,7 @@
                                         </div>
                                     </div>
                                     <div class="col my-2">
-                                        <select id="store-select2"  name="store_id" class="form-select  " data-placeholder="فیلتر فروشگاه">
+                                        <select id="store-select2"  name="store_id" class="form-select  " data-placeholder="فیلتر کسب و کار">
                                             <option></option>
                                             @if(request('store_id') && $store = \App\Models\Store::find(request('store_id')))
                                                 <option value="{{ request('store_id') }}" selected>{{ $store->id }}- {{ $store->title }}</option>

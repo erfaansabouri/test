@@ -72,7 +72,7 @@
                                 <span class="path3"></span>
                             </i>
                         </span>
-                        <span class="menu-title">فروشگاه ها</span>
+                        <span class="menu-title">کسب و کار ها</span>
                         <span class="menu-arrow"></span>
                     </span>
                     <div class="menu-sub menu-sub-accordion">
@@ -82,7 +82,33 @@
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">لیست فروشگاه ها</span>
+                                <span class="menu-title">لیست کسب و کار ها</span>
+                            </a>
+                        </div>
+                        <!--end:Menu item-->
+                    </div>
+                </div>
+
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <i class="ki-duotone ki-user-edit fs-2">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                                <span class="path3"></span>
+                            </i>
+                        </span>
+                        <span class="menu-title">صاحبان کسب و کار ها</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('admin.store-managers.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">لیست صاحبان کسب و کار ها</span>
                             </a>
                         </div>
                         <!--end:Menu item-->
@@ -168,7 +194,7 @@
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">نمودار فروشگاه - امتیاز</span>
+                                <span class="menu-title">نمودار کسب و کار - امتیاز</span>
                             </a>
                         </div>
                         <div class="menu-item">

@@ -9,7 +9,7 @@
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
                     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                        تنظیمات کارشناس
+                        تنظیمات صاحب کسب و کار
                     </h1>
                     <!--end::Title-->
                 </div>
@@ -33,7 +33,7 @@
                                 @if(isset($record))
                                     ویرایش {{ @$record->first_name }} {{ @$record->last_name }}
                                 @else
-                                    افزودن کارشناس جدید
+                                    افزودن صاحب کسب و کار جدید
                                 @endif
                             </h3>
                         </div>
@@ -67,33 +67,47 @@
                                 <!--end::Wrapper-->
                             </div>
                         @endif
-
                         <!--begin::Form-->
-                        <form id="kt_account_profile_details_form" class="form" method="POST" action="@if(isset($record)) {{ route('admin.admins.update', $record->id) }} @else {{ route('admin.admins.store') }} @endif">
+                        <form id="kt_account_profile_details_form" class="form" method="POST" action="@if(isset($record)) {{ route('admin.store-managers.update', $record->id) }} @else {{ route('admin.store-managers.store') }} @endif">
                             @csrf
                             @method('POST')
                             <!--begin::کارت body-->
                             <div class="card-body border-top p-9">
                                 <!--begin::Input group-->
                                 <div class="row mb-6">
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">نام کارشناس</label>
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">نام کسب و کار</label>
+                                    <div class="col-lg-8">
+                                        <div class="row">
+                                            <div class="col-lg-6 fv-row">
+                                                <select id="store-select2"  name="store_id" class="form-select  " data-placeholder="انتخاب کسب و کار">
+                                                    <option></option>
+                                                    @if(isset($record))
+                                                        <option value="{{ $record->store_id }}" selected>{{ $record->store->title }}</option>
+                                                    @endif
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-6">
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">نام صاحب کسب و کار</label>
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">
                                                 <div class="input-group  mb-5">
-                                                    <input value="{{ @$record->first_name }}" type="text" name="first_name" class="form-control" placeholder="نام کارشناس" aria-label="نام کارشناس" aria-describedby="basic-addon3">
+                                                    <input value="{{ @$record->first_name }}" type="text" name="first_name" class="form-control" placeholder="نام صاحب کسب و کار" aria-label="نام صاحب کسب و کار" aria-describedby="basic-addon3">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row mb-6">
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">نام خانوادگی کارشناس</label>
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">نام خانوادگی صاحب کسب و کار</label>
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">
                                                 <div class="input-group  mb-5">
-                                                    <input value="{{ @$record->last_name }}" type="text" name="last_name" class="form-control" placeholder="نام خانوادگی کارشناس" aria-label="نام خانوادگی کارشناس" aria-describedby="basic-addon3">
+                                                    <input value="{{ @$record->last_name }}" type="text" name="last_name" class="form-control" placeholder="نام خانوادگی صاحب کسب و کار" aria-label="نام خانوادگی صاحب کسب و کار" aria-describedby="basic-addon3">
                                                 </div>
                                             </div>
                                         </div>
@@ -128,7 +142,7 @@
                                     <label class="col-lg-4 col-form-label required fw-semibold fs-6">دسترسی های مجاز</label>
                                     <div class="col-lg-6">
                                         <div class="row">
-                                            @foreach(\Spatie\Permission\Models\Permission::query()->where('guard_name', 'admin')->get() as $permission)
+                                            @foreach(\Spatie\Permission\Models\Permission::query()->where('guard_name', 'store-manager')->get() as $permission)
                                                 <div class="col-lg-3 fv-row mb-2">
                                                     <div class="form-check">
                                                         <input @if(isset($record) && $record->hasPermissionTo($permission->name)) checked @endif name="permission_ids[]" class="form-check-input" type="checkbox" value="{{ $permission->id }}" id="flexCheckDefault" />
@@ -159,7 +173,7 @@
                             <!--end::کارت body-->
                             <!--begin::Actions-->
                             <div class="card-footer d-flex justify-content-end py-6 px-9">
-                                <a href="{{ route('admin.stores.index') }}" type="reset" class="btn btn-light btn-active-light-primary me-2">لغو</a>
+                                <a href="{{ route('admin.store-managers.index') }}" type="reset" class="btn btn-light btn-active-light-primary me-2">لغو</a>
                                 <button type="submit" class="btn btn-primary" id="kt_account_profile_details_submit">ذخیره تغییرات</button>
                             </div>
                             <!--end::Actions-->

@@ -45,29 +45,7 @@
                                 <!--end::Wrapper-->
                             </div>
                         @endif
-                        @if (\Illuminate\Support\Facades\Session::get('success'))
-                                <div dir="rtl" class="notice d-flex bg-light-success rounded border-success border border-dashed p-6">
-                                    <!--begin::Icon-->
-                                    <i class="ki-duotone ki-information fs-2tx text-success me-4">
-                                        <span class="path1"></span>
-                                        <span class="path2"></span>
-                                        <span class="path3"></span>
-                                    </i>
-                                    <!--end::Icon-->
-                                    <!--begin::Wrapper-->
-                                    <div class="d-flex flex-stack flex-grow-1">
-                                        <!--begin::Content-->
-                                        <div class="fw-semibold">
-                                            <h4 class="text-gray-900 fw-bold">تبریک</h4>
-                                            <div class="fs-6 text-gray-700">
-                                                {{ \Illuminate\Support\Facades\Session::get('success') }}
-                                            </div>
-                                        </div>
-                                        <!--end::Content-->
-                                    </div>
-                                    <!--end::Wrapper-->
-                                </div>
-                            @endif
+
                         <!--begin::Form-->
                         <form id="kt_account_profile_details_form" class="form" method="POST" action="{{ route('admin.points.store-purchase') }}">
                             @csrf
@@ -76,11 +54,11 @@
                             <div class="card-body border-top p-9">
                                 <!--begin::Input group-->
                                 <div class="row mb-6">
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">نام فروشگاه</label>
+                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">نام کسب و کار</label>
                                     <div class="col-lg-8">
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">
-                                                <select id="store-select2"  name="store_id" class="form-select  " data-placeholder="انتخاب فروشگاه">
+                                                <select id="store-select2"  name="store_id" class="form-select  " data-placeholder="انتخاب کسب و کار">
                                                     <option></option>
                                                 </select>
                                             </div>

@@ -10,7 +10,7 @@
                     <!--begin::Page title-->
                     <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                         <!--begin::Title-->
-                        <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">لیست کسب و کار ها</h1>
+                        <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">لیست صاحبان کسب و کار ها</h1>
                         <!--end::Title-->
                     </div>
                     <!--end::Page title-->
@@ -26,20 +26,19 @@
                     <div class="card">
                         <!--begin::کارت header-->
                         <div class="card-header border-0 pt-6">
-                            <!--begin::کارت title-->
-                            <div class="card-title">
-                                <!--begin::جستجو-->
-                                <form method="GET" action="{{ route('admin.stores.index') }}" class="d-flex align-items-center position-relative my-1">
-                                    <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
-                                        <span class="path1"></span>
-                                        <span class="path2"></span>
-                                    </i>
-                                    <input value="{{ request('search') }}" name="search" type="text"  class="form-control  w-250px ps-13" placeholder="جستجو" />
-                                    <button type="submit" class="btn btn-primary">اعمال</button>
-
-                                </form>
-                                <!--end::جستجو-->
-                            </div>
+                            <form  method="GET" action="{{ route('admin.store-managers.index') }}">
+                                <div class="d-flex align-items-center position-relative my-2 row">
+                                    <div class="col-8">
+                                        <div class="input-group ">
+                                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+                                            <input value="{{ request('search') }}" name="search" type="text" class="form-control" placeholder="جستجو" aria-label="جستجو" aria-describedby="basic-addon1">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <button type="submit" class="btn btn-primary">اعمال</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                         <div class="card-header border-0 pt-6">
                             <!--begin::کارت title-->
@@ -54,8 +53,8 @@
                                 <!--begin::Toolbar-->
                                 <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
                                     <!--begin::Add user-->
-                                    <a href="{{ route('admin.stores.create') }}" class="btn btn-light-success">
-                                        <i class="ki-duotone ki-plus fs-2"></i>افزودن کسب و کار</a>
+                                    <a href="{{ route('admin.store-managers.create') }}" class="btn btn-light-success">
+                                        <i class="ki-duotone ki-plus fs-2"></i>افزودن صاحب کسب و کار</a>
                                     <!--end::Add user-->
                                 </div>
 
@@ -71,27 +70,29 @@
                                     <thead>
                                     <tr class="text-center  fw-bold fs-7 text-uppercase gs-0">
                                         <th class="min-w-25px">شناسه</th>
-                                        <th class="min-w-125px">نام کسب و کار</th>
-                                        <th class="min-w-125px">قائده امتیازدهی</th>
+                                        <th class="min-w-125px">نام</th>
+                                        <th class="min-w-125px">کسب و کار</th>
+                                        <th class="min-w-125px">شماره تماس</th>
                                         <th class="min-w-125px">عملیات</th>
                                     </tr>
                                     </thead>
                                     <tbody class=" fw-semibold">
-                                    @foreach($stores as $store)
+                                    @foreach($store_managers as $store_manager)
                                         <tr class="text-center">
-                                            <td>{{ $store->id }}</td>
+                                            <td>{{ $store_manager->id }}</td>
                                             <td>
-                                                {{ $store->title }}
+                                                {{ $store_manager->first_name }} {{ $store_manager->last_name }}
                                                 <br>
-                                                @if($store->is_disable)
-                                                    <span class="badge badge-danger">غیر فعال</span>
+                                                @if($store_manager->is_disable)
+                                                    <span class="badge badge-danger">حساب غیر فعال</span>
                                                 @else
-                                                    <span class="badge badge-success">فعال</span>
+                                                    <span class="badge badge-success">حساب فعال</span>
                                                 @endif
                                             </td>
-                                            <td>{{ number_format($store->point) }}/{{ number_format($store->price) }}</td>
+                                            <td>{{ $store_manager->store->title }}</td>
+                                            <td>{{ $store_manager->phone_number }}</td>
                                             <td>
-                                                <a href="{{ route('admin.stores.edit', $store->id) }}" class="btn btn-light-primary">ویرایش</a>
+                                                <a href="{{ route('admin.store-managers.edit', $store_manager->id) }}" class="btn btn-light-primary">ویرایش</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -99,7 +100,7 @@
                                 </table>
                             </div>
                             <!--end::Table-->
-                            {{ $stores->withQueryString()->links("pagination::bootstrap-4") }}
+                            {{ $store_managers->withQueryString()->links("pagination::bootstrap-4") }}
                         </div>
                         <!--end::کارت body-->
                     </div>

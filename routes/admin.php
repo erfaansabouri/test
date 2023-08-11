@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\PointController;
 use App\Http\Controllers\Admin\PointSettingController;
 use App\Http\Controllers\Admin\StoreController;
+use App\Http\Controllers\Admin\StoreManagerController;
 use App\Http\Controllers\Admin\WelcomeController;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,14 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::post('/store', [StoreController::class, 'store'])->name('admin.stores.store');
         Route::get('/edit/{id}', [StoreController::class, 'edit'])->name('admin.stores.edit');
         Route::post('/update/{id}', [StoreController::class, 'update'])->name('admin.stores.update');
+    });
+    Route::prefix('store-managers')->middleware(['can:' . Admin::PERMISSIONS['store-managers']])->group(function () {
+        Route::get('/ajax-index', [StoreManagerController::class, 'ajaxIndex'])->name('admin.store-managers.ajax-index');
+        Route::get('/index', [StoreManagerController::class, 'index'])->name('admin.store-managers.index');
+        Route::get('/create', [StoreManagerController::class, 'create'])->name('admin.store-managers.create');
+        Route::post('/store', [StoreManagerController::class, 'store'])->name('admin.store-managers.store');
+        Route::get('/edit/{id}', [StoreManagerController::class, 'edit'])->name('admin.store-managers.edit');
+        Route::post('/update/{id}', [StoreManagerController::class, 'update'])->name('admin.store-managers.update');
     });
     Route::prefix('customers')->middleware(['can:' . Admin::PERMISSIONS['customers']])->group(function () {
         Route::get('/ajax-index', [CustomerController::class, 'ajaxIndex'])->name('admin.customers.ajax-index');

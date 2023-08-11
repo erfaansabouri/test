@@ -21,7 +21,8 @@ class Admin extends Authenticatable
 
     const PERMISSIONS = [
         'admins' => 'کارشناس ها',
-        'stores' => 'فروشگاه ها',
+        'stores' => 'کسب و کار ها',
+        'store-managers' => 'صاحبان کسب و کار',
         'customers' => 'مشتری ها',
         'points' => 'امتیاز ها',
         'charts' => 'نمودار ها',
