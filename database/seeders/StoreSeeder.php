@@ -34,6 +34,8 @@ class StoreSeeder extends Seeder
             $store_manager->is_super_manager = true;
             $store_manager->is_disable = false;
             $store_manager->save();
+            $rand = rand(1,30);
+            $store_manager->addMediaFromUrl(asset("global-assets/media/avatars/300-{$rand}.jpg"))->toMediaCollection('avatar');
         }
 
         StoreManager::first()

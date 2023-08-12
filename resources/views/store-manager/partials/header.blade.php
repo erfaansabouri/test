@@ -28,7 +28,7 @@
                     <div class="menu-item here show menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
                         <!--begin:Menu link-->
                         <a href="{{ route('store-manager.welcome') }}" class="menu-link">
-                            <span class="menu-title">داشبورد</span>
+                            <span class="menu-title">داشبورد {{ Auth::guard('store-manager')->user()->store->title }}</span>
                             <span class="menu-arrow d-lg-none"></span>
                         </a>
                     </div>
@@ -121,7 +121,7 @@
                 <div class="app-navbar-item ms-1 ms-md-3" id="kt_header_user_menu_toggle">
                     <!--begin::Menu wrapper-->
                     <div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-                        <img src="{{ asset('global-assets/media/avatars/admin-avatar.png') }}" alt="user" />
+                        <img src="{{ Auth::guard('store-manager')->user()->getFirstMediaUrl('avatar', 'thumb') }}" alt="user" />
                     </div>
                     <!--begin::کاربر account menu-->
                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px" data-kt-menu="true">
@@ -130,7 +130,7 @@
                             <div class="menu-content d-flex align-items-center px-3">
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-50px me-5">
-                                    <img alt="Logo" src="{{ asset('global-assets/media/avatars/admin-avatar.png') }}" />
+                                    <img alt="Logo" src="{{ Auth::guard('store-manager')->user()->getFirstMediaUrl('avatar', 'thumb') }}" />
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::کاربرname-->
@@ -140,7 +140,7 @@
                                             مدیریت کسب و کار
                                         </span>
                                     </div>
-                                    <a href="#" class="fw-semibold  text-hover-primary fs-7">{{ Auth::guard('store-manager')->user()->phone_number }}</a>
+                                    <a href="{{ route('store-manager.my-profile.show') }}" class="fw-semibold  text-hover-primary fs-7">{{ Auth::guard('store-manager')->user()->phone_number }}</a>
                                 </div>
                                 <!--end::کاربرname-->
                             </div>
