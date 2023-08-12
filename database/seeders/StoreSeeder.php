@@ -17,7 +17,7 @@ class StoreSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i<100; $i++){
+        for ($i=0; $i<20; $i++){
             $name = Factory::create('fa_IR')->name;
             $store = new Store();
             $store->title = "کسب و کار " . $name;

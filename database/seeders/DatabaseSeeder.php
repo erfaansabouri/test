@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(AdminPermissionSeeder::class);
+        $this->call(StoreManagerPermissionSeeder::class);
         $this->call(AdminSeeder::class);
         $this->call(StoreSeeder::class);
         $this->call(CustomerSeeder::class);

@@ -16,6 +16,9 @@ class StoreManager extends Authenticatable implements HasMedia
     protected $guard = 'store-manager';
     protected $guarded = [];
 
+    const PERMISSIONS = [
+        'store-managers' => 'کارمندان',
+    ];
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('avatar')

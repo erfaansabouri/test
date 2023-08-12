@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\StoreManager\AuthController;
 use App\Http\Controllers\StoreManager\MyProfileController;
+use App\Http\Controllers\StoreManager\StoreManagerController;
 use App\Http\Controllers\StoreManager\WelcomeController;
+use App\Models\StoreManager;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware([])->prefix('auth')->group(function () {
@@ -19,5 +21,13 @@ Route::middleware(['auth:store-manager'])->group(function () {
     Route::prefix('my-profile')->group(function () {
         Route::get('/show', [MyProfileController::class, 'show'])->name('store-manager.my-profile.show');
         Route::post('/update', [MyProfileController::class, 'update'])->name('store-manager.my-profile.update');
+    });
+
+    Route::prefix('store-managers')->middleware(['can:' . StoreManager::PERMISSIONS['store-managers']])->group(function () {
+        Route::get('/index', [StoreManagerController::class, 'index'])->name('store-manager.store-managers.index');
+        Route::get('/create', [StoreManagerController::class, 'create'])->name('store-manager.store-managers.create');
+        Route::post('/store', [StoreManagerController::class, 'store'])->name('store-manager.store-managers.store');
+        Route::get('/edit/{id}', [StoreManagerController::class, 'edit'])->name('store-manager.store-managers.edit');
+        Route::post('/update/{id}', [StoreManagerController::class, 'update'])->name('store-manager.store-managers.update');
     });
 });

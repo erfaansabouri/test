@@ -62,6 +62,39 @@
                     </div>
                 </div>
             </div>
+            <div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expو="false">
+                <div class="menu-item here show pt-5">
+                    <div class="menu-content">
+                        <span class="menu-heading fw-bold text-uppercase fs-7">کسب و کار من</span>
+                    </div>
+                </div>
+                <div  data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <i class="ki-duotone ki-user-square fs-2">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                                <span class="path3"></span>
+                            </i>
+                        </span>
+                        <span class="menu-title">کارمندان</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('store-manager.store-managers.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">لیست کارمندان</span>
+                            </a>
+                        </div>
+                        <!--end:Menu item-->
+                    </div>
+                </div>
+            </div>
+
             <!--end::Menu-->
         </div>
         <!--end::Menu wrapper-->
