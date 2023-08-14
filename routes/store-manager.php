@@ -3,6 +3,7 @@
 use App\Http\Controllers\StoreManager\AuthController;
 use App\Http\Controllers\StoreManager\CustomerController;
 use App\Http\Controllers\StoreManager\MyProfileController;
+use App\Http\Controllers\StoreManager\PointController;
 use App\Http\Controllers\StoreManager\StoreManagerController;
 use App\Http\Controllers\StoreManager\WelcomeController;
 use App\Models\StoreManager;
@@ -41,10 +42,20 @@ Route::middleware(['auth:store-manager'])->group(function () {
     });
 
     Route::prefix('customers')->middleware(['can:' . StoreManager::PERMISSIONS['customers']])->group(function () {
+        Route::get('/ajax-index', [CustomerController::class, 'ajaxIndex'])->name('store-manager.customers.ajax-index');
         Route::get('/index', [CustomerController::class, 'index'])->name('store-manager.customers.index');
         Route::get('/create', [CustomerController::class, 'create'])->name('store-manager.customers.create');
         Route::post('/store', [CustomerController::class, 'store'])->name('store-manager.customers.store');
         Route::get('/edit/{id}', [CustomerController::class, 'edit'])->name('store-manager.customers.edit');
         Route::post('/update/{id}', [CustomerController::class, 'update'])->name('store-manager.customers.update');
+    });
+
+    Route::prefix('points')->middleware(['can:' . StoreManager::PERMISSIONS['points']])->group(function () {
+        Route::get('/index', [PointController::class, 'index'])->name('store-manager.points.index');
+        Route::get('/create-purchase', [PointController::class, 'createPurchase'])->name('store-manager.points.create-purchase');
+        Route::post('/store-purchase', [PointController::class, 'storePurchase'])->name('store-manager.points.store-purchase');
+        Route::post('/store', [PointController::class, 'store'])->name('store-manager.points.store');
+        Route::get('/edit/{id}', [PointController::class, 'edit'])->name('store-manager.points.edit');
+        Route::post('/update/{id}', [PointController::class, 'update'])->name('store-manager.points.update');
     });
 });

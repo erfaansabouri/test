@@ -10,6 +10,35 @@ use Illuminate\Support\Facades\Auth;
 
 class CustomerController extends Controller
 {
+    public function ajaxIndex(Request $request)
+    {
+        $store_manager = Auth::guard('store-manager')->user();
+        $customers = Customer::query()
+            ->interactWithStore($store_manager->store_id)
+            ->when($request->search, function ($query) use ($request){
+                $query->where(function ($query) use ($request) {
+                    $query->where('id', $request->search)
+                        ->orwhere('first_name', 'like', '%' . $request->search . '%')
+                        ->orwhere('last_name', 'like', '%' . $request->search . '%')
+                        ->orwhere('group_name', 'like', '%' . $request->search . '%')
+                        ->orwhere('email', 'like', '%' . $request->search . '%')
+                        ->orwhere('phone_number', 'like', '%' . $request->search . '%')
+                        ->orwhere('national_code', 'like', '%' . $request->search . '%')
+                        ->orwhere('birthdate', 'like', '%' . $request->search . '%');
+                });
+            })
+            ->orderByDesc('id')
+            ->get();
+        $result = [];
+        foreach ($customers as $customer) {
+            $result[] = [
+                'id' => $customer->id,
+                'text' => $customer->id . "- " . $customer->full_name,
+            ];
+        }
+        return $result;
+    }
+
     public function index(Request $request)
     {
         $store_manager = Auth::guard('store-manager')->user();

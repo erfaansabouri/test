@@ -19,6 +19,7 @@ class StoreManager extends Authenticatable implements HasMedia
     const PERMISSIONS = [
         'store-managers' => 'کارمندان',
         'customers' => 'مشتریان',
+        'points' => 'امتیاز ها',
     ];
     public function registerMediaCollections(): void
     {
