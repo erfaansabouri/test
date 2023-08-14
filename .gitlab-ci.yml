@@ -1,4 +1,4 @@
 call_api:
-  stage:
+  stage: .post
   script:
     - curl -X GET https://artemisfarmanieh.ir/git.php
