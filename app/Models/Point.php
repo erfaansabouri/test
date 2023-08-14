@@ -40,4 +40,9 @@ class Point extends Model
         return $query->where('point_type_id', PointType::nonPurchaseId());
     }
 
+    public function scopeInteractWithStore($query, $store_id)
+    {
+        return $query->where('store_id', $store_id);
+    }
+
 }

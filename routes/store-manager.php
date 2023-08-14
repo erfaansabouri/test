@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\StoreManager\AuthController;
+use App\Http\Controllers\StoreManager\CustomerController;
 use App\Http\Controllers\StoreManager\MyProfileController;
 use App\Http\Controllers\StoreManager\StoreManagerController;
 use App\Http\Controllers\StoreManager\WelcomeController;
@@ -29,5 +30,21 @@ Route::middleware(['auth:store-manager'])->group(function () {
         Route::post('/store', [StoreManagerController::class, 'store'])->name('store-manager.store-managers.store');
         Route::get('/edit/{id}', [StoreManagerController::class, 'edit'])->name('store-manager.store-managers.edit');
         Route::post('/update/{id}', [StoreManagerController::class, 'update'])->name('store-manager.store-managers.update');
+    });
+
+    Route::prefix('store-managers')->middleware(['can:' . StoreManager::PERMISSIONS['store-managers']])->group(function () {
+        Route::get('/index', [StoreManagerController::class, 'index'])->name('store-manager.store-managers.index');
+        Route::get('/create', [StoreManagerController::class, 'create'])->name('store-manager.store-managers.create');
+        Route::post('/store', [StoreManagerController::class, 'store'])->name('store-manager.store-managers.store');
+        Route::get('/edit/{id}', [StoreManagerController::class, 'edit'])->name('store-manager.store-managers.edit');
+        Route::post('/update/{id}', [StoreManagerController::class, 'update'])->name('store-manager.store-managers.update');
+    });
+
+    Route::prefix('customers')->middleware(['can:' . StoreManager::PERMISSIONS['customers']])->group(function () {
+        Route::get('/index', [CustomerController::class, 'index'])->name('store-manager.customers.index');
+        Route::get('/create', [CustomerController::class, 'create'])->name('store-manager.customers.create');
+        Route::post('/store', [CustomerController::class, 'store'])->name('store-manager.customers.store');
+        Route::get('/edit/{id}', [CustomerController::class, 'edit'])->name('store-manager.customers.edit');
+        Route::post('/update/{id}', [CustomerController::class, 'update'])->name('store-manager.customers.update');
     });
 });

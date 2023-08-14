@@ -23,4 +23,20 @@ class Customer extends Model
     {
         $this->increment('balance', $value);
     }
+
+    public function scopeInteractWithStore($query, $store_id){
+        $customer_ids = Point::query()
+            ->where('store_id', $store_id)
+            ->pluck('customer_id')
+            ->toArray();
+
+        $created_customer_ids = Customer::query()
+            ->where('created_by_store_id', $store_id)
+            ->pluck('id')
+            ->toArray();
+
+        $ids = array_merge($customer_ids, $created_customer_ids);
+
+        return $query->whereIn('id', $ids);
+    }
 }
