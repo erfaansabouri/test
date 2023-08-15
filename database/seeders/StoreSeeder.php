@@ -40,7 +40,7 @@ class StoreSeeder extends Seeder
 
         StoreManager::first()
             ->update([
-                'phone_number' => "09360358326",
+                'phone_number' => "09123333333",
             ]);
     }
 }

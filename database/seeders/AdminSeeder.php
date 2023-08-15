@@ -14,7 +14,7 @@ class AdminSeeder extends Seeder
         $admin = new Admin();
         $admin->first_name = "عرفان";
         $admin->last_name = "صبوری";
-        $admin->phone_number = "09372033422";
+        $admin->phone_number = "09371111111";
         $admin->password = bcrypt('as12AS!@');
         $admin->is_super_admin = true;
         $admin->is_disable = false;
@@ -23,7 +23,7 @@ class AdminSeeder extends Seeder
         $admin = new Admin();
         $admin->first_name = "کار";
         $admin->last_name = "شناس";
-        $admin->phone_number = "09171025869";
+        $admin->phone_number = "09172222222";
         $admin->password = bcrypt('as12AS!@');
         $admin->is_super_admin = false;
         $admin->is_disable = false;
