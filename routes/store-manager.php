@@ -42,6 +42,7 @@ Route::middleware(['auth:store-manager'])->group(function () {
     });
 
     Route::prefix('customers')->middleware(['can:' . StoreManager::PERMISSIONS['customers']])->group(function () {
+        Route::get('/ajax-find-by-phone-number', [CustomerController::class, 'ajaxFindByPhoneNumber'])->name('store-manager.customers.ajax-find-by-phone-number');
         Route::get('/ajax-index', [CustomerController::class, 'ajaxIndex'])->name('store-manager.customers.ajax-index');
         Route::get('/index', [CustomerController::class, 'index'])->name('store-manager.customers.index');
         Route::get('/create', [CustomerController::class, 'create'])->name('store-manager.customers.create');
@@ -56,6 +57,8 @@ Route::middleware(['auth:store-manager'])->group(function () {
         Route::post('/store-purchase', [PointController::class, 'storePurchase'])->name('store-manager.points.store-purchase');
         Route::get('/create-non-purchase', [PointController::class, 'createNonPurchase'])->name('store-manager.points.create-non-purchase');
         Route::post('/store-non-purchase', [PointController::class, 'storeNonPurchase'])->name('store-manager.points.store-non-purchase');
+        Route::get('/create-fast', [PointController::class, 'createFast'])->name('store-manager.points.create-fast');
+        Route::post('/store-fast', [PointController::class, 'storeFast'])->name('store-manager.points.store-fast');
         Route::post('/store', [PointController::class, 'store'])->name('store-manager.points.store');
         Route::get('/edit/{id}', [PointController::class, 'edit'])->name('store-manager.points.edit');
         Route::post('/update/{id}', [PointController::class, 'update'])->name('store-manager.points.update');

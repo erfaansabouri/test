@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\StoreManager;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
 use App\Models\Point;
 use App\Models\PointType;
 use App\Models\Store;
@@ -89,6 +90,45 @@ class PointController extends Controller
         $point->point_type_id = PointType::nonPurchaseId();
         $point->reason = $request->reason;
         $point->save();
+
+        return redirect()->route('store-manager.points.index')->with([
+            'success' => "{$point->point} امتیاز با موفقیت به کاربر اضافه شد."
+        ]);
+    }
+
+    public function createFast(){
+        return view('store-manager.points.fast-form');
+    }
+
+    public function storeFast(Request $request){
+        $request->validate([
+            'phone_number' => ['required'],
+            'type' => ['required', 'in:purchase,non_purchase'],
+            'value' => ['required'],
+        ]);
+
+        $customer = Customer::query()->firstOrCreate([
+            'phone_number' => $request->phone_number
+        ]);
+
+        $store_id = Auth::guard('store-manager')->user()->store_id;
+
+        if ($request->type == 'purchase'){
+            $point = new Point();
+            $point->store_id = $store_id;
+            $point->customer_id = $customer->id;
+            $point->price = $request->value;
+            $point->point = Store::findOrFail($store_id)->calculatePoint($request->value);
+            $point->point_type_id = PointType::purchaseId();
+            $point->save();
+        }else{
+            $point = new Point();
+            $point->store_id = $store_id;
+            $point->customer_id = $customer->id;
+            $point->point = $request->value;
+            $point->point_type_id = PointType::nonPurchaseId();
+            $point->save();
+        }
 
         return redirect()->route('store-manager.points.index')->with([
             'success' => "{$point->point} امتیاز با موفقیت به کاربر اضافه شد."

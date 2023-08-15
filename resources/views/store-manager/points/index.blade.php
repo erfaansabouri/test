@@ -57,8 +57,8 @@
                     <i class="ki-duotone ki-plus fs-2"></i>افزودن امتیاز (رویداد پرداختی)</a>
                 <a href="{{ route('store-manager.points.create-non-purchase') }}" class="btn btn-light-primary me-6">
                     <i class="ki-duotone ki-plus fs-2"></i>افزودن امتیاز  (رویداد غیر پرداختی)</a>
-                <a href="#" class="btn btn-light-danger me-6">
-                    <i class="ki-duotone ki-plus fs-2"></i>افزودن امتیاز سرعتی</a>
+                <a href="{{ route('store-manager.points.create-fast') }}" class="btn btn-light-danger me-6">
+                    <i class="ki-duotone ki-plus fs-2"></i>افزودن امتیاز سریع</a>
             </div>
             <!--end::کارت toolbar-->
         </div>
