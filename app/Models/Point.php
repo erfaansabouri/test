@@ -21,7 +21,7 @@ class Point extends Model
                     CustomerPurchasedMoreThanAnAmountEvent::dispatch($point->customer, $point->store);
                 }
             }
-            if ($point->pointType->id == PointType::nonPurchaseId()){
+            if ($point->store && $point->pointType->id == PointType::nonPurchaseId()){
                 CustomerReceivedNonPurchasePointEvent::dispatch($point->customer, $point->store);
             }
         });
