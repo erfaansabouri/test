@@ -20,6 +20,7 @@ class StoreManager extends Authenticatable implements HasMedia
         'store-managers' => 'کارمندان',
         'customers' => 'مشتریان',
         'points' => 'امتیاز ها',
+        'store-settings' => 'تنظیمات سطح بندی مشتریان',
     ];
     public function registerMediaCollections(): void
     {

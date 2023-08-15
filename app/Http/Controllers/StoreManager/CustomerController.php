@@ -81,7 +81,8 @@ class CustomerController extends Controller
     }
 
     public function create(){
-        return view('store-manager.customers.form');
+        $store_manager = Auth::guard('store-manager')->user();
+        return view('store-manager.customers.form', compact('store_manager'));
     }
 
     public function store(Request $request)
@@ -99,7 +100,8 @@ class CustomerController extends Controller
     public function edit($id)
     {
         $record = Customer::findOrFail($id);
-        return view('store-manager..customers.form', compact('record'));
+        $store_manager = Auth::guard('store-manager')->user();
+        return view('store-manager.customers.form', compact('record', 'store_manager'));
     }
 
     public function update(Request $request, $id)

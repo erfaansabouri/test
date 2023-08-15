@@ -15,4 +15,15 @@ class Store extends Model
     public function points(){
         return $this->hasMany(Point::class);
     }
+
+    public function storeSetting(){
+        return $this->hasOne(StoreSetting::class);
+    }
+
+    protected static function booted()
+    {
+        static::created(function (Store $store) {
+            $store->storeSetting()->firstOrCreate();
+        });
+    }
 }

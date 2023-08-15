@@ -3,6 +3,61 @@
     حساب کاربری مشتری
 @endsection
 @section('content')
+    @if(isset($record))
+        <div class="card pt-4 mt-6 mb-6">
+            <!--begin::کارت header-->
+            <div class="card-header border-0">
+                <!--begin::کارت title-->
+                <div class="card-title">
+                    <h2>اطلاعات</h2>
+                </div>
+                <!--end::کارت title-->
+                <!--begin::کارت toolbar-->
+                <!--end::کارت toolbar-->
+            </div>
+            <!--end::کارت header-->
+            <!--begin::کارت body-->
+            <div class="card-body py-0">
+                <!--begin::Table-->
+                <table class="table align-middle table-row-dashed fs-6  fw-semibold gy-5" id="kt_table_customers_رویدادها">
+                    <tbody>
+                    <tr>
+                        <td class="min-w-400px">تاریخ عضویت</td>
+                        <td class="pe-0  text-end min-w-200px">{{ Verta::instance($record->created_at)->formatJalaliDatetime() }}</td>
+                    </tr>
+                    <tr>
+                        <td class="min-w-400px">تاریخ اولین خرید</td>
+                        <td class="pe-0  text-end min-w-200px">{{ $record->points()->where('store_id', $store_manager->store_id)->first() ? Verta::instance($record->points()->where('store_id', $store_manager->store_id)->first()->created_at)->formatJalaliDatetime() : 'خریدی ندارد'}}</td>
+                    </tr>
+                    <tr>
+                        <td class="min-w-400px">تاریخ آخرین خرید</td>
+                        <td class="pe-0  text-end min-w-200px">{{ $record->points()->where('store_id', $store_manager->store_id)->orderByDesc('created_at')->first() ? Verta::instance($record->points()->where('store_id', $store_manager->store_id)->orderByDesc('created_at')->first()->created_at)->formatJalaliDatetime() : 'خریدی ندارد'}}</td>
+                    </tr>
+                    <tr>
+                        <td class="min-w-400px">مجموع امتیاز های دریافتی</td>
+                        <td class="pe-0  text-end min-w-200px text-primary fw-bolder">{{ number_format($record->points()->where('store_id', $store_manager->store_id)->sum('point')) }}
+                            <small>(رویداد پرداختی = {{ number_format($record->points()->where('store_id', $store_manager->store_id)->purchaseType()->sum('point')) }} + رویداد غیر پرداختی = {{ number_format($record->points()->where('store_id', $store_manager->store_id)->nonPurchaseType()->sum('point')) }})</small>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="min-w-400px">مجموع امتیاز های مصرف شده</td>
+                        <td class="pe-0  text-end min-w-200px text-danger fw-bolder">TODO</td>
+                    </tr>
+                    <tr>
+                        <td class="min-w-400px">مجموع امتیاز های قابل استفاده</td>
+                        <td class="pe-0  text-end min-w-200px text-success fw-bolder">{{ number_format($record->balance) }}</td>
+                    </tr>
+                    <tr>
+                        <td class="min-w-400px">نمایش امتیاز های دریافتی</td>
+                        <td class="pe-0  text-end min-w-200px"><a target="_blank" href="{{ route('store-manager.points.index', ['customer_id' => $record->id]) }}">رفتن به لیست امتیاز ها</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <!--end::Table-->
+            </div>
+            <!--end::کارت body-->
+        </div>
+    @endif
     <div class="card mb-5 mb-xl-10">
         <!--begin::کارت header-->
         <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expوed="true" aria-controls="kt_account_profile_details">

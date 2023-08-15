@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use App\Events\CustomerDidAPurchasedFromStoreEvent;
+use App\Events\CustomerPurchasedMoreThanAnAmountEvent;
+use App\Events\CustomerReceivedNonPurchasePointEvent;
 use Illuminate\Database\Eloquent\Model;
 
 class Point extends Model
@@ -12,6 +15,15 @@ class Point extends Model
     {
         static::created(function (Point $point) {
             $point->customer->increaseBalance($point->point);
+            if ($point->pointType->id == PointType::purchaseId()){
+                CustomerDidAPurchasedFromStoreEvent::dispatch($point->customer, $point->store);
+                if ($point->store->storeSetting->customer_purchased_more_than_amount && $point->price >= $point->store->storeSetting->customer_purchased_more_than_amount){
+                    CustomerPurchasedMoreThanAnAmountEvent::dispatch($point->customer, $point->store);
+                }
+            }
+            if ($point->pointType->id == PointType::nonPurchaseId()){
+                CustomerReceivedNonPurchasePointEvent::dispatch($point->customer, $point->store);
+            }
         });
     }
 

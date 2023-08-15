@@ -5,6 +5,7 @@ use App\Http\Controllers\StoreManager\CustomerController;
 use App\Http\Controllers\StoreManager\MyProfileController;
 use App\Http\Controllers\StoreManager\PointController;
 use App\Http\Controllers\StoreManager\StoreManagerController;
+use App\Http\Controllers\StoreManager\StoreSettingController;
 use App\Http\Controllers\StoreManager\WelcomeController;
 use App\Models\StoreManager;
 use Illuminate\Support\Facades\Route;
@@ -62,5 +63,10 @@ Route::middleware(['auth:store-manager'])->group(function () {
         Route::post('/store', [PointController::class, 'store'])->name('store-manager.points.store');
         Route::get('/edit/{id}', [PointController::class, 'edit'])->name('store-manager.points.edit');
         Route::post('/update/{id}', [PointController::class, 'update'])->name('store-manager.points.update');
+    });
+
+    Route::prefix('store-settings')->middleware(['can:' . StoreManager::PERMISSIONS['store-settings']])->group(function () {
+        Route::get('/edit', [StoreSettingController::class, 'edit'])->name('store-manager.store-settings.edit');
+        Route::post('/update', [StoreSettingController::class, 'update'])->name('store-manager.store-settings.update');
     });
 });

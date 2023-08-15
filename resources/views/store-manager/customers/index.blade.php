@@ -54,6 +54,7 @@
                         <th class="min-w-125px">شماره تماس</th>
                         <th class="min-w-125px">تعداد خرید</th>
                         <th class="min-w-125px">مبلغ کل خرید</th>
+                        <th class="min-w-125px">ستاره های دریافتی</th>
                         <th class="min-w-125px">جمع امتیاز دریافتی</th>
                         <th class="min-w-125px">امتیاز کل در باشگاه</th>
                         <th class="min-w-125px">عملیات</th>
@@ -67,6 +68,7 @@
                             <td>{{ $customer->phone_number }}</td>
                             <td>{{ number_format($customer->points()->interactWithStore($store_manager->id)->count()) }}</td>
                             <td>{{ number_format($customer->points()->interactWithStore($store_manager->id)->sum('price')) }}</td>
+                            <td class="text-primary">{{ number_format($customer->stars($store_manager->store_id)) }}</td>
                             <td class="text-primary">{{ number_format($customer->points()->interactWithStore($store_manager->id)->sum('point')) }}</td>
                             <td class="text-success">{{ number_format($customer->balance) }}</td>
                             <td>
