@@ -119,10 +119,8 @@
                                                 <span class="badge badge-secondary">{{ $point->customer->phone_number }}</span>
                                             </td>
                                             <td>
-                                                @if($point->store)
-                                                    خرید از <b>{{ $point->store->title }}</b>
-                                                @else
-                                                    {{ $point->pointType->type_fa }}
+                                                {{ $point->pointType->type_fa }}
+                                                @if($point->reason)
                                                     <br>
                                                     <small>({{ $point->reason }})</small>
                                                 @endif

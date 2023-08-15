@@ -53,11 +53,12 @@
             <!--begin::کارت toolbar-->
             <div class="card-toolbar">
                 <!--begin::Toolbar-->
-                <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-                    <a href="{{ route('store-manager.points.create-purchase') }}" class="btn btn-light-success">
-                        <i class="ki-duotone ki-plus fs-2"></i>افزودن امتیاز (رویداد پرداختی)</a>
-                </div>
-
+                <a href="{{ route('store-manager.points.create-purchase') }}" class="btn btn-light-success me-6">
+                    <i class="ki-duotone ki-plus fs-2"></i>افزودن امتیاز (رویداد پرداختی)</a>
+                <a href="{{ route('store-manager.points.create-non-purchase') }}" class="btn btn-light-primary me-6">
+                    <i class="ki-duotone ki-plus fs-2"></i>افزودن امتیاز  (رویداد غیر پرداختی)</a>
+                <a href="#" class="btn btn-light-danger me-6">
+                    <i class="ki-duotone ki-plus fs-2"></i>افزودن امتیاز سرعتی</a>
             </div>
             <!--end::کارت toolbar-->
         </div>
@@ -87,10 +88,8 @@
                                 <span class="badge badge-secondary">{{ $point->customer->phone_number }}</span>
                             </td>
                             <td>
-                                @if($point->store)
-                                    خرید از <b>{{ $point->store->title }}</b>
-                                @else
-                                    {{ $point->pointType->type_fa }}
+                                {{ $point->pointType->type_fa }}
+                                @if($point->reason)
                                     <br>
                                     <small>({{ $point->reason }})</small>
                                 @endif

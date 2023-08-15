@@ -70,4 +70,28 @@ class PointController extends Controller
             'success' => "{$point->point} امتیاز با موفقیت به کاربر اضافه شد."
         ]);
     }
+
+    public function createNonPurchase(){
+        return view('store-manager.points.non-purchase-form');
+    }
+
+    public function storeNonPurchase(Request $request){
+        $request->validate([
+            'customer_id' => ['required', 'exists:customers,id'],
+            'point' => ['required', 'int'],
+            'other_type_reason' => ['nullable'],
+        ]);
+        $store_id = Auth::guard('store-manager')->user()->store_id;
+        $point = new Point();
+        $point->store_id = $store_id;
+        $point->customer_id = $request->customer_id;
+        $point->point = $request->point;
+        $point->point_type_id = PointType::nonPurchaseId();
+        $point->reason = $request->reason;
+        $point->save();
+
+        return redirect()->route('store-manager.points.index')->with([
+            'success' => "{$point->point} امتیاز با موفقیت به کاربر اضافه شد."
+        ]);
+    }
 }

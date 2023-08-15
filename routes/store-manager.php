@@ -54,6 +54,8 @@ Route::middleware(['auth:store-manager'])->group(function () {
         Route::get('/index', [PointController::class, 'index'])->name('store-manager.points.index');
         Route::get('/create-purchase', [PointController::class, 'createPurchase'])->name('store-manager.points.create-purchase');
         Route::post('/store-purchase', [PointController::class, 'storePurchase'])->name('store-manager.points.store-purchase');
+        Route::get('/create-non-purchase', [PointController::class, 'createNonPurchase'])->name('store-manager.points.create-non-purchase');
+        Route::post('/store-non-purchase', [PointController::class, 'storeNonPurchase'])->name('store-manager.points.store-non-purchase');
         Route::post('/store', [PointController::class, 'store'])->name('store-manager.points.store');
         Route::get('/edit/{id}', [PointController::class, 'edit'])->name('store-manager.points.edit');
         Route::post('/update/{id}', [PointController::class, 'update'])->name('store-manager.points.update');
