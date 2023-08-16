@@ -60,7 +60,7 @@ class Customer extends Model
             ->pluck('id')
             ->toArray();
         $ids = array_merge($customer_ids, $created_customer_ids);
-        return $query->whereIn('id', $ids);
+        return $query->whereIn('customers.id', $ids);
     }
 
     /* مشتریان پر مراجعه */

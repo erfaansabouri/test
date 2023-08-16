@@ -16,7 +16,7 @@ class Point extends Model
         static::created(function (Point $point) {
             $point->customer->increaseBalance($point->point);
             if ($point->pointType->id == PointType::purchaseId()){
-                CustomerDidAPurchasedFromStoreEvent::dispatch($point->customer, $point->store);
+                CustomerDidAPurchasedFromStoreEvent::dispatch($point->customer, $point->store, $point->price);
                 if ($point->store->storeSetting->customer_purchased_more_than_amount && $point->price >= $point->store->storeSetting->customer_purchased_more_than_amount){
                     CustomerPurchasedMoreThanAnAmountEvent::dispatch($point->customer, $point->store);
                 }

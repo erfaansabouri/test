@@ -4,6 +4,7 @@ namespace App\Http\Controllers\StoreManager;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Models\CustomerStore;
 use App\Services\DateServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -107,6 +108,36 @@ class CustomerController extends Controller
                              ->paginate(30);
 
         return view('store-manager.customers.loyal-index', compact('customers', 'store_manager'));
+    }
+
+    public function mostPurchaseIndex(Request $request){
+        $store_manager = Auth::guard('store-manager')->user();
+        $ids = CustomerStore::where('store_id', $store_manager->store_id)
+            ->orderByDesc('total_price')
+            ->pluck('customer_id')->toArray();
+        $ids_ordered = implode(',' , $ids);
+        $customers = Customer::interactWithStore($store_manager->store_id)
+                             ->withCount(['points' => function($query) use ($store_manager){
+                                 $query->where('store_id', $store_manager->store_id);
+                             }])
+                             ->when($request->search, function ($query) use ($request){
+                                 $query->where(function ($query) use ($request) {
+                                     $query->where('id', $request->search)
+                                           ->orwhere('first_name', 'like', '%' . $request->search . '%')
+                                           ->orwhere('last_name', 'like', '%' . $request->search . '%')
+                                           ->orwhere('group_name', 'like', '%' . $request->search . '%')
+                                           ->orwhere('email', 'like', '%' . $request->search . '%')
+                                           ->orwhere('phone_number', 'like', '%' . $request->search . '%')
+                                           ->orwhere('national_code', 'like', '%' . $request->search . '%')
+                                           ->orwhere('birthdate', 'like', '%' . $request->search . '%');
+                                 });
+                             })
+
+                             ->orderByRaw("FIELD(id, $ids_ordered)")
+                             ->paginate(30);
+
+
+        return view('store-manager.customers.most-purchase-index', compact('customers', 'store_manager'));
     }
 
     public function create(){

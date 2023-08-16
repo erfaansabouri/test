@@ -22,12 +22,14 @@ class CustomerDidAPurchasedFromStoreEvent
      */
     public $customer;
     public $store;
-    public function __construct($customer, $store)
+    public $price;
+    public function __construct($customer, $store, $price = 0)
     {
         $this->customer = $customer;
         $this->store = $store;
         $this->stars = StoreSetting::query()->where('store_id', $store->id)->firstOrFail()->customer_did_a_purchased_from_store_event_stars;
         $this->type = self::class;
+        $this->price = $price;
     }
 
     /**

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('customer_id')->nullable();
             $table->unsignedBigInteger('store_id')->nullable();
+            $table->unsignedBigInteger('total_price')->default(0);
             $table->integer('stars')->default(0);
             $table->timestamps();
         });

@@ -7,6 +7,7 @@ use App\Events\CustomerJoinedStoreEvent;
 use App\Events\CustomerPurchasedMoreThanAnAmountEvent;
 use App\Events\CustomerReceivedNonPurchasePointEvent;
 use App\Listeners\AddStarListener;
+use App\Listeners\IncreaseCustomerTotalPriceInStoreListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -25,6 +26,7 @@ class EventServiceProvider extends ServiceProvider
         ],
         CustomerDidAPurchasedFromStoreEvent::class => [
             AddStarListener::class,
+            IncreaseCustomerTotalPriceInStoreListener::class,
         ],
         CustomerJoinedStoreEvent::class => [
             AddStarListener::class,
