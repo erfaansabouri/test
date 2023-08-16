@@ -62,4 +62,11 @@ class Customer extends Model
         $ids = array_merge($customer_ids, $created_customer_ids);
         return $query->whereIn('id', $ids);
     }
+
+    /* مشتریان پر مراجعه */
+    public function scopeLoyal($query, $store_id, $from_date = null, $to_date = null){
+        $customer_ids = Customer::query()
+            ->interactWithStore($store_id)
+            ->pluck('id');
+    }
 }

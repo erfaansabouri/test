@@ -47,6 +47,7 @@ Route::middleware(['auth:store-manager'])->group(function () {
         Route::get('/ajax-find-by-phone-number', [CustomerController::class, 'ajaxFindByPhoneNumber'])->name('store-manager.customers.ajax-find-by-phone-number');
         Route::get('/ajax-index', [CustomerController::class, 'ajaxIndex'])->name('store-manager.customers.ajax-index');
         Route::get('/index', [CustomerController::class, 'index'])->name('store-manager.customers.index');
+        Route::get('/loyal-index', [CustomerController::class, 'loyalIndex'])->name('store-manager.customers.loyal-index');
         Route::get('/create', [CustomerController::class, 'create'])->name('store-manager.customers.create');
         Route::post('/store', [CustomerController::class, 'store'])->name('store-manager.customers.store');
         Route::get('/edit/{id}', [CustomerController::class, 'edit'])->name('store-manager.customers.edit');
