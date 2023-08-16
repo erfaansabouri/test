@@ -22,17 +22,19 @@ class AddStarListener
         $stars = $event->stars;
         $type = $event->type;
 
-        Star::query()
-            ->create([
-                'customer_id' => $customer->id,
-                'store_id' => $store->id,
-                'stars' => $stars,
-                'type' => $type
-            ]);
+        if ($stars > 0){
+            Star::query()
+                ->create([
+                    'customer_id' => $customer->id,
+                    'store_id' => $store->id,
+                    'stars' => $stars,
+                    'type' => $type
+                ]);
 
-        $customer_store = CustomerStore::query()
-            ->firstOrCreate(['store_id' => $store->id, 'customer_id' => $customer->id]);
+            $customer_store = CustomerStore::query()
+                ->firstOrCreate(['store_id' => $store->id, 'customer_id' => $customer->id]);
 
-        $customer_store->increment('stars', $stars);
+            $customer_store->increment('stars', $stars);
+        }
     }
 }

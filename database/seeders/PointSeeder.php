@@ -40,8 +40,10 @@ class PointSeeder extends Seeder
             }
             $max = rand(0, 5);
             for ($i = 0; $i < $max; $i++) {
+                $store = Store::inRandomOrder()->first();
                 $point = new Point();
                 $point->customer_id = $customer->id;
+                $point->store_id = $store->id;
                 $point->point = rand(1, 100);
                 $point->point_type_id = PointType::query()->find(2)->id;
                 $point->reason = Factory::create('fa_IR')->sentence;

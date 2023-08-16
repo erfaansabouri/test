@@ -4,6 +4,7 @@ use App\Http\Controllers\StoreManager\AuthController;
 use App\Http\Controllers\StoreManager\CustomerController;
 use App\Http\Controllers\StoreManager\MyProfileController;
 use App\Http\Controllers\StoreManager\PointController;
+use App\Http\Controllers\StoreManager\StarController;
 use App\Http\Controllers\StoreManager\StoreManagerController;
 use App\Http\Controllers\StoreManager\StoreSettingController;
 use App\Http\Controllers\StoreManager\WelcomeController;
@@ -68,5 +69,9 @@ Route::middleware(['auth:store-manager'])->group(function () {
     Route::prefix('store-settings')->middleware(['can:' . StoreManager::PERMISSIONS['store-settings']])->group(function () {
         Route::get('/edit', [StoreSettingController::class, 'edit'])->name('store-manager.store-settings.edit');
         Route::post('/update', [StoreSettingController::class, 'update'])->name('store-manager.store-settings.update');
+    });
+
+    Route::prefix('stars')->middleware(['can:' . StoreManager::PERMISSIONS['stars']])->group(function () {
+        Route::get('/index', [StarController::class, 'index'])->name('store-manager.stars.index');
     });
 });

@@ -30,12 +30,18 @@ class Customer extends Model
         return $this->hasMany(Point::class);
     }
 
-    public function stars($store_id)
+    public function stars()
     {
-        return CustomerStore::firstOrCreate([
-            'store_id' => $store_id,
-            'customer_id' => $this->id,
-        ])->stars;
+        return $this->hasMany(Star::class);
+    }
+
+    public function storeProfiles()
+    {
+        return $this->hasMany(CustomerStore::class);
+    }
+
+    public function storeProfile($store_id){
+        return $this->storeProfiles()->firstOrCreate(['store_id' => $store_id]);
     }
 
     public function increaseBalance($value)

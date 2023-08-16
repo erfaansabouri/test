@@ -132,6 +132,18 @@
                     <div class="menu-sub menu-sub-accordion">
                         <!--begin:Menu item-->
                         <div class="menu-item">
+                            <a class="menu-link" href="{{ route('store-manager.stars.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">لیست ستاره ها</span>
+                            </a>
+                        </div>
+                        <!--end:Menu item-->
+                    </div>
+                    <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
                             <a class="menu-link" href="{{ route('store-manager.store-settings.edit') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>

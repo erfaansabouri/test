@@ -61,6 +61,9 @@ class CustomerController extends Controller
     {
         $store_manager = Auth::guard('store-manager')->user();
         $customers = Customer::interactWithStore($store_manager->store_id)
+            ->with(['storeProfiles' => function($query) use ($store_manager){
+                $query->where('store_id', $store_manager->store_id);
+            }])
             ->when($request->search, function ($query) use ($request){
                 $query->where(function ($query) use ($request) {
                     $query->where('id', $request->search)

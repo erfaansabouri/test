@@ -68,7 +68,7 @@
                             <td>{{ $customer->phone_number }}</td>
                             <td>{{ number_format($customer->points()->interactWithStore($store_manager->id)->count()) }}</td>
                             <td>{{ number_format($customer->points()->interactWithStore($store_manager->id)->sum('price')) }}</td>
-                            <td class="text-primary">{{ number_format($customer->stars($store_manager->store_id)) }}</td>
+                            <td class="text-primary">{{ number_format($customer->storeProfile($store_manager->store_id)->stars) }}</td>
                             <td class="text-primary">{{ number_format($customer->points()->interactWithStore($store_manager->id)->sum('point')) }}</td>
                             <td class="text-success">{{ number_format($customer->balance) }}</td>
                             <td>
