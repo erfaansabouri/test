@@ -83,6 +83,32 @@ class CustomerController extends Controller
         return view('store-manager.customers.index', compact('customers', 'store_manager'));
     }
 
+    public function loyalIndex(Request $request)
+    {
+        $store_manager = Auth::guard('store-manager')->user();
+        $customers = Customer::interactWithStore($store_manager->store_id)
+                             ->withCount(['points' => function($query) use ($store_manager){
+                                 $query->where('store_id', $store_manager->store_id);
+                             }])
+                             ->when($request->search, function ($query) use ($request){
+                                 $query->where(function ($query) use ($request) {
+                                     $query->where('id', $request->search)
+                                           ->orwhere('first_name', 'like', '%' . $request->search . '%')
+                                           ->orwhere('last_name', 'like', '%' . $request->search . '%')
+                                           ->orwhere('group_name', 'like', '%' . $request->search . '%')
+                                           ->orwhere('email', 'like', '%' . $request->search . '%')
+                                           ->orwhere('phone_number', 'like', '%' . $request->search . '%')
+                                           ->orwhere('national_code', 'like', '%' . $request->search . '%')
+                                           ->orwhere('birthdate', 'like', '%' . $request->search . '%');
+                                 });
+                             })
+
+                             ->orderByDesc('points_count')
+                             ->paginate(30);
+
+        return view('store-manager.customers.loyal-index', compact('customers', 'store_manager'));
+    }
+
     public function create(){
         $store_manager = Auth::guard('store-manager')->user();
         return view('store-manager.customers.form', compact('store_manager'));
