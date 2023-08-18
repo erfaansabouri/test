@@ -229,7 +229,7 @@
                 <div  data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
-                            <i class="ki-duotone ki-user-square fs-2">
+                            <i class="ki-duotone ki-chart-line-up fs-2">
                                 <span class="path1"></span>
                                 <span class="path2"></span>
                                 <span class="path3"></span>
