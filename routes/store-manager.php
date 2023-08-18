@@ -49,6 +49,10 @@ Route::middleware(['auth:store-manager'])->group(function () {
         Route::get('/index', [CustomerController::class, 'index'])->name('store-manager.customers.index');
         Route::get('/loyal-index', [CustomerController::class, 'loyalIndex'])->name('store-manager.customers.loyal-index');
         Route::get('/most-purchase-index', [CustomerController::class, 'mostPurchaseIndex'])->name('store-manager.customers.most-purchase-index');
+        Route::get('/no-return-index', [CustomerController::class, 'noReturnIndex'])->name('store-manager.customers.no-return-index');
+        Route::get('/forgetful-index', [CustomerController::class, 'forgetfulIndex'])->name('store-manager.customers.forgetful-index');
+        Route::get('/born-this-month-index', [CustomerController::class, 'bornThisMonthIndex'])->name('store-manager.customers.born-this-month-index');
+        Route::get('/levels-chart', [CustomerController::class, 'levelsChart'])->name('store-manager.customers.levels-chart');
         Route::get('/create', [CustomerController::class, 'create'])->name('store-manager.customers.create');
         Route::post('/store', [CustomerController::class, 'store'])->name('store-manager.customers.store');
         Route::get('/edit/{id}', [CustomerController::class, 'edit'])->name('store-manager.customers.edit');
@@ -71,6 +75,7 @@ Route::middleware(['auth:store-manager'])->group(function () {
     Route::prefix('store-settings')->middleware(['can:' . StoreManager::PERMISSIONS['store-settings']])->group(function () {
         Route::get('/edit', [StoreSettingController::class, 'edit'])->name('store-manager.store-settings.edit');
         Route::post('/update', [StoreSettingController::class, 'update'])->name('store-manager.store-settings.update');
+        Route::post('/update-levels', [StoreSettingController::class, 'updateLevels'])->name('store-manager.store-settings.update-levels');
     });
 
     Route::prefix('stars')->middleware(['can:' . StoreManager::PERMISSIONS['stars']])->group(function () {

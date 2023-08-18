@@ -144,6 +144,42 @@
                     <div class="menu-sub menu-sub-accordion">
                         <!--begin:Menu item-->
                         <div class="menu-item">
+                            <a class="menu-link" href="{{ route('store-manager.customers.forgetful-index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">لیست مشتریان فراموشکار</span>
+                            </a>
+                        </div>
+                        <!--end:Menu item-->
+                    </div>
+                    <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('store-manager.customers.no-return-index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">لیست مشتریان بدون بازگشت</span>
+                            </a>
+                        </div>
+                        <!--end:Menu item-->
+                    </div>
+                    <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('store-manager.customers.born-this-month-index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">لیست مشتریان متولدین این ماه</span>
+                            </a>
+                        </div>
+                        <!--end:Menu item-->
+                    </div>
+                    <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
                             <a class="menu-link" href="{{ route('store-manager.points.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
@@ -161,6 +197,18 @@
                                     <span class="bullet bullet-dot"></span>
                                 </span>
                                 <span class="menu-title">لیست ستاره ها</span>
+                            </a>
+                        </div>
+                        <!--end:Menu item-->
+                    </div>
+                    <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('store-manager.customers.levels-chart') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">نمودار سطوح مشتریان</span>
                             </a>
                         </div>
                         <!--end:Menu item-->

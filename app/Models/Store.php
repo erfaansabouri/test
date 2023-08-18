@@ -20,10 +20,25 @@ class Store extends Model
         return $this->hasOne(StoreSetting::class);
     }
 
+    public function storeLevels(){
+        return $this->hasMany(StoreLevel::class);
+    }
+
     protected static function booted()
     {
         static::created(function (Store $store) {
             $store->storeSetting()->firstOrCreate();
+
+            /*store levels*/
+            for ($i = 1 ; $i <= 3 ; $i++){
+                StoreLevel::query()
+                    ->create([
+                        'store_id' => $store->id,
+                        'level_name' => "سطح $i",
+                        'min_stars_count' => 0,
+                        'max_stars_count' => 0,
+                    ]);
+            }
         });
     }
 }
