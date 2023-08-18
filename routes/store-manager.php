@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\StoreManager\AuthController;
+use App\Http\Controllers\StoreManager\ChartController;
 use App\Http\Controllers\StoreManager\CustomerController;
 use App\Http\Controllers\StoreManager\MyProfileController;
 use App\Http\Controllers\StoreManager\PointController;
@@ -80,5 +81,10 @@ Route::middleware(['auth:store-manager'])->group(function () {
 
     Route::prefix('stars')->middleware(['can:' . StoreManager::PERMISSIONS['stars']])->group(function () {
         Route::get('/index', [StarController::class, 'index'])->name('store-manager.stars.index');
+    });
+
+    Route::prefix('charts')->middleware(['can:' . StoreManager::PERMISSIONS['charts']])->group(function () {
+        Route::get('/customer-points', [ChartController::class, 'customerPoints'])->name('store-manager.charts.customer-points');
+        Route::get('/customer-prices', [ChartController::class, 'customerPrices'])->name('store-manager.charts.customer-prices');
     });
 });

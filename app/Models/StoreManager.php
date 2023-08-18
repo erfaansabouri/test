@@ -22,6 +22,7 @@ class StoreManager extends Authenticatable implements HasMedia
         'points' => 'امتیاز ها',
         'store-settings' => 'تنظیمات سطح بندی مشتریان',
         'stars' => 'ستاره های مشتریان',
+        'charts' => 'نمودار ها',
     ];
     public function registerMediaCollections(): void
     {
