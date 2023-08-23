@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\StoreManager\AuthController;
+use App\Http\Controllers\StoreManager\CalendarController;
 use App\Http\Controllers\StoreManager\ChartController;
 use App\Http\Controllers\StoreManager\CustomerController;
 use App\Http\Controllers\StoreManager\MyProfileController;
@@ -86,5 +87,11 @@ Route::middleware(['auth:store-manager'])->group(function () {
     Route::prefix('charts')->middleware(['can:' . StoreManager::PERMISSIONS['charts']])->group(function () {
         Route::get('/customer-points', [ChartController::class, 'customerPoints'])->name('store-manager.charts.customer-points');
         Route::get('/customer-prices', [ChartController::class, 'customerPrices'])->name('store-manager.charts.customer-prices');
+    });
+
+    Route::prefix('calendar')->middleware(['can:' . StoreManager::PERMISSIONS['calendar']])->group(function () {
+        Route::get('/index', [CalendarController::class, 'index'])->name('store-manager.calendar.index');
+        Route::get('/create-event', [CalendarController::class, 'createEvent'])->name('store-manager.calendar.create-event');
+        Route::post('/save-event', [CalendarController::class, 'saveEvent'])->name('store-manager.calendar.save-event');
     });
 });
