@@ -3,6 +3,7 @@
 use App\Http\Controllers\StoreManager\AuthController;
 use App\Http\Controllers\StoreManager\CalendarController;
 use App\Http\Controllers\StoreManager\ChartController;
+use App\Http\Controllers\StoreManager\CouponController;
 use App\Http\Controllers\StoreManager\CouponGeneratorController;
 use App\Http\Controllers\StoreManager\CustomerController;
 use App\Http\Controllers\StoreManager\MyProfileController;
@@ -109,5 +110,10 @@ Route::middleware(['auth:store-manager'])->group(function () {
         Route::get('/edit/{id}', [SpecialSaleController::class, 'edit'])->name('store-manager.special-sales.edit');
         Route::post('/update/{id}', [SpecialSaleController::class, 'update'])->name('store-manager.special-sales.update');
         Route::get('/destroy/{id}', [SpecialSaleController::class, 'destroy'])->name('store-manager.special-sales.destroy');
+    });
+
+
+    Route::prefix('coupons')->middleware(['can:' . StoreManager::PERMISSIONS['coupons']])->group(function () {
+        Route::get('/index', [CouponController::class, 'index'])->name('store-manager.coupons.index');
     });
 });
