@@ -13,19 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('coupons', function (Blueprint $table) {
+        Schema::create('special_sales', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('store_id')->nullable()->index();
-            $table->unsignedBigInteger('customer_id')->nullable()->index();
-            $table->string('code')->nullable()->index();
             $table->integer('discount_percent')->nullable();
             $table->string('discount_ceiling')->nullable();
-            $table->unsignedBigInteger('coupon_generator_id')->nullable()->index();
-            $table->string('coupon_generator_type')->nullable()->index();
-            $table->unsignedBigInteger('special_sale_id')->nullable()->index();
-            $table->timestamp('expired_at')->nullable()->index();
-            $table->timestamp('used_at')->nullable()->index();
+            $table->string('lower_purchase_amount')->nullable();
+            $table->string('upper_purchase_amount')->nullable();
+            $table->timestamp('started_at')->nullable();
+            $table->timestamp('ended_at')->nullable();
+            $table->string('branch')->nullable();
+            $table->unsignedBigInteger('store_level_id')->nullable()->index();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coupons');
+        Schema::dropIfExists('special_sales');
     }
 };

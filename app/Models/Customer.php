@@ -69,4 +69,12 @@ class Customer extends Model
             ->interactWithStore($store_id)
             ->pluck('id');
     }
+
+    public function getLevel(Store $store){
+        $customer_stars = $this->storeProfile($store->id)->stars;
+        return StoreLevel::where('store_id', $store->id)
+            ->where('min_stars_count', '<=' , $customer_stars)
+            ->where('max_stars_count', '>=', $customer_stars)
+            ->first();
+    }
 }

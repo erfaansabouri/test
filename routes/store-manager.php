@@ -7,6 +7,7 @@ use App\Http\Controllers\StoreManager\CouponGeneratorController;
 use App\Http\Controllers\StoreManager\CustomerController;
 use App\Http\Controllers\StoreManager\MyProfileController;
 use App\Http\Controllers\StoreManager\PointController;
+use App\Http\Controllers\StoreManager\SpecialSaleController;
 use App\Http\Controllers\StoreManager\StarController;
 use App\Http\Controllers\StoreManager\StoreManagerController;
 use App\Http\Controllers\StoreManager\StoreSettingController;
@@ -99,5 +100,14 @@ Route::middleware(['auth:store-manager'])->group(function () {
     Route::prefix('coupon-generators')->middleware(['can:' . StoreManager::PERMISSIONS['coupon-generators']])->group(function () {
         Route::get('/edit', [CouponGeneratorController::class, 'edit'])->name('store-manager.coupon-generators.edit');
         Route::post('/update', [CouponGeneratorController::class, 'update'])->name('store-manager.coupon-generators.update');
+    });
+
+    Route::prefix('special-sales')->middleware(['can:' . StoreManager::PERMISSIONS['special-sales']])->group(function () {
+        Route::get('/index', [SpecialSaleController::class, 'index'])->name('store-manager.special-sales.index');
+        Route::get('/create', [SpecialSaleController::class, 'create'])->name('store-manager.special-sales.create');
+        Route::post('/store', [SpecialSaleController::class, 'store'])->name('store-manager.special-sales.store');
+        Route::get('/edit/{id}', [SpecialSaleController::class, 'edit'])->name('store-manager.special-sales.edit');
+        Route::post('/update/{id}', [SpecialSaleController::class, 'update'])->name('store-manager.special-sales.update');
+        Route::get('/destroy/{id}', [SpecialSaleController::class, 'destroy'])->name('store-manager.special-sales.destroy');
     });
 });
