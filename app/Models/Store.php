@@ -28,6 +28,10 @@ class Store extends Model
         return $this->hasMany(StoreLevel::class);
     }
 
+    public function customers(){
+        return $this->belongsToMany(Customer::class);
+    }
+
     protected static function booted()
     {
         static::created(function (Store $store) {

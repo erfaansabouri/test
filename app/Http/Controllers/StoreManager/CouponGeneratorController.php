@@ -15,11 +15,10 @@ class CouponGeneratorController extends Controller {
                                             ->where('store_id' , $store_manager->store_id)
                                             ->get();
 
-        return view('store-manager.coupon-generators.form', compact('coupon_generators', 'store_manager'));
+        return view('store-manager.coupon-generators.form' , compact('coupon_generators' , 'store_manager'));
     }
 
     public function update ( Request $request ) {
-        dd($request->all());
         $store_manager = Auth::guard('store-manager')
                              ->user();
         $request->validate([
@@ -27,21 +26,24 @@ class CouponGeneratorController extends Controller {
                                    'required' ,
                                    'array' ,
                                ] ,
-                               'types.*.discount_percent' => [ 'required' ] ,
-                               'types.*.discount_ceiling' => [ 'required' ] ,
-                               'types.*.days_count' => [ 'required' ] ,
                            ]);
-        $store_manager->store->couponGenerators()
-                             ->delete();
-        foreach ( $request->types as $type ) {
-            CouponGenerator::query()
-                           ->create([
-                                        'type' => $type[ 'type' ] ,
-                                        'discount_percent' => $type[ 'discount_percent' ] ,
-                                        'discount_ceiling' => $type[ 'discount_ceiling' ] ,
-                                        'days_count' => $type[ 'days_count' ] ,
-                                    ]);
+        foreach ( $request->types as $type_name => $type_value ) {
+            if ( $type_value[ 'discount_percent' ] && $type_value[ 'discount_ceiling' ] ) {
+                CouponGenerator::query()
+                               ->updateOrCreate([
+                                                    'store_id' => $store_manager->store_id ,
+                                                    'type' => $type_name ,
+                                                ] , [
+                                                    'discount_percent' => $type_value[ 'discount_percent' ] ,
+                                                    'discount_ceiling' => $type_value[ 'discount_ceiling' ] ,
+                                                    'days_count' => $type_value[ 'days_count' ] ,
+                                                    'meta_data' => $type_value[ 'meta_data' ] ,
+                                                ]);
+            }
         }
-        return redirect()->back()->with(['success' => 'عملیات با موفقیت انجام شد.']);
+
+        return redirect()
+            ->back()
+            ->with([ 'success' => 'عملیات با موفقیت انجام شد.' ]);
     }
 }

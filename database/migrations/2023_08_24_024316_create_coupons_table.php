@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('code')->nullable()->index();
             $table->integer('discount_percent')->nullable();
             $table->string('discount_ceiling')->nullable();
-            $table->string('cause')->comment('علت دریافت')->nullable();
+            $table->unsignedBigInteger('coupon_generator_id')->nullable()->index();
+            $table->string('coupon_generator_type')->nullable()->index();
             $table->timestamp('expired_at')->nullable()->index();
             $table->timestamp('used_at')->nullable()->index();
             $table->timestamps();
