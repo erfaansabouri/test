@@ -24,6 +24,7 @@ class StoreManager extends Authenticatable implements HasMedia
         'stars' => 'ستاره های مشتریان',
         'charts' => 'نمودار ها',
         'calendar' => 'تقویم',
+        'coupon-generators' => 'تنظیمات کوپن های اتوماتیک',
     ];
     public function registerMediaCollections(): void
     {

@@ -288,6 +288,31 @@
                         <!--end:Menu item-->
                     </div>
                 </div>
+                <div  data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                    <span class="menu-link">
+                        <span class="menu-icon">
+                            <i class="ki-duotone ki-percentage fs-2">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                                <span class="path3"></span>
+                            </i>
+                        </span>
+                        <span class="menu-title">کوپن ها</span>
+                        <span class="menu-arrow"></span>
+                    </span>
+                    <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('store-manager.coupon-generators.edit') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">تنظیمات کوپن های اتوماتیک</span>
+                            </a>
+                        </div>
+                        <!--end:Menu item-->
+                    </div>
+                </div>
             </div>
 
             <!--end::Menu-->

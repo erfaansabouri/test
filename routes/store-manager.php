@@ -3,6 +3,7 @@
 use App\Http\Controllers\StoreManager\AuthController;
 use App\Http\Controllers\StoreManager\CalendarController;
 use App\Http\Controllers\StoreManager\ChartController;
+use App\Http\Controllers\StoreManager\CouponGeneratorController;
 use App\Http\Controllers\StoreManager\CustomerController;
 use App\Http\Controllers\StoreManager\MyProfileController;
 use App\Http\Controllers\StoreManager\PointController;
@@ -93,5 +94,10 @@ Route::middleware(['auth:store-manager'])->group(function () {
         Route::get('/index', [CalendarController::class, 'index'])->name('store-manager.calendar.index');
         Route::get('/create-event', [CalendarController::class, 'createEvent'])->name('store-manager.calendar.create-event');
         Route::post('/save-event', [CalendarController::class, 'saveEvent'])->name('store-manager.calendar.save-event');
+    });
+
+    Route::prefix('coupon-generators')->middleware(['can:' . StoreManager::PERMISSIONS['coupon-generators']])->group(function () {
+        Route::get('/edit', [CouponGeneratorController::class, 'edit'])->name('store-manager.coupon-generators.edit');
+        Route::post('/update', [CouponGeneratorController::class, 'update'])->name('store-manager.coupon-generators.update');
     });
 });

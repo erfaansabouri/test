@@ -20,6 +20,10 @@ class Store extends Model
         return $this->hasOne(StoreSetting::class);
     }
 
+    public function couponGenerators(){
+        return $this->hasMany(CouponGenerator::class);
+    }
+
     public function storeLevels(){
         return $this->hasMany(StoreLevel::class);
     }
