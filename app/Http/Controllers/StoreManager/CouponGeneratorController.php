@@ -31,14 +31,14 @@ class CouponGeneratorController extends Controller {
             if ( $type_value[ 'discount_percent' ] && $type_value[ 'discount_ceiling' ] ) {
                 CouponGenerator::query()
                                ->updateOrCreate([
-                                                    'store_id' => $store_manager->store_id ,
-                                                    'type' => $type_name ,
-                                                ] , [
-                                                    'discount_percent' => $type_value[ 'discount_percent' ] ,
-                                                    'discount_ceiling' => $type_value[ 'discount_ceiling' ] ,
-                                                    'days_count' => $type_value[ 'days_count' ] ,
-                                                    'meta_data' => $type_value[ 'meta_data' ] ,
-                                                ]);
+                                                   'store_id' => $store_manager->store_id ,
+                                                   'type' => $type_name ,
+                                               ] , [
+                                                   'discount_percent' => $type_value[ 'discount_percent' ] ,
+                                                   'discount_ceiling' => $type_value[ 'discount_ceiling' ] ,
+                                                   'days_count' => $type_value[ 'days_count' ] ,
+                                                   'meta_data' => $type_value[ 'meta_data' ] ,
+                                               ]);
             }
         }
 
