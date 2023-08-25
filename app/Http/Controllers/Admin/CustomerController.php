@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Services\DateServices;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Verta;
 
 class CustomerController extends Controller {
@@ -87,6 +88,10 @@ class CustomerController extends Controller {
         if ( $request->birthdate ) {
             $record->birthdate = DateServices::jalaliToCarbon($request->birthdate)
                                              ->format('Y-m-d');
+        }
+
+        if ($request->password){
+            $record->password = bcrypt($request->password);
         }
         $record->save();
 

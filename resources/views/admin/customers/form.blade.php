@@ -206,6 +206,26 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="separator mb-6"></div>
+                                <h3>تغییر رمز عبور</h3><small class="text-danger">تنها در صورتی که قصد تغییر رمز عبور را دارید، این قسمت را پر نمایید.</small>
+                                <div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
+                                    <div class="col">
+                                        <!--begin::Input group-->
+                                        <div class="fv-row mb-7">
+                                            <!--begin::Tags-->
+                                            <label class="fs-6 fw-semibold form-label mt-3">
+                                                <span class="required">رمز عبور جدید</span>
+                                            </label>
+                                            <!--end::Tags-->
+                                            <!--begin::Input-->
+                                            <input type="password" autocomplete="off" class="form-control " name="password" value="">
+                                            <!--end::Input-->
+                                        </div>
+                                        <!--end::Input group-->
+                                    </div>
+                                </div>
+
+                                <div class="separator mb-6"></div>
                                 <!--end::Input group-->
                             </div>
                             <!--end::کارت body-->
