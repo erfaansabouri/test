@@ -28,6 +28,7 @@ class StoreManager extends Authenticatable implements HasMedia
         'special-sales' => 'فروش ویژه',
         'coupons' => 'کوپن ها',
         'awards' => 'جایزه ها',
+        'lotteries' => 'قرعه کشی ها',
     ];
     public function registerMediaCollections(): void
     {

@@ -1,12 +1,12 @@
 @extends('store-manager.master')
 @section('page-title')
-    فروش ویژه
+قرعه کشی
 @endsection
 @section('content')
     <div class="card">
         <!--begin::کارت header-->
         <div class="card-header border-0 pt-6">
-            <form  method="GET" action="{{ route('store-manager.special-sales.index') }}">
+            <form  method="GET" action="{{ route('store-manager.lotteries.index') }}">
                 <div class="d-flex align-items-center position-relative my-2 row">
                     <div class="col-8">
                         <div class="input-group ">
@@ -33,8 +33,8 @@
                 <!--begin::Toolbar-->
                 <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
                     <!--begin::Add user-->
-                    <a href="{{ route('store-manager.special-sales.create') }}" class="btn btn-light-success">
-                        <i class="ki-duotone ki-plus fs-2"></i>ایجاد فروش ویژه</a>
+                    <a href="{{ route('store-manager.lotteries.create') }}" class="btn btn-light-success">
+                        <i class="ki-duotone ki-plus fs-2"></i>ایجاد قرعه کشی</a>
                     <!--end::Add user-->
                 </div>
 
@@ -50,28 +50,35 @@
                     <thead>
                     <tr class="text-center  fw-bold fs-7 text-uppercase gs-0">
                         <th class="min-w-25px">شناسه</th>
-                        <th class="min-w-25px">درصد تخفیف</th>
-                        <th class="min-w-125px">حداکثر تخفیف</th>
-                        <th class="min-w-125px">حداقل خرید</th>
-                        <th class="min-w-125px">حداکثر خرید</th>
-                        <th class="min-w-125px">بازه</th>
+                        <th class="min-w-25px">عنوان</th>
+                        <th class="min-w-125px">توضیحات</th>
+                        <th class="min-w-125px">ظرفیت ورود</th>
+                        <th class="min-w-125px">امتیاز ورود</th>
                         <th class="min-w-125px">سطح مشتری هدف</th>
+                        <th class="min-w-125px">بازه</th>
+                        <th class="min-w-125px">تاریخ انجام</th>
                         <th class="min-w-125px">عملیات</th>
                     </tr>
                     </thead>
                     <tbody class="text-center fw-semibold">
-                    @foreach($special_sales as $special_sale)
+                    @foreach($lotteries as $lottery)
                         <tr>
-                            <td>{{ $special_sale->id }}</td>
-                            <td>{{ $special_sale->discount_percent }}</td>
-                            <td>{{ number_format($special_sale->discount_ceiling) }}</td>
-                            <td>{{ number_format($special_sale->lower_purchase_amount) }}</td>
-                            <td>{{ number_format($special_sale->upper_purchase_amount) }}</td>
-                            <td><span class="badge badge-success">{{ verta($special_sale->started_at)->formatJalaliDate() }}</span> -> <span class="badge badge-danger">{{ verta($special_sale->ended_at)->formatJalaliDate() }}</span></td>
-                            <td>{{ $special_sale->storeLevel->level_name }}</td>
+                            <td>{{ $lottery->id }}</td>
+                            <td>{{ $lottery->title }}</td>
+                            <td>{{ $lottery->description }}</td>
+                            <td>{{ number_format($lottery->capacity) }}</td>
+                            <td>{{ number_format($lottery->points) }}</td>
+                            <td>{{ $lottery->storeLevel->level_name }}</td>
+                            <td><span class="badge badge-success">{{ verta($lottery->started_at)->formatJalaliDate() }}</span> -> <span class="badge badge-danger">{{ verta($lottery->ended_at)->formatJalaliDate() }}</span></td>
+                            <td>@if($lottery->winners_announced_at) <span class="badge badge-success">{{ verta($lottery->winners_announced_at)->formatJalaliDate() }}</span> @else --- @endif</td>
                             <td>
-                                <a href="{{ route('store-manager.special-sales.edit', $special_sale->id) }}" class="btn btn-light-primary">ویرایش</a>
-                                <a href="{{ route('store-manager.special-sales.destroy', $special_sale->id) }}" class="btn btn-light-danger">حذف</a>
+                                @if($lottery->winners_announced_at)
+                                    <a href="{{ route('store-manager.lotteries.winners', $lottery->id) }}" class="btn btn-info">لیست برندگان</a>
+                                @else
+                                    <a href="{{ route('store-manager.lotteries.edit', $lottery->id) }}" class="btn btn-light-primary">ویرایش</a>
+                                    <a href="{{ route('store-manager.lotteries.destroy', $lottery->id) }}" class="btn btn-light-danger">حذف</a>
+                                @endif
+
                             </td>
                         </tr>
                     @endforeach
@@ -79,7 +86,7 @@
                 </table>
             </div>
             <!--end::Table-->
-            {{ $special_sales->withQueryString()->links("pagination::bootstrap-4") }}
+            {{ $lotteries->withQueryString()->links("pagination::bootstrap-4") }}
         </div>
         <!--end::کارت body-->
     </div>
