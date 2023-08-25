@@ -100,12 +100,12 @@ Route::middleware(['auth:store-manager'])->group(function () {
         Route::post('/save-event', [CalendarController::class, 'saveEvent'])->name('store-manager.calendar.save-event');
     });
 
-    Route::prefix('coupon-generators')->middleware(['can:' . StoreManager::PERMISSIONS['coupon-generators']])->group(function () {
+    Route::prefix('coupon-generators')->middleware(['can:' . StoreManager::PERMISSIONS['coupons']])->group(function () {
         Route::get('/edit', [CouponGeneratorController::class, 'edit'])->name('store-manager.coupon-generators.edit');
         Route::post('/update', [CouponGeneratorController::class, 'update'])->name('store-manager.coupon-generators.update');
     });
 
-    Route::prefix('special-sales')->middleware(['can:' . StoreManager::PERMISSIONS['special-sales']])->group(function () {
+    Route::prefix('special-sales')->middleware(['can:' . StoreManager::PERMISSIONS['coupons']])->group(function () {
         Route::get('/index', [SpecialSaleController::class, 'index'])->name('store-manager.special-sales.index');
         Route::get('/create', [SpecialSaleController::class, 'create'])->name('store-manager.special-sales.create');
         Route::post('/store', [SpecialSaleController::class, 'store'])->name('store-manager.special-sales.store');

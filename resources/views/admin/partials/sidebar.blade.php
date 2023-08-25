@@ -37,6 +37,7 @@
                         <span class="menu-heading fw-bold text-uppercase fs-7">صفحات</span>
                     </div>
                 </div>
+                @can(\App\Models\Admin::PERMISSIONS['admins'])
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -62,7 +63,9 @@
                         <!--end:Menu item-->
                     </div>
                 </div>
+                @endcan
 
+                @can(\App\Models\Admin::PERMISSIONS['stores'])
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -88,7 +91,9 @@
                         <!--end:Menu item-->
                     </div>
                 </div>
+                @endcan
 
+                @can(\App\Models\Admin::PERMISSIONS['store-managers'])
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -114,7 +119,9 @@
                         <!--end:Menu item-->
                     </div>
                 </div>
+                @endcan
 
+                @can(\App\Models\Admin::PERMISSIONS['customers'])
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -140,7 +147,9 @@
                         <!--end:Menu item-->
                     </div>
                 </div>
+                @endcan
 
+                @can(\App\Models\Admin::PERMISSIONS['points'])
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -174,7 +183,9 @@
                         <!--end:Menu item-->
                     </div>
                 </div>
+                @endcan
 
+                @can(\App\Models\Admin::PERMISSIONS['charts'])
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -208,8 +219,8 @@
                         <!--end:Menu item-->
                     </div>
                 </div>
-
-                <div class="menu-item pt-5">
+                @endcan
+              {{--  <div class="menu-item pt-5">
                     <!--begin:Menu content-->
                     <div class="menu-content">
                         <span class="menu-heading fw-bold text-uppercase fs-7">تقویم</span>
@@ -228,7 +239,7 @@
                         <span class="menu-title">مناسبت های تقویمی</span>
                     </a>
                     <!--end:Menu link-->
-                </div>
+                </div>--}}
 
                 <div class="menu-item pt-5">
                     <!--begin:Menu content-->

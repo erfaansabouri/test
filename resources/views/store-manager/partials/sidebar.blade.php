@@ -68,6 +68,7 @@
                         <span class="menu-heading fw-bold text-uppercase fs-7">کسب و کار من</span>
                     </div>
                 </div>
+                @can(\App\Models\StoreManager::PERMISSIONS['store-managers'])
                 <div  data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -93,6 +94,9 @@
                         <!--end:Menu item-->
                     </div>
                 </div>
+                @endcan
+
+                @can(\App\Models\StoreManager::PERMISSIONS['customers'])
                 <div  data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -226,6 +230,8 @@
                         <!--end:Menu item-->
                     </div>
                 </div>
+                @endcan
+                @can(\App\Models\StoreManager::PERMISSIONS['charts'])
                 <div  data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -263,6 +269,9 @@
                         <!--end:Menu item-->
                     </div>
                 </div>
+                @endcan
+
+                @can(\App\Models\StoreManager::PERMISSIONS['calendar'])
                 <div  data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -288,6 +297,9 @@
                         <!--end:Menu item-->
                     </div>
                 </div>
+                @endcan
+
+                @can(\App\Models\StoreManager::PERMISSIONS['coupons'])
                 <div  data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -337,6 +349,9 @@
                         <!--end:Menu item-->
                     </div>
                 </div>
+                @endcan
+
+                @can(\App\Models\StoreManager::PERMISSIONS['awards'])
                 <div  data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -362,6 +377,9 @@
                         <!--end:Menu item-->
                     </div>
                 </div>
+                @endcan
+
+                @can(\App\Models\StoreManager::PERMISSIONS['lotteries'])
                 <div  data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -387,6 +405,7 @@
                         <!--end:Menu item-->
                     </div>
                 </div>
+                @endcan
             </div>
 
             <!--end::Menu-->
