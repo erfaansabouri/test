@@ -9,7 +9,7 @@ class SanitizeNumericInputMiddleware {
     public function handle ( Request $request , Closure $next ) {
         $inputs = $request->all();
         foreach ( $inputs as $key => $value ) {
-            if ( in_array($key , $inputs) && is_string($value) ) {
+            if ( in_array($key , $this->inputNames()) && is_string($value) ) {
                 $inputs[ $key ] = preg_replace('/[^0-9]/' , '' , $value);
             }
         }
@@ -25,6 +25,7 @@ class SanitizeNumericInputMiddleware {
             'total_price' ,
             'capacity' ,
             'points' ,
+            'point' ,
             'lower_purchase_amount' ,
             'upper_purchase_amount' ,
             'stars' ,

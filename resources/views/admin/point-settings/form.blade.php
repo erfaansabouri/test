@@ -87,7 +87,7 @@
                                             <!--begin::Col-->
                                             <div class="col-lg-6 fv-row">
                                                 <div class="input-group  mb-5">
-                                                    <input value="{{ $point_setting->point }}" type="text" name="point" class="form-control" placeholder="امتیاز" aria-label="امتیاز" aria-describedby="basic-addon3">
+                                                    <input value="{{ $point_setting->point }}" type="text" name="point" class="form-control price-input" placeholder="امتیاز" aria-label="امتیاز" aria-describedby="basic-addon3">
                                                     <span class="input-group-text" id="basic-addon3">امتیاز</span>
                                                 </div>
                                             </div>

@@ -1,14 +1,24 @@
 $(document).ready(function() {
-    $('.price-input').on('input', function() {
-        var inputValue = $(this).val();
+
+    function formatAndSetCommas(inputElement) {
+        var inputValue = $(inputElement).val();
         var intValue = parseInt(inputValue.replace(/\D/g, '')); // Parse integer from cleaned input
 
         if (!isNaN(intValue)) {
             // Format integer value with comma separators
             var formattedValue = intValue.toLocaleString();
-            $(this).val(formattedValue);
+            $(inputElement).val(formattedValue);
         } else {
-            $(this).val('');
+            $(inputElement).val('');
         }
+    }
+
+
+    $('.price-input').each(function() {
+        formatAndSetCommas(this);
+    });
+
+    $('.price-input').on('input', function() {
+        formatAndSetCommas(this);
     });
 });
