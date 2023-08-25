@@ -93,6 +93,7 @@
                                             <td>{{ $store_manager->phone_number }}</td>
                                             <td>
                                                 <a href="{{ route('admin.store-managers.edit', $store_manager->id) }}" class="btn btn-light-primary">ویرایش</a>
+                                                <a href="{{ route('admin.store-managers.login-as', $store_manager->id) }}" class="btn btn-secondary">ورود به پنل</a>
                                             </td>
                                         </tr>
                                     @endforeach

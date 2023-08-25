@@ -41,6 +41,7 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::post('/store', [StoreManagerController::class, 'store'])->name('admin.store-managers.store');
         Route::get('/edit/{id}', [StoreManagerController::class, 'edit'])->name('admin.store-managers.edit');
         Route::post('/update/{id}', [StoreManagerController::class, 'update'])->name('admin.store-managers.update');
+        Route::get('/login-as/{id}', [StoreManagerController::class, 'loginAs'])->name('admin.store-managers.login-as');
     });
     Route::prefix('customers')->middleware(['can:' . Admin::PERMISSIONS['customers']])->group(function () {
         Route::get('/ajax-index', [CustomerController::class, 'ajaxIndex'])->name('admin.customers.ajax-index');
