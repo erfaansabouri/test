@@ -158,18 +158,6 @@
                                     </div>
                                 </div>
                                 <div class="row mb-6">
-                                    <label class="col-lg-4 col-form-label required fw-semibold fs-6">گروه</label>
-                                    <div class="col-lg-8">
-                                        <div class="row">
-                                            <div class="col-lg-6 fv-row">
-                                                <div class="input-group  mb-5">
-                                                    <input value="{{ @$record->group_name }}" type="text" name="group_name" class="form-control" placeholder="گروه" aria-label="گروه" aria-describedby="basic-addon3">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mb-6">
                                     <label class="col-lg-4 col-form-label required fw-semibold fs-6">ایمیل</label>
                                     <div class="col-lg-8">
                                         <div class="row">
