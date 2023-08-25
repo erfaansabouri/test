@@ -105,7 +105,7 @@
                                             <!--begin::Col-->
                                             <div class="col-lg-6 fv-row">
                                                 <div class="input-group  mb-5">
-                                                    <input value="{{ @$award->points }}" type="text" name="points" class="form-control" placeholder="مثلا 2500">
+                                                    <input value="{{ @$award->points }}" type="text" name="points" class="form-control price-input" placeholder="مثلا 2500">
                                                     <span class="input-group-text" id="basic-addon2">امتیاز</span>
                                                 </div>
                                             </div>

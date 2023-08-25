@@ -4,6 +4,7 @@
 <script src="{{ asset('global-assets/js/datepicker/bootstrap-datepicker.min.js') }}"></script>
 <script src="{{ asset('global-assets/js/datepicker/bootstrap-datepicker.fa.min.js') }}"></script>
 <script src="{{ asset('global-assets/js/scripts.bundle.js') }}"></script>
+<script src="{{ asset('global-assets/js/price-input.js') }}"></script>
 
 <!-- Add the following JavaScript code -->
 <script>

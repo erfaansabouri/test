@@ -83,7 +83,7 @@
                                         <div class="row">
                                             <div class="col-lg-6 fv-row">
                                                 <div class="input-group  mb-5">
-                                                    <input id="price" type="text" name="price" class="form-control" placeholder="مبلغ خرید" aria-label="مبلغ خرید" aria-describedby="basic-addon3">
+                                                    <input id="price" type="text" name="price" class="form-control price-input" placeholder="مبلغ خرید" aria-label="مبلغ خرید" aria-describedby="basic-addon3">
                                                 </div>
                                             </div>
                                         </div>

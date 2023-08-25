@@ -62,7 +62,7 @@
                                             <!--begin::Col-->
                                             <div class="col-lg-6 fv-row">
                                                 <div class="input-group  mb-5">
-                                                    <input value="{{ @$special_sale->discount_ceiling }}" type="text" name="discount_ceiling" class="form-control" placeholder="مثلا 50000">
+                                                    <input value="{{ @$special_sale->discount_ceiling }}" type="text" name="discount_ceiling" class="form-control price-input" placeholder="مثلا 50000">
                                                     <span class="input-group-text" id="basic-addon2">تومان</span>
                                                 </div>
                                             </div>
@@ -81,7 +81,7 @@
                                             <!--begin::Col-->
                                             <div class="col-lg-6 fv-row">
                                                 <div class="input-group  mb-5">
-                                                    <input value="{{ @$special_sale->lower_purchase_amount }}" type="text" name="lower_purchase_amount" class="form-control" placeholder="مثلا 50000">
+                                                    <input value="{{ @$special_sale->lower_purchase_amount }}" type="text" name="lower_purchase_amount" class="form-control price-input" placeholder="مثلا 50000">
                                                     <span class="input-group-text" id="basic-addon2">تومان</span>
                                                 </div>
                                             </div>
@@ -100,7 +100,7 @@
                                             <!--begin::Col-->
                                             <div class="col-lg-6 fv-row">
                                                 <div class="input-group  mb-5">
-                                                    <input value="{{ @$special_sale->upper_purchase_amount }}" type="text" name="upper_purchase_amount" class="form-control" placeholder="مثلا 50000">
+                                                    <input value="{{ @$special_sale->upper_purchase_amount }}" type="text" name="upper_purchase_amount" class="form-control price-input" placeholder="مثلا 50000">
                                                     <span class="input-group-text" id="basic-addon2">تومان</span>
                                                 </div>
                                             </div>

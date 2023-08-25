@@ -81,7 +81,7 @@
                                             <!--begin::Col-->
                                             <div class="col-lg-6 fv-row">
                                                 <div class="input-group  mb-5">
-                                                    <input value="{{ @$lottery->capacity }}" type="text" name="capacity" class="form-control" placeholder="مثلا 100">
+                                                    <input value="{{ @$lottery->capacity }}" type="text" name="capacity" class="form-control price-input" placeholder="مثلا 100">
                                                     <span class="input-group-text" id="basic-addon2">نفر</span>
                                                 </div>
                                             </div>
@@ -119,7 +119,7 @@
                                             <!--begin::Col-->
                                             <div class="col-lg-6 fv-row">
                                                 <div class="input-group  mb-5">
-                                                    <input value="{{ @$lottery->points }}" type="text" name="points" class="form-control" placeholder="مثلا 1000">
+                                                    <input value="{{ @$lottery->points }}" type="text" name="points" class="form-control price-input" placeholder="مثلا 1000">
                                                     <span class="input-group-text" id="basic-addon2">امتیاز</span>
                                                 </div>
                                             </div>

@@ -97,7 +97,7 @@
                                             <!--begin::Col-->
                                             <div class="col-lg-6 fv-row">
                                                 <div class="input-group  mb-5">
-                                                    <input value="{{ @$record->price ?? $point_setting->price }}" type="text" name="price" class="form-control" placeholder="مبلغ به تومان" aria-label="مبلغ به تومان" aria-describedby="basic-addon2">
+                                                    <input value="{{ @$record->price ?? $point_setting->price }}" type="text" name="price" class="form-control price-input" placeholder="مبلغ به تومان" aria-label="مبلغ به تومان" aria-describedby="basic-addon2">
                                                     <span class="input-group-text" id="basic-addon2">مبلغ به تومان</span>
                                                 </div>
                                             </div>
