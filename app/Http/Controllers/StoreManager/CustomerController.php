@@ -229,7 +229,15 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'phone_number' => ['required', 'unique:customers,phone_number']
+                               'phone_number' => [
+                                   'required' ,
+                                   'min_digits:11',
+                                   'unique:customers,phone_number',
+                               ],
+                               'national_code' => [
+                                   'required' ,
+                                   'unique:customers,national_code',
+                               ],
         ]);
         $customer = new Customer();
         $customer = $this->updateOrCreate($customer, $request);
@@ -248,8 +256,16 @@ class CustomerController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'phone_number' => ['required', 'unique:customers,phone_number,' . $id]
-        ]);
+                               'phone_number' => [
+                                   'required' ,
+                                   'min_digits:11',
+                                   'unique:customers,phone_number,' . $id,
+                               ],
+                               'national_code' => [
+                                   'required' ,
+                                   'unique:customers,national_code,' . $id,
+                               ],
+                           ]);
         $customer = Customer::query()->findOrFail($id);
         $this->updateOrCreate($customer, $request);
         return redirect()->back()->with([
