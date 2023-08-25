@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\StoreManager\AuthController;
+use App\Http\Controllers\StoreManager\AwardController;
 use App\Http\Controllers\StoreManager\CalendarController;
 use App\Http\Controllers\StoreManager\ChartController;
 use App\Http\Controllers\StoreManager\CouponController;
@@ -112,8 +113,16 @@ Route::middleware(['auth:store-manager'])->group(function () {
         Route::get('/destroy/{id}', [SpecialSaleController::class, 'destroy'])->name('store-manager.special-sales.destroy');
     });
 
-
     Route::prefix('coupons')->middleware(['can:' . StoreManager::PERMISSIONS['coupons']])->group(function () {
         Route::get('/index', [CouponController::class, 'index'])->name('store-manager.coupons.index');
+    });
+
+    Route::prefix('awards')->middleware(['can:' . StoreManager::PERMISSIONS['awards']])->group(function () {
+        Route::get('/index', [AwardController::class, 'index'])->name('store-manager.awards.index');
+        Route::get('/create', [AwardController::class, 'create'])->name('store-manager.awards.create');
+        Route::post('/store', [AwardController::class, 'store'])->name('store-manager.awards.store');
+        Route::get('/edit/{id}', [AwardController::class, 'edit'])->name('store-manager.awards.edit');
+        Route::post('/update/{id}', [AwardController::class, 'update'])->name('store-manager.awards.update');
+        Route::get('/destroy/{id}', [AwardController::class, 'destroy'])->name('store-manager.awards.destroy');
     });
 });
