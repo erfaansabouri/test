@@ -73,6 +73,7 @@
                             <td class="text-success">{{ number_format($customer->balance) }}</td>
                             <td>
                                 <a href="{{ route('store-manager.points.index', ['customer_id' => $customer->id]) }}" class="btn btn-light-info">تاریخچه امتیاز های دریافتی</a>
+                                <a href="{{ route('store-manager.coupons.index', ['customer_id' => $customer->id]) }}" class="btn btn-light-info">تاریخچه آفر های دریافتی</a>
                                 <a href="{{ route('store-manager.customers.edit', $customer->id) }}" class="btn btn-light-primary">ویرایش</a>
                             </td>
                         </tr>
