@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>ورود مدیریت</title>
+    <title>ورود مشتری</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -30,33 +30,33 @@
                 <!--begin::Body-->
                 <div class="py-20">
                     <!--begin::Form-->
-                    <form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" method="POST"  action="{{ route('admin.auth.login') }}">
+                    <form class="form w-100" novalidate="novalidate" id="kt_sign_in_form" method="POST"  action="{{ route('customer.auth.login') }}">
                         @csrf
                         @method('POST')
                         @if ($errors->any())
-                        <div dir="rtl" class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
-                            <!--begin::Icon-->
-                            <i class="ki-duotone ki-information fs-2tx text-warning me-4">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
-                            </i>
-                            <!--end::Icon-->
-                            <!--begin::Wrapper-->
-                            <div class="d-flex flex-stack flex-grow-1">
-                                <!--begin::Content-->
-                                <div class="fw-semibold">
-                                    <h4 class="text-gray-900 fw-bold">خطا</h4>
-                                    <div class="fs-6 text-gray-700">
-                                        @foreach($errors->all() as $error)
-                                            <div>{{$error}}</div>
-                                        @endforeach
+                            <div dir="rtl" class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
+                                <!--begin::Icon-->
+                                <i class="ki-duotone ki-information fs-2tx text-warning me-4">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                    <span class="path3"></span>
+                                </i>
+                                <!--end::Icon-->
+                                <!--begin::Wrapper-->
+                                <div class="d-flex flex-stack flex-grow-1">
+                                    <!--begin::Content-->
+                                    <div class="fw-semibold">
+                                        <h4 class="text-gray-900 fw-bold">خطا</h4>
+                                        <div class="fs-6 text-gray-700">
+                                            @foreach($errors->all() as $error)
+                                                <div>{{$error}}</div>
+                                            @endforeach
+                                        </div>
                                     </div>
+                                    <!--end::Content-->
                                 </div>
-                                <!--end::Content-->
+                                <!--end::Wrapper-->
                             </div>
-                            <!--end::Wrapper-->
-                        </div>
                         @endif
                         <!--begin::Body-->
                         <div class="card-body">
@@ -67,7 +67,7 @@
                                 <!--end::Title-->
                                 <!--begin::Text-->
                                 <div class="text-gray-400 fw-semibold fs-6" data-kt-translate="general-desc">
-                                    ورود به پنل مدیریت باشگاه مشتریان
+                                    ورود به پنل مشتری - باشگاه مشتریان
                                 </div>
                                 <!--end::Link-->
                             </div>

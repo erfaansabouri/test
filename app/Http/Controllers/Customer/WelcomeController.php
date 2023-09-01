@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\StoreManager;
+namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
 
 class WelcomeController extends Controller
 {
     public function welcome(){
-        return view('store-manager.welcome.welcome');
+        return view('customer.welcome.welcome');
     }
 }

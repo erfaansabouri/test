@@ -5,9 +5,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
+
     <link rel="shortcut icon" href="{{ asset('global-assets/media/logos/favicon.jpg') }}" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+
     <link href="{{ asset('global-assets/plugins/global/plugins.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('global-assets/css/style.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
 </head>

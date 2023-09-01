@@ -4,7 +4,7 @@
         <!--begin::Copyright-->
         <div class="text-dark order-2 order-md-1">
             <span class=" fw-semibold me-1">2023&copy;</span>
-            <a href="#" target="_blank" class="text-gray-800 text-hover-primary">باشگاه مشتریان آرتمیس</a>
+            <a href="#" target="_blank" class="text-gray-800 text-hover-primary">باشگاه مشتریان آرتمیس | پنل مشتری</a>
         </div>
         <!--end::Copyright-->
         <!--begin::Menu-->
