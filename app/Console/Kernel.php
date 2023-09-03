@@ -18,6 +18,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('official-calendar')->hourly();
         $schedule->command('special-sale')->daily();
+        $schedule->command('lottery')->daily();
         $schedule->command('generate-coupon ' . CouponGeneratorTypeEnums::Register)->daily();
         $schedule->command('generate-coupon ' . CouponGeneratorTypeEnums::Birthday)->daily();
         $schedule->command('generate-coupon ' . CouponGeneratorTypeEnums::PurchaseAmount)->daily();

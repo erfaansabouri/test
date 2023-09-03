@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Customer\LotteryController;
 use App\Http\Controllers\Customer\MyProfileController;
 use App\Http\Controllers\Customer\PointController;
 use App\Http\Controllers\Customer\AuthController;
@@ -24,5 +25,11 @@ Route::middleware(['auth:customer'])->group(function () {
 
     Route::prefix('points')->middleware([])->group(function () {
         Route::get('/index', [PointController::class, 'index'])->name('customer.points.index');
+    });
+
+    Route::prefix('lotteries')->middleware([])->group(function () {
+        Route::get('/index', [LotteryController::class, 'index'])->name('customer.lotteries.index');
+        Route::get('/winners/{id}', [LotteryController::class, 'winners'])->name('customer.lotteries.winners');
+        Route::get('/participate/{id}', [LotteryController::class, 'participate'])->name('customer.lotteries.participate');
     });
 });

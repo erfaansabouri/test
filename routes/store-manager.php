@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Customer\WelcomeController;
 use App\Http\Controllers\StoreManager\AuthController;
 use App\Http\Controllers\StoreManager\AwardController;
 use App\Http\Controllers\StoreManager\CalendarController;
@@ -15,6 +14,7 @@ use App\Http\Controllers\StoreManager\SpecialSaleController;
 use App\Http\Controllers\StoreManager\StarController;
 use App\Http\Controllers\StoreManager\StoreManagerController;
 use App\Http\Controllers\StoreManager\StoreSettingController;
+use App\Http\Controllers\StoreManager\WelcomeController;
 use App\Models\StoreManager;
 use Illuminate\Support\Facades\Route;
 

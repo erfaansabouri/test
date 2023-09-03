@@ -19,6 +19,10 @@ class Lottery extends Model {
         return $this->belongsTo(StoreLevel::class);
     }
 
+    public function store () {
+        return $this->belongsTo(Store::class);
+    }
+
     public function participants () {
         return $this->hasMany(LotteryParticipant::class);
     }

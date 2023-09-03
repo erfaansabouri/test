@@ -55,7 +55,7 @@
             <div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expو="false">
                 <div class="menu-item here show pt-5">
                     <div class="menu-content">
-                        <span class="menu-heading fw-bold text-uppercase fs-7">حساب من</span>
+                        <span class="menu-heading fw-bold text-uppercase fs-7">فعالیت ها</span>
                     </div>
                 </div>
                 <div  data-kt-menu-trigger="click" class="menu-item menu-accordion">
@@ -67,7 +67,7 @@
                                 <span class="path3"></span>
                             </i>
                         </span>
-                        <span class="menu-title">حساب من</span>
+                        <span class="menu-title">فعالیت های من</span>
                         <span class="menu-arrow"></span>
                     </span>
                     <div class="menu-sub menu-sub-accordion">
@@ -78,6 +78,18 @@
                                     <span class="bullet bullet-dot"></span>
                                 </span>
                                 <span class="menu-title">لیست امتیاز های من</span>
+                            </a>
+                        </div>
+                        <!--end:Menu item-->
+                    </div>
+                    <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('customer.lotteries.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">قرعه کشی ها</span>
                             </a>
                         </div>
                         <!--end:Menu item-->

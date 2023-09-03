@@ -100,4 +100,19 @@ class Customer extends Authenticatable implements HasMedia {
     public function totalConsumedPoints () {
         return $this->points->sum('point') - 50; // todo
     }
+
+    public function consume ( $store_id , $point , $type ) {
+        if ($this->balance >= $point){
+            $this->balance = $this->balance - $point;
+            $this->save();
+            ConsumeLog::query()
+                      ->create([
+                                   'store_id' => $store_id ,
+                                   'point' => $point ,
+                                   'type' => $type ,
+                                   'customer_id' => $this->id ,
+                               ]);
+        }
+
+    }
 }
