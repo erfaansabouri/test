@@ -42,14 +42,6 @@ Route::middleware(['auth:store-manager'])->group(function () {
         Route::post('/update/{id}', [StoreManagerController::class, 'update'])->name('store-manager.store-managers.update');
     });
 
-    Route::prefix('store-managers')->middleware(['can:' . StoreManager::PERMISSIONS['store-managers']])->group(function () {
-        Route::get('/index', [StoreManagerController::class, 'index'])->name('store-manager.store-managers.index');
-        Route::get('/create', [StoreManagerController::class, 'create'])->name('store-manager.store-managers.create');
-        Route::post('/store', [StoreManagerController::class, 'store'])->name('store-manager.store-managers.store');
-        Route::get('/edit/{id}', [StoreManagerController::class, 'edit'])->name('store-manager.store-managers.edit');
-        Route::post('/update/{id}', [StoreManagerController::class, 'update'])->name('store-manager.store-managers.update');
-    });
-
     Route::prefix('customers')->middleware(['can:' . StoreManager::PERMISSIONS['customers']])->group(function () {
         Route::get('/ajax-find-by-phone-number', [CustomerController::class, 'ajaxFindByPhoneNumber'])->name('store-manager.customers.ajax-find-by-phone-number');
         Route::get('/ajax-index', [CustomerController::class, 'ajaxIndex'])->name('store-manager.customers.ajax-index');

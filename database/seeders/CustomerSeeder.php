@@ -29,5 +29,10 @@ class CustomerSeeder extends Seeder
             $customer->save();
         }
 
+        $customer = Customer::first();
+        $customer->phone_number = '09191111111';
+        $customer->password = bcrypt('as12AS!@');
+        $customer->save();
+
     }
 }

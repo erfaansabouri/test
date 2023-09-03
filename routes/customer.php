@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Customer\MyProfileController;
+use App\Http\Controllers\Customer\PointController;
 use App\Http\Controllers\Customer\AuthController;
 use App\Http\Controllers\Customer\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -13,5 +15,14 @@ Route::middleware([])->prefix('auth')->group(function () {
 Route::middleware(['auth:customer'])->group(function () {
     Route::prefix('welcome')->group(function () {
         Route::get('/', [WelcomeController::class, 'welcome'])->name('customer.welcome');
+    });
+
+    Route::prefix('my-profile')->group(function () {
+        Route::get('/show', [MyProfileController::class, 'show'])->name('customer.my-profile.show');
+        Route::post('/update', [MyProfileController::class, 'update'])->name('customer.my-profile.update');
+    });
+
+    Route::prefix('points')->middleware([])->group(function () {
+        Route::get('/index', [PointController::class, 'index'])->name('customer.points.index');
     });
 });

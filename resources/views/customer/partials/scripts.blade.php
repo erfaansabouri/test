@@ -1,5 +1,4 @@
-<script>var hostUrl = "assets/";</script>
-<!--begin::Global Javascript Bundle(mوatory for all pages)-->
+
 <script src="{{ asset('global-assets/plugins/global/plugins.bundle.js') }}"></script>
 <script src="{{ asset('global-assets/js/datepicker/bootstrap-datepicker.min.js') }}"></script>
 <script src="{{ asset('global-assets/js/datepicker/bootstrap-datepicker.fa.min.js') }}"></script>
@@ -10,34 +9,6 @@
     // Function to initialize Select2 with AJAX options
 
     function initializeSelect2() {
-        $('#customer-select2').select2({
-            ajax: {
-                url: "{{ route('store-manager.customers.ajax-index') }}",
-                dataType: 'json',
-                delay: 250,
-                data: function (params) {
-                    return {
-                        search: params.term // Search term entered by the user
-                    };
-                },
-                processResults: function (data) {
-                    return {
-                        results: $.map(data, function (item) {
-                            return {
-                                text: item.text,
-                                id: item.id
-                            }
-                        })
-                    };
-                },
-                cache: false
-            },
-            minimumInputLength: 1 ,
-            allowClear: true ,
-            width: '250px',
-            dir: 'rtl',
-            language: 'fa',
-        });
         $(".persian-datepicker").datepicker({
             isRTL: true,
             dateFormat: "yy/m/d",
