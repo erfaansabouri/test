@@ -4,6 +4,7 @@ use App\Http\Controllers\StoreManager\AuthController;
 use App\Http\Controllers\StoreManager\AwardController;
 use App\Http\Controllers\StoreManager\CalendarController;
 use App\Http\Controllers\StoreManager\ChartController;
+use App\Http\Controllers\StoreManager\ConsumeLogController;
 use App\Http\Controllers\StoreManager\CouponController;
 use App\Http\Controllers\StoreManager\CouponGeneratorController;
 use App\Http\Controllers\StoreManager\CustomerController;
@@ -66,9 +67,15 @@ Route::middleware(['auth:store-manager'])->group(function () {
         Route::post('/store-non-purchase', [PointController::class, 'storeNonPurchase'])->name('store-manager.points.store-non-purchase');
         Route::get('/create-fast', [PointController::class, 'createFast'])->name('store-manager.points.create-fast');
         Route::post('/store-fast', [PointController::class, 'storeFast'])->name('store-manager.points.store-fast');
+        Route::get('/create-consume', [PointController::class, 'createConsume'])->name('store-manager.points.create-consume');
+        Route::post('/store-consume', [PointController::class, 'storeConsume'])->name('store-manager.points.store-consume');
         Route::post('/store', [PointController::class, 'store'])->name('store-manager.points.store');
         Route::get('/edit/{id}', [PointController::class, 'edit'])->name('store-manager.points.edit');
         Route::post('/update/{id}', [PointController::class, 'update'])->name('store-manager.points.update');
+    });
+
+    Route::prefix('consume-logs')->middleware(['can:' . StoreManager::PERMISSIONS['points']])->group(function () {
+        Route::get('/index', [ConsumeLogController::class, 'index'])->name('store-manager.consume-logs.index');
     });
 
     Route::prefix('store-settings')->middleware(['can:' . StoreManager::PERMISSIONS['store-settings']])->group(function () {

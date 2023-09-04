@@ -1,12 +1,12 @@
 @extends('store-manager.master')
 @section('page-title')
-    امتیاز ها
+    خرج امتیاز ها
 @endsection
 @section('content')
     <div class="card">
         <!--begin::کارت header-->
         <div class="card-header border-0 pt-6">
-            <form  method="GET" action="{{ route('store-manager.points.index') }}">
+            <form  method="GET" action="{{ route('store-manager.consume-logs.index') }}">
                 <div class="d-flex align-items-center position-relative my-2 row">
                     <div class="col my-2">
                         <div class="input-group ">
@@ -74,38 +74,32 @@
                     <tr class="text-center fw-bold fs-7 text-uppercase gs-0">
                         <th class="min-w-25px">شناسه</th>
                         <th class="min-w-125px">مشتری</th>
-                        <th class="min-w-125px">نوع امتیاز</th>
-                        <th class="min-w-125px">مبلغ</th>
+                        <th class="min-w-125px">نوع خرج</th>
                         <th class="min-w-125px">امتیاز</th>
                         <th class="min-w-125px">تاریخ</th>
                     </tr>
                     </thead>
                     <tbody class=" fw-semibold">
-                    @foreach($points as $point)
+                    @foreach($consume_logs as $consume_log)
                         <tr class="text-center">
-                            <td>{{ $point->id }}</td>
+                            <td>{{ $consume_log->id }}</td>
                             <td>
-                                {{ $point->customer->first_name }} {{ $point->customer->last_name }}
+                                {{ $consume_log->customer->first_name }} {{ $consume_log->customer->last_name }}
                                 <br>
-                                <span class="badge badge-secondary">{{ $point->customer->phone_number }}</span>
+                                <span class="badge badge-secondary">{{ $consume_log->customer->phone_number }}</span>
                             </td>
                             <td>
-                                {{ $point->pointType->type_fa }}
-                                @if($point->reason)
-                                    <br>
-                                    <small>({{ $point->reason }})</small>
-                                @endif
+                                {{ __($consume_log->type) }}
                             </td>
-                            <td>@if(is_numeric($point->price)) {{ number_format($point->price) }} @else - @endif</td>
-                            <td>{{ number_format($point->point) }}</td>
-                            <td>{{ verta($point->created_at)->format('Y/m/d H:i') }}</td>
+                            <td>{{ number_format($consume_log->point) }}</td>
+                            <td>{{ verta($consume_log->created_at)->format('Y/m/d H:i') }}</td>
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
             </div>
             <!--end::Table-->
-            {{ $points->withQueryString()->links("pagination::bootstrap-4") }}
+            {{ $consume_logs->withQueryString()->links("pagination::bootstrap-4") }}
         </div>
         <!--end::کارت body-->
     </div>

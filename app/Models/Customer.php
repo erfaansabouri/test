@@ -46,6 +46,10 @@ class Customer extends Authenticatable implements HasMedia {
         return $this->hasMany(Point::class);
     }
 
+    public function consumeLogs () {
+        return $this->hasMany(ConsumeLog::class);
+    }
+
     public function stars () {
         return $this->hasMany(Star::class);
     }
@@ -98,7 +102,7 @@ class Customer extends Authenticatable implements HasMedia {
     }
 
     public function totalConsumedPoints () {
-        return $this->points->sum('point') - 50; // todo
+        return $this->consumeLogs->sum('point');
     }
 
     public function consume ( $store_id , $point , $type ) {
@@ -110,7 +114,7 @@ class Customer extends Authenticatable implements HasMedia {
                                    'store_id' => $store_id ,
                                    'point' => $point ,
                                    'type' => $type ,
-                                   'customer_id' => $this->id ,
+                                   'customer_id' => $this->id  ,
                                ]);
         }
 

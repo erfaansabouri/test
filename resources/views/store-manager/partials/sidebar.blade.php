@@ -191,6 +191,14 @@
                                 <span class="menu-title">لیست امتیاز ها</span>
                             </a>
                         </div>
+                        <div class="menu-item">
+                            <a class="menu-link" href="{{ route('store-manager.consume-logs.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">لیست خرج امتیاز ها</span>
+                            </a>
+                        </div>
                         <!--end:Menu item-->
                     </div>
                     <div class="menu-sub menu-sub-accordion">
