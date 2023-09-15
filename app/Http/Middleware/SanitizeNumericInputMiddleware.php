@@ -21,6 +21,7 @@ class SanitizeNumericInputMiddleware {
     public function inputNames () {
         return [
             'price' ,
+            'value',
             'discount_ceiling' ,
             'total_price' ,
             'capacity' ,

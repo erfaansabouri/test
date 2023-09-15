@@ -68,7 +68,7 @@
                             <div class="row">
                                 <div class="col-lg-6 fv-row">
                                     <div class="input-group  mb-5">
-                                        <input id="point" type="text" name="point" class="form-control" placeholder="امتیاز" aria-label="امتیاز" aria-describedby="basic-addon3">
+                                        <input id="point" type="text" name="point" class="form-control price-input" placeholder="امتیاز" aria-label="امتیاز" aria-describedby="basic-addon3">
                                     </div>
                                 </div>
                             </div>

@@ -61,7 +61,7 @@
                                 <div class="col-lg-6 fv-row">
                                     <div class="input-group  mb-5">
                                         <input autocomplete="off"  id="value" type="text" name="points" value="{{ old('points') }}"
-                                               class="form-control" placeholder="مقدار امتیاز" aria-label=""
+                                               class="form-control price-input" placeholder="مقدار امتیاز" aria-label=""
                                                aria-describedby="basic-addon3">
                                     </div>
                                 </div>

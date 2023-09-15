@@ -94,7 +94,7 @@
                                 <div class="col-lg-6 fv-row">
                                     <div class="input-group  mb-5">
                                         <input disabled id="value" type="text" name="value"
-                                               class="form-control" placeholder="ابتدا نوع رویداد را انتخاب کنید" aria-label=""
+                                               class="form-control price-input" placeholder="ابتدا نوع رویداد را انتخاب کنید" aria-label=""
                                                aria-describedby="basic-addon3">
                                     </div>
                                 </div>
