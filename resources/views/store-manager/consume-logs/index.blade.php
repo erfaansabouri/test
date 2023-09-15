@@ -73,6 +73,7 @@
                     <thead>
                     <tr class="text-center fw-bold fs-7 text-uppercase gs-0">
                         <th class="min-w-25px">شناسه</th>
+                        <th class="min-w-125px">شماره فاکتور</th>
                         <th class="min-w-125px">مشتری</th>
                         <th class="min-w-125px">نوع خرج</th>
                         <th class="min-w-125px">امتیاز</th>
@@ -83,6 +84,7 @@
                     @foreach($consume_logs as $consume_log)
                         <tr class="text-center">
                             <td>{{ $consume_log->id }}</td>
+                            <td>{{ $consume_log->invoice_code }}</td>
                             <td>
                                 {{ $consume_log->customer->first_name }} {{ $consume_log->customer->last_name }}
                                 <br>

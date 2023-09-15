@@ -176,6 +176,7 @@ class PointController extends Controller {
                                'phone_number' => [ 'required' ] ,
                                'points' => [ 'required' ] ,
                                'password' => [ 'required' ] ,
+                               'invoice_code' => [ 'required' ] ,
                            ]);
         $points = $request->points;
         $customer = Customer::query()
@@ -189,7 +190,7 @@ class PointController extends Controller {
                 ->withErrors([ 'err' => 'برداشت ناموفق. رمز اشتباه است' ]);
         }
         if ( $customer->balance >= $points ) {
-            $customer->consume($store_id , $points , 'manual-by-store');
+            $customer->consume($store_id , $points , 'manual-by-store', $request->get('invoice_code'));
 
             return redirect()
                 ->back()

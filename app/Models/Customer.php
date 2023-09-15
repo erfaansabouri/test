@@ -105,7 +105,7 @@ class Customer extends Authenticatable implements HasMedia {
         return $this->consumeLogs->sum('point');
     }
 
-    public function consume ( $store_id , $point , $type ) {
+    public function consume ( $store_id , $point , $type, $invoice_code = null ) {
         if ($this->balance >= $point){
             $this->balance = $this->balance - $point;
             $this->save();
@@ -115,6 +115,7 @@ class Customer extends Authenticatable implements HasMedia {
                                    'point' => $point ,
                                    'type' => $type ,
                                    'customer_id' => $this->id  ,
+                                   'invoice_code' => $invoice_code  ,
                                ]);
         }
 
