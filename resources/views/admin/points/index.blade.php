@@ -85,8 +85,13 @@
                                     <!--begin::Add user-->
                                     <a href="{{ route('admin.points.create-purchase') }}" class="btn btn-light-success me-6">
                                         <i class="ki-duotone ki-plus fs-2"></i>افزودن امتیاز (رویداد پرداختی)</a>
+                                    <a href="{{ route('admin.points.create-fast') }}" class="btn btn-light-danger me-6">
+                                        <i class="ki-duotone ki-plus fs-2"></i>افزودن امتیاز سریع</a>
                                     <a href="{{ route('admin.points.create-non-purchase') }}" class="btn btn-light-primary me-6">
                                         <i class="ki-duotone ki-plus fs-2"></i>افزودن امتیاز  (رویداد غیر پرداختی)</a>
+                                    <a href="{{ route('admin.points.create-consume') }}" class="btn btn-secondary me-6">
+                                        <i class="ki-duotone ki-plus fs-2"></i>خرج امتیاز</a>
+
                                     <!--end::Add user-->
                                 </div>
 

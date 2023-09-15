@@ -126,4 +126,22 @@ class CustomerController extends Controller {
                        'success' => "تغییرات با موفقیت اعمال شد.",
                    ]);
     }
+
+    public function ajaxFindByPhoneNumber ( Request $request ) {
+        $customer = Customer::query()
+                            ->where('phone_number' , $request->search)
+                            ->first();
+        if ( $customer ) {
+            return [
+                'status' => true ,
+                'customer' => "کاربر یافت شد: " . $customer->first_name . " " . $customer->last_name ,
+            ];
+        }
+        else {
+            return [
+                'status' => false ,
+                'customer' => "کاربری با شماره {$request->search} یافت نشد." ,
+            ];
+        }
+    }
 }

@@ -44,6 +44,7 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::get('/login-as/{id}', [StoreManagerController::class, 'loginAs'])->name('admin.store-managers.login-as');
     });
     Route::prefix('customers')->middleware(['can:' . Admin::PERMISSIONS['customers']])->group(function () {
+        Route::get('/ajax-find-by-phone-number', [CustomerController::class, 'ajaxFindByPhoneNumber'])->name('admin.customers.ajax-find-by-phone-number');
         Route::get('/ajax-index', [CustomerController::class, 'ajaxIndex'])->name('admin.customers.ajax-index');
         Route::get('/index', [CustomerController::class, 'index'])->name('admin.customers.index');
         Route::get('/create', [CustomerController::class, 'create'])->name('admin.customers.create');
@@ -57,6 +58,10 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::post('/store-purchase', [PointController::class, 'storePurchase'])->name('admin.points.store-purchase');
         Route::get('/create-non-purchase', [PointController::class, 'createNonPurchase'])->name('admin.points.create-non-purchase');
         Route::post('/store-non-purchase', [PointController::class, 'storeNonPurchase'])->name('admin.points.store-non-purchase');
+        Route::get('/create-fast', [PointController::class, 'createFast'])->name('admin.points.create-fast');
+        Route::post('/store-fast', [PointController::class, 'storeFast'])->name('admin.points.store-fast');
+        Route::get('/create-consume', [PointController::class, 'createConsume'])->name('admin.points.create-consume');
+        Route::post('/store-consume', [PointController::class, 'storeConsume'])->name('admin.points.store-consume');
         Route::get('/edit/{id}', [PointController::class, 'edit'])->name('admin.points.edit');
         Route::post('/update/{id}', [PointController::class, 'update'])->name('admin.points.update');
         Route::post('/calculate-points', [PointController::class, 'calculatePoints'])->name('admin.points.calculate-points');
