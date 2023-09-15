@@ -31,7 +31,8 @@ class LotteryController extends Controller {
                         ->user();
         $lottery = Lottery::findOrFail($id);
         $c_1 = $lottery->ended_at > now();
-        $c_2 = true || $customer->getLevel($lottery->store)->id == $lottery->storeLevel->id;
+        /*$c_2 = true || $customer->getLevel($lottery->store)->id == $lottery->storeLevel->id;*/
+        $c_2 = true;
         $c_3 = $lottery->participants->count() < $lottery->capacity;
         $c_4 = $lottery->points <= $customer->balance;
         $c_5 = !$lottery->participants()->where('customer_id', $customer->id)->first();

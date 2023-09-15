@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CalendarEventController;
 use App\Http\Controllers\Admin\ChartController;
 use App\Http\Controllers\Admin\ConsumeLogController;
 use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\LotteryController;
 use App\Http\Controllers\Admin\PointController;
 use App\Http\Controllers\Admin\PointSettingController;
 use App\Http\Controllers\Admin\StoreController;
@@ -85,6 +86,15 @@ Route::middleware(['auth:admin'])->group(function () {
     });
     Route::prefix('calendar-events')->middleware(['can:' . Admin::PERMISSIONS['calendar-events']])->group(function () {
         Route::get('/index', [CalendarEventController::class, 'index'])->name('admin.calendar-events.index');
+    });
+    Route::prefix('lotteries')->middleware(['can:' . Admin::PERMISSIONS['lotteries']])->group(function () {
+        Route::get('/winners/{id}', [LotteryController::class, 'winners'])->name('admin.lotteries.winners');
+        Route::get('/index', [LotteryController::class, 'index'])->name('admin.lotteries.index');
+        Route::get('/create', [LotteryController::class, 'create'])->name('admin.lotteries.create');
+        Route::post('/store', [LotteryController::class, 'store'])->name('admin.lotteries.store');
+        Route::get('/edit/{id}', [LotteryController::class, 'edit'])->name('admin.lotteries.edit');
+        Route::post('/update/{id}', [LotteryController::class, 'update'])->name('admin.lotteries.update');
+        Route::get('/destroy/{id}', [LotteryController::class, 'destroy'])->name('admin.lotteries.destroy');
     });
 });
 

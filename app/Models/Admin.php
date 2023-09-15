@@ -27,6 +27,7 @@ class Admin extends Authenticatable
         'points' => 'امتیاز ها',
         'charts' => 'نمودار ها',
         'calendar-events' => 'مناسبت های تقویم',
+        'lotteries' => 'قرعه کشی',
     ];
 
     protected function serializeDate(DateTimeInterface $date)

@@ -126,13 +126,4 @@ Route::middleware(['auth:store-manager'])->group(function () {
         Route::get('/destroy/{id}', [AwardController::class, 'destroy'])->name('store-manager.awards.destroy');
     });
 
-    Route::prefix('lotteries')->middleware(['can:' . StoreManager::PERMISSIONS['lotteries']])->group(function () {
-        Route::get('/winners/{id}', [LotteryController::class, 'winners'])->name('store-manager.lotteries.winners');
-        Route::get('/index', [LotteryController::class, 'index'])->name('store-manager.lotteries.index');
-        Route::get('/create', [LotteryController::class, 'create'])->name('store-manager.lotteries.create');
-        Route::post('/store', [LotteryController::class, 'store'])->name('store-manager.lotteries.store');
-        Route::get('/edit/{id}', [LotteryController::class, 'edit'])->name('store-manager.lotteries.edit');
-        Route::post('/update/{id}', [LotteryController::class, 'update'])->name('store-manager.lotteries.update');
-        Route::get('/destroy/{id}', [LotteryController::class, 'destroy'])->name('store-manager.lotteries.destroy');
-    });
 });
