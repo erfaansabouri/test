@@ -173,6 +173,14 @@
                             </a>
                         </div>
                         <div class="menu-item">
+                            <a class="menu-link" href="{{ route('admin.consume-logs.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">لیست خرج امتیاز ها</span>
+                            </a>
+                        </div>
+                        <div class="menu-item">
                             <a class="menu-link" href="{{ route('admin.point-settings.edit') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>

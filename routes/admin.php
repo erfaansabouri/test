@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\CalendarEventController;
 use App\Http\Controllers\Admin\ChartController;
+use App\Http\Controllers\Admin\ConsumeLogController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\PointController;
 use App\Http\Controllers\Admin\PointSettingController;
@@ -66,6 +67,11 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::post('/update/{id}', [PointController::class, 'update'])->name('admin.points.update');
         Route::post('/calculate-points', [PointController::class, 'calculatePoints'])->name('admin.points.calculate-points');
     });
+
+    Route::prefix('consume-logs')->middleware(['can:' . Admin::PERMISSIONS['points']])->group(function () {
+        Route::get('/index', [ConsumeLogController::class, 'index'])->name('admin.consume-logs.index');
+    });
+
     Route::prefix('charts')->middleware(['can:' . Admin::PERMISSIONS['charts']])->group(function () {
         Route::get('/store-point', [ChartController::class, 'storePoint'])->name('admin.charts.store-point');
         Route::get('/customer-point', [ChartController::class, 'customerPoint'])->name('admin.charts.customer-point');
