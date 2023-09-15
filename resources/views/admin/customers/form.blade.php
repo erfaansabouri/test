@@ -62,7 +62,7 @@
                                 </tr>
                                 <tr>
                                     <td class="min-w-400px">مجموع امتیاز های مصرف شده</td>
-                                    <td class="pe-0  text-end min-w-200px text-danger fw-bolder">TODO</td>
+                                    <td class="pe-0  text-end min-w-200px text-danger fw-bolder">{{ number_format($record->consumeLogs()->sum('point')) }}</td>
                                 </tr>
                                 <tr>
                                     <td class="min-w-400px">مجموع امتیاز های قابل استفاده</td>

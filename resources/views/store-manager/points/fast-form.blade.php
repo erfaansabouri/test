@@ -77,13 +77,13 @@
                                      رویداد پرداختی
                                 </label>
                             </div>
-                            <br>
+                       {{--     <br>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" value="non_purchase" id="non-purchase" name="type" />
                                 <label class="form-check-label" for="flexCheckDefault1">
                                      رویداد غیر پرداختی
                                 </label>
-                            </div>
+                            </div>--}}
 
                         </div>
                     </div>

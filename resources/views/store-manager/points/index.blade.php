@@ -55,10 +55,10 @@
                 <!--begin::Toolbar-->
                 <a href="{{ route('store-manager.points.create-purchase') }}" class="btn btn-light-success me-6">
                     <i class="ki-duotone ki-plus fs-2"></i>افزودن امتیاز (رویداد پرداختی)</a>
-                <a href="{{ route('store-manager.points.create-non-purchase') }}" class="btn btn-light-primary me-6">
-                    <i class="ki-duotone ki-plus fs-2"></i>افزودن امتیاز  (رویداد غیر پرداختی)</a>
-                <a href="{{ route('store-manager.points.create-fast') }}" class="btn btn-light-danger me-6">
-                    <i class="ki-duotone ki-plus fs-2"></i>افزودن امتیاز سریع</a>
+                {{--<a href="{{ route('store-manager.points.create-non-purchase') }}" class="btn btn-light-primary me-6">
+                    <i class="ki-duotone ki-plus fs-2"></i>افزودن امتیاز  (رویداد غیر پرداختی)</a>--}}
+               {{-- <a href="{{ route('store-manager.points.create-fast') }}" class="btn btn-light-danger me-6">
+                    <i class="ki-duotone ki-plus fs-2"></i>افزودن امتیاز سریع</a>--}}
                 <a href="{{ route('store-manager.points.create-consume') }}" class="btn btn-secondary me-6">
                     <i class="ki-duotone ki-plus fs-2"></i>خرج امتیاز</a>
             </div>

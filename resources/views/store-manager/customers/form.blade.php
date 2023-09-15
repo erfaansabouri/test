@@ -41,7 +41,7 @@
                     </tr>
                     <tr>
                         <td class="min-w-400px">مجموع امتیاز های مصرف شده</td>
-                        <td class="pe-0  text-end min-w-200px text-danger fw-bolder">TODO</td>
+                        <td class="pe-0  text-end min-w-200px text-danger fw-bolder">{{ number_format($record->consumeLogs()->where('store_id', $store_manager->store_id)->sum('point')) }}</td>
                     </tr>
                     <tr>
                         <td class="min-w-400px">مجموع امتیاز های قابل استفاده</td>
@@ -181,6 +181,24 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="separator mb-6"></div>
+                    <h3>تغییر رمز عبور</h3><small class="text-danger">تنها در صورتی که قصد تغییر رمز عبور را دارید، این قسمت را پر نمایید.</small>
+                    <div class="row row-cols-1 row-cols-sm-2 rol-cols-md-1 row-cols-lg-2">
+                        <div class="col">
+                            <!--begin::Input group-->
+                            <div class="fv-row mb-7">
+                                <!--begin::Tags-->
+                                <label class="fs-6 fw-semibold form-label mt-3">
+                                    <span class="required">رمز عبور جدید</span>
+                                </label>
+                                <!--end::Tags-->
+                                <!--begin::Input-->
+                                <input type="password" autocomplete="off" class="form-control " name="password" value="">
+                                <!--end::Input-->
+                            </div>
+                            <!--end::Input group-->
                         </div>
                     </div>
                     <!--end::Input group-->

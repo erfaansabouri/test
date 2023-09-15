@@ -63,10 +63,10 @@ Route::middleware(['auth:store-manager'])->group(function () {
         Route::get('/index', [PointController::class, 'index'])->name('store-manager.points.index');
         Route::get('/create-purchase', [PointController::class, 'createPurchase'])->name('store-manager.points.create-purchase');
         Route::post('/store-purchase', [PointController::class, 'storePurchase'])->name('store-manager.points.store-purchase');
-        Route::get('/create-non-purchase', [PointController::class, 'createNonPurchase'])->name('store-manager.points.create-non-purchase');
-        Route::post('/store-non-purchase', [PointController::class, 'storeNonPurchase'])->name('store-manager.points.store-non-purchase');
-        Route::get('/create-fast', [PointController::class, 'createFast'])->name('store-manager.points.create-fast');
-        Route::post('/store-fast', [PointController::class, 'storeFast'])->name('store-manager.points.store-fast');
+        /*Route::get('/create-non-purchase', [PointController::class, 'createNonPurchase'])->name('store-manager.points.create-non-purchase');
+        Route::post('/store-non-purchase', [PointController::class, 'storeNonPurchase'])->name('store-manager.points.store-non-purchase');*/
+        /*Route::get('/create-fast', [PointController::class, 'createFast'])->name('store-manager.points.create-fast');
+        Route::post('/store-fast', [PointController::class, 'storeFast'])->name('store-manager.points.store-fast');*/
         Route::get('/create-consume', [PointController::class, 'createConsume'])->name('store-manager.points.create-consume');
         Route::post('/store-consume', [PointController::class, 'storeConsume'])->name('store-manager.points.store-consume');
         Route::post('/store', [PointController::class, 'store'])->name('store-manager.points.store');
