@@ -13,6 +13,10 @@ class Coupon extends Model {
         return $this->belongsTo(Customer::class);
     }
 
+    public function store () {
+        return $this->belongsTo(Store::class);
+    }
+
     public static function generateCode () {
         $code = strtoupper(Str::random(8));
         if ( Coupon::whereCode($code)

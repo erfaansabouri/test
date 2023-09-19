@@ -22,6 +22,8 @@ class CustomerJoinedStoreEvent
      */
     public $customer;
     public $store;
+    public $stars;
+    public $type;
     public function __construct($customer, $store)
     {
         $this->customer = $customer;

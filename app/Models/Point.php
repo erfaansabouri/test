@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Events\CustomerDidAPurchasedFromStoreEvent;
 use App\Events\CustomerPurchasedMoreThanAnAmountEvent;
 use App\Events\CustomerReceivedNonPurchasePointEvent;
+use App\Events\PointCreatedEvent;
 use Illuminate\Database\Eloquent\Model;
 
 class Point extends Model
@@ -23,6 +24,9 @@ class Point extends Model
             }
             if ($point->store && $point->pointType->id == PointType::nonPurchaseId()){
                 CustomerReceivedNonPurchasePointEvent::dispatch($point->customer, $point->store);
+            }
+            if ($point->customer_id && $point->store_id){
+                PointCreatedEvent::dispatch($point->id);
             }
         });
     }

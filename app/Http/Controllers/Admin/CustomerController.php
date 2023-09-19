@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\CustomerCreatedEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
 use App\Services\DateServices;
@@ -94,6 +95,10 @@ class CustomerController extends Controller {
             $record->password = bcrypt($request->password);
         }
         $record->save();
+
+        if ($request->password){
+            CustomerCreatedEvent::dispatch($record->id, $request->password);
+        }
 
         return $record;
     }

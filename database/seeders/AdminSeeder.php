@@ -12,20 +12,11 @@ class AdminSeeder extends Seeder
     public function run()
     {
         $admin = new Admin();
-        $admin->first_name = "عرفان";
-        $admin->last_name = "صبوری";
+        $admin->first_name = "مدیریت";
+        $admin->last_name = "اصلی";
         $admin->phone_number = "09371111111";
         $admin->password = bcrypt('as12AS!@');
         $admin->is_super_admin = true;
-        $admin->is_disable = false;
-        $admin->save();
-
-        $admin = new Admin();
-        $admin->first_name = "کار";
-        $admin->last_name = "شناس";
-        $admin->phone_number = "09172222222";
-        $admin->password = bcrypt('as12AS!@');
-        $admin->is_super_admin = false;
         $admin->is_disable = false;
         $admin->save();
     }

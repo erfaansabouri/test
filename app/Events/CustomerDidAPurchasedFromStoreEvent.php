@@ -23,6 +23,8 @@ class CustomerDidAPurchasedFromStoreEvent
     public $customer;
     public $store;
     public $price;
+    public $stars;
+    public $type;
     public function __construct($customer, $store, $price = 0)
     {
         $this->customer = $customer;

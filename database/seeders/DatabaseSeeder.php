@@ -17,8 +17,9 @@ class DatabaseSeeder extends Seeder
         $this->call(AdminPermissionSeeder::class);
         $this->call(StoreManagerPermissionSeeder::class);
         $this->call(AdminSeeder::class);
-        $this->call(StoreSeeder::class);
+        $this->call(OldDatabaseSeeder::class);
+       /* $this->call(StoreSeeder::class);
         $this->call(CustomerSeeder::class);
-        $this->call(PointSeeder::class);
+        $this->call(PointSeeder::class);*/
     }
 }
