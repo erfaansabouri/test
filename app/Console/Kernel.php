@@ -21,8 +21,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('lottery')->daily();
         $schedule->command('generate-coupon ' . CouponGeneratorTypeEnums::Register)->daily();
         $schedule->command('generate-coupon ' . CouponGeneratorTypeEnums::Birthday)->daily();
-        $schedule->command('generate-coupon ' . CouponGeneratorTypeEnums::PurchaseAmount)->daily();
-        $schedule->command('generate-coupon ' . CouponGeneratorTypeEnums::PurchasesCount)->daily();
+        $schedule->command('generate-coupon ' . CouponGeneratorTypeEnums::PurchaseAmount)->everyMinute();
+        $schedule->command('generate-coupon ' . CouponGeneratorTypeEnums::PurchasesCount)->everyMinute();
         $schedule->command('generate-coupon ' . CouponGeneratorTypeEnums::Forgetfulness)->daily();
     }
 
