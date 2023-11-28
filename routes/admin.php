@@ -29,7 +29,7 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::put('/update', [PointSettingController::class, 'update'])->name('admin.point-settings.update');
     });
     Route::prefix('stores')->middleware(['can:' . Admin::PERMISSIONS['stores']])->group(function () {
-        Route::get('/ajax-index', [StoreController::class, 'ajaxIndex'])->name('admin.stores.ajax-index');
+        Route::get('/ajax-index', [StoreController::class, 'ajaxIndex'])->name('admin.stores.ajax-index')->withoutMiddleware(['can:' . Admin::PERMISSIONS['stores']]);
         Route::get('/index', [StoreController::class, 'index'])->name('admin.stores.index');
         Route::get('/create', [StoreController::class, 'create'])->name('admin.stores.create');
         Route::post('/store', [StoreController::class, 'store'])->name('admin.stores.store');
