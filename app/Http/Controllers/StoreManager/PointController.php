@@ -80,6 +80,8 @@ class PointController extends Controller {
         $point->point = Store::findOrFail($store_id)
                              ->calculatePoint($request->price);
         $point->point_type_id = PointType::purchaseId();
+        $point->invoice_code = $request->get('invoice_code');
+
         $point->save();
 
         return redirect()
@@ -113,6 +115,8 @@ class PointController extends Controller {
         $point->point = $request->point;
         $point->point_type_id = PointType::nonPurchaseId();
         $point->reason = $request->reason;
+        $point->invoice_code = $request->get('invoice_code');
+
         $point->save();
 
         return redirect()
@@ -149,6 +153,8 @@ class PointController extends Controller {
             $point->point = Store::findOrFail($store_id)
                                  ->calculatePoint($request->value);
             $point->point_type_id = PointType::purchaseId();
+            $point->invoice_code = $request->get('invoice_code');
+
             $point->save();
         }
         else {
@@ -157,6 +163,8 @@ class PointController extends Controller {
             $point->customer_id = $customer->id;
             $point->point = $request->value;
             $point->point_type_id = PointType::nonPurchaseId();
+            $point->invoice_code = $request->get('invoice_code');
+
             $point->save();
         }
 

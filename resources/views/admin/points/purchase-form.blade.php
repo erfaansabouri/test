@@ -89,6 +89,20 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="row mb-6">
+                                    <label id="value_label" class="col-lg-4 col-form-label required fw-semibold fs-6">شماره فاکتور</label>
+                                    <div class="col-lg-8">
+                                        <div class="row">
+                                            <div class="col-lg-6 fv-row">
+                                                <div class="input-group  mb-5">
+                                                    <input autocomplete="off"  id="value" type="text" name="invoice_code" value="{{ old('invoice_code') }}"
+                                                           class="form-control" placeholder="شماره فاکتور" aria-label=""
+                                                           aria-describedby="basic-addon3">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-8">
                                         <div class="overflow-auto pb-5">
