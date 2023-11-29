@@ -17,7 +17,7 @@ class AdminPermissionSeeder extends Seeder
     {
         foreach (Admin::PERMISSIONS as $key => $value)
         {
-            Permission::create(['name' => $value, 'guard_name' => 'admin']);
+            Permission::firstOrCreate(['name' => $value, 'guard_name' => 'admin']);
         }
     }
 }

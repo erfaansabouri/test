@@ -25,6 +25,8 @@ class Admin extends Authenticatable
         'store-managers' => 'صاحبان کسب و کار',
         'customers' => 'مشتری ها',
         'points' => 'امتیاز ها',
+        'create-points' => 'ثبت امتیاز امتیاز ها',
+        'consume-points' => 'خرج امتیاز ها',
         'charts' => 'نمودار ها',
         'calendar-events' => 'مناسبت های تقویم',
         'lotteries' => 'قرعه کشی',
