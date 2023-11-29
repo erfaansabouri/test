@@ -64,7 +64,7 @@ Route::middleware(['auth:admin'])->group(function () {
             Route::get('/create-fast', [PointController::class, 'createFast'])->name('admin.points.create-fast');
             Route::post('/store-fast', [PointController::class, 'storeFast'])->name('admin.points.store-fast');
         });
-        Route::middleware(['can'.Admin::PERMISSIONS['consume-points']])->group(function (){
+        Route::middleware(['can:'.Admin::PERMISSIONS['consume-points']])->group(function (){
             Route::get('/create-consume', [PointController::class, 'createConsume'])->name('admin.points.create-consume');
             Route::post('/store-consume', [PointController::class, 'storeConsume'])->name('admin.points.store-consume');
         });
