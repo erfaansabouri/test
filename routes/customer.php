@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Customer\AwardController;
 use App\Http\Controllers\Customer\LotteryController;
+use App\Http\Controllers\Customer\MyLevelController;
 use App\Http\Controllers\Customer\MyProfileController;
 use App\Http\Controllers\Customer\PointController;
 use App\Http\Controllers\Customer\AuthController;
@@ -26,6 +27,10 @@ Route::middleware(['auth:customer'])->group(function () {
 
     Route::prefix('points')->middleware([])->group(function () {
         Route::get('/index', [PointController::class, 'index'])->name('customer.points.index');
+    });
+
+    Route::prefix('my-levels')->middleware([])->group(function () {
+        Route::get('/my-levels', [MyLevelController::class, 'index'])->name('customer.my-levels.index');
     });
 
     Route::prefix('lotteries')->middleware([])->group(function () {

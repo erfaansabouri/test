@@ -85,6 +85,18 @@
                     <div class="menu-sub menu-sub-accordion">
                         <!--begin:Menu item-->
                         <div class="menu-item">
+                            <a class="menu-link" href="{{ route('customer.my-levels.index') }}">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">سطح من در فروشگاه ها</span>
+                            </a>
+                        </div>
+                        <!--end:Menu item-->
+                    </div>
+                    <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
                             <a class="menu-link" href="{{ route('customer.lotteries.index') }}">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
