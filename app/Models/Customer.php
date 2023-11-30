@@ -92,8 +92,8 @@ class Customer extends Authenticatable implements HasMedia {
         $customer_stars = $this->storeProfile($store->id)->stars;
 
         return StoreLevel::where('store_id' , $store->id)
-                         ->where('min_stars_count' , '<=' , $customer_stars)
-                         ->where('max_stars_count' , '>=' , $customer_stars)
+                         ->where('min_stars_count' , '>=' , (int)$customer_stars)
+                         ->where('max_stars_count' , '<=' , (int)$customer_stars)
                          ->first();
     }
 
