@@ -32,7 +32,7 @@
                     @foreach($stores as $store)
                         <tr class="text-center">
                             <td>{{ $store->title }}</td>
-                            <td>{{ $customer->getLevel($store) }}</td>
+                            <td>{{ @$customer->getLevel($store)->level_name }}</td>
                         </tr>
                     @endforeach
                     </tbody>
