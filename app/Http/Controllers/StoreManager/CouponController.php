@@ -37,4 +37,21 @@ class CouponController extends Controller {
 
         return view('store-manager.coupons.index' , compact('coupons'));
     }
+
+    public function use ( $code ) {
+        $store_manager = Auth::guard('store-manager')
+                             ->user();
+        $coupon = Coupon::query()
+                        ->where('store_id' , $store_manager->store_id)
+                        ->where('code' , $code)
+                        ->whereNull('used_at')
+                        ->firstOrFail();
+        $coupon->used_at = now();
+        $coupon->save();
+
+
+        return redirect()
+            ->back()
+            ->with([ 'success' => 'عملیات با موفقیت انجام شد.' ]);
+    }
 }

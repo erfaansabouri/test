@@ -115,6 +115,7 @@ Route::middleware(['auth:store-manager'])->group(function () {
 
     Route::prefix('coupons')->middleware(['can:' . StoreManager::PERMISSIONS['coupons']])->group(function () {
         Route::get('/index', [CouponController::class, 'index'])->name('store-manager.coupons.index');
+        Route::get('/use/{code}', [CouponController::class, 'use'])->name('store-manager.coupons.use');
     });
 
     Route::prefix('awards')->middleware(['can:' . StoreManager::PERMISSIONS['awards']])->group(function () {
