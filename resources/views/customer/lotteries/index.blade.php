@@ -47,7 +47,7 @@
                             <td>{{ $lottery->description }}</td>
                             <td>{{ number_format($lottery->capacity) }}</td>
                             <td>{{ number_format($lottery->points) }}</td>
-                            <td>{{ $lottery->storeLevel->level_name }}</td>
+                            <td>{{ @$lottery->storeLevel->level_name }}</td>
                             <td><span class="badge badge-success">{{ verta($lottery->started_at)->formatJalaliDate() }}</span> -> <span class="badge badge-danger">{{ verta($lottery->ended_at)->formatJalaliDate() }}</span></td>
                             <td>@if($lottery->winners_announced_at) <span class="badge badge-success">{{ verta($lottery->winners_announced_at)->formatJalaliDate() }}</span> @else --- @endif</td>
                             <td>
