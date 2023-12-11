@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BurnedPointController;
 use App\Http\Controllers\Admin\CalendarEventController;
 use App\Http\Controllers\Admin\ChartController;
 use App\Http\Controllers\Admin\ConsumeLogController;
@@ -99,6 +100,11 @@ Route::middleware(['auth:admin'])->group(function () {
         Route::get('/edit/{id}', [LotteryController::class, 'edit'])->name('admin.lotteries.edit');
         Route::post('/update/{id}', [LotteryController::class, 'update'])->name('admin.lotteries.update');
         Route::get('/destroy/{id}', [LotteryController::class, 'destroy'])->name('admin.lotteries.destroy');
+    });
+    Route::prefix('burned-points')->middleware([])->group(function () {
+        Route::get('/index', [BurnedPointController::class, 'index'])->name('admin.burned-points.index');
+        Route::get('/create', [BurnedPointController::class, 'create'])->name('admin.burned-points.create');
+        Route::post('/store', [BurnedPointController::class, 'store'])->name('admin.burned-points.store');
     });
 });
 
